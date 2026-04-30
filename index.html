@@ -1,1945 +1,1437 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elyon Studios – Infoprodutos com Propósito para Criadores Cristãos</title>
-  <meta name="description" content="Elyon Studios é uma estúdio de criação de infoprodutos para criadores de conteúdo cristão. Branding, Copywriting, Tráfego, Design e Desenvolvimento com excelência.">
-  
-  <!-- Fonts: Geist + Inter (same as reference) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* ========================================
-       RESET & BASE
-    ======================================== */
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #000;
-      color: #fff;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    ::selection {
-      background: #C4724A;
-      color: #fff;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    /* ========================================
-       TYPOGRAPHY
-    ======================================== */
-    @font-face {
-      font-family: 'Geist';
-      src: url('https://fonts.gstatic.com/s/geist/v4/gyByhwUxId8gMEwcGFU.woff2') format('woff2');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Geist';
-      src: url('https://fonts.gstatic.com/s/geist/v4/gyByhwUxId8gMEwcGFU.woff2') format('woff2');
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Geist';
-      src: url('https://fonts.gstatic.com/s/geist/v4/gyByhwUxId8gMEwcGFU.woff2') format('woff2');
-      font-weight: 600;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Geist';
-      src: url('https://fonts.gstatic.com/s/geist/v4/gyByhwUxId8gMEwcGFU.woff2') format('woff2');
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    .font-mono {
-      font-family: 'Fragment Mono', 'Courier New', monospace;
-    }
-
-    /* ========================================
-       CSS VARIABLES (Elyon + Fabrica Style)
-    ======================================== */
-    :root {
-      --black: #000000;
-      --white: #FFFFFF;
-      --terra: #C4724A;
-      --terra-dark: #A65D3F;
-      
-      /* Neutrals */
-      --gray-100: rgba(255,255,255,0.06);
-      --gray-200: rgba(255,255,255,0.10);
-      --gray-300: rgba(255,255,255,0.18);
-      --gray-400: rgba(255,255,255,0.30);
-      --gray-500: rgba(255,255,255,0.45);
-      --gray-600: rgba(255,255,255,0.60);
-      --gray-700: rgba(255,255,255,0.75);
-      
-      /* Spacing */
-      --space-1: 4px;
-      --space-2: 8px;
-      --space-3: 16px;
-      --space-4: 24px;
-      --space-5: 32px;
-      --space-6: 48px;
-      --space-7: 64px;
-      --space-8: 80px;
-      --space-9: 120px;
-      --space-10: 160px;
-      
-      /* Typography */
-      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-display: 96px/0.95 font-weight: 700;
-      --font-title: 64px/1 font-weight: 700;
-      --font-heading: 48px/1.05 font-weight: 600;
-      --font-subheading: 32px/1.1 font-weight: 600;
-      --font-body: 16px/1.7 font-weight: 400;
-      --font-small: 14px/1.5 font-weight: 400;
-      --font-caption: 12px/1.4 font-weight: 500;
-    }
-
-    /* ========================================
-       LAYOUT UTILITIES
-    ======================================== */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 var(--space-5);
-    }
-
-    .container--wide {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 var(--space-5);
-    }
-
-    .section {
-      padding: var(--space-9) 0;
-    }
-
-    .section--dark {
-      background: var(--black);
-    }
-
-    .section--alt {
-      background: #0a0a0a;
-    }
-
-    /* ========================================
-       NAVIGATION
-    ======================================== */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(0,0,0,0.9);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--gray-200);
-    }
-
-    .nav__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
-      padding: 0 var(--space-5);
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .nav__logo {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-    }
-
-    .nav__logo img {
-      height: 32px;
-      width: auto;
-    }
-
-    .nav__logo-text {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .nav__links {
-      display: flex;
-      align-items: center;
-      gap: var(--space-6);
-      list-style: none;
-    }
-
-    .nav__link {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--gray-500);
-      transition: color 0.2s;
-      position: relative;
-    }
-
-    .nav__link:hover {
-      color: var(--white);
-    }
-
-    .nav__link--active {
-      color: var(--white);
-    }
-
-    .nav__link--cta {
-      background: var(--terra);
-      color: var(--white) !important;
-      padding: var(--space-2) var(--space-4);
-      border-radius: 6px;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-
-    .nav__link--cta:hover {
-      background: var(--terra-dark);
-    }
-
-    .nav__contact {
-      display: flex;
-      align-items: center;
-      gap: var(--space-4);
-      font-size: 13px;
-      color: var(--gray-500);
-    }
-
-    .nav__contact a {
-      transition: color 0.2s;
-    }
-
-    .nav__contact a:hover {
-      color: var(--white);
-    }
-
-    /* ========================================
-       HERO SECTION
-    ======================================== */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-top: 72px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero__bg-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: clamp(120px, 20vw, 320px);
-      font-weight: 700;
-      color: var(--gray-100);
-      white-space: nowrap;
-      pointer-events: none;
-      user-select: none;
-      z-index: 0;
-    }
-
-    .hero__content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: var(--space-8) var(--space-5);
-    }
-
-    .hero__title {
-      font-size: clamp(48px, 10vw, 140px);
-      font-weight: 700;
-      line-height: 0.95;
-      letter-spacing: -0.03em;
-      margin-bottom: var(--space-6);
-    }
-
-    .hero__title .accent {
-      color: var(--terra);
-    }
-
-    .hero__services {
-      display: flex;
-      justify-content: center;
-      gap: var(--space-4);
-      margin-bottom: var(--space-6);
-      flex-wrap: wrap;
-    }
-
-    .hero__service {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--gray-500);
-      padding: var(--space-2) var(--space-3);
-      border: 1px solid var(--gray-300);
-      border-radius: 100px;
-      transition: all 0.2s;
-    }
-
-    .hero__service:hover {
-      border-color: var(--terra);
-      color: var(--white);
-    }
-
-    .hero__tagline {
-      font-size: clamp(18px, 2.5vw, 24px);
-      font-weight: 400;
-      color: var(--gray-500);
-      max-width: 700px;
-      margin: 0 auto var(--space-6);
-      line-height: 1.5;
-    }
-
-    .hero__cta {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-      background: var(--white);
-      color: var(--black);
-      padding: var(--space-3) var(--space-5);
-      border-radius: 100px;
-      font-size: 15px;
-      font-weight: 600;
-      transition: all 0.2s;
-    }
-
-    .hero__cta:hover {
-      background: var(--terra);
-      color: var(--white);
-      transform: translateY(-2px);
-    }
-
-    .hero__scroll {
-      position: absolute;
-      bottom: var(--space-6);
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-2);
-      color: var(--gray-500);
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .hero__scroll-line {
-      width: 1px;
-      height: 60px;
-      background: linear-gradient(to bottom, var(--gray-500), transparent);
-      animation: scrollPulse 2s ease-in-out infinite;
-    }
-
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.3; transform: scaleY(1); }
-      50% { opacity: 1; transform: scaleY(1.2); }
-    }
-
-    /* ========================================
-       CLIENTS BAR
-    ======================================== */
-    .clients {
-      padding: var(--space-6) 0;
-      border-top: 1px solid var(--gray-200);
-      border-bottom: 1px solid var(--gray-200);
-      background: #050505;
-    }
-
-    .clients__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-6);
-      overflow: hidden;
-    }
-
-    .clients__label {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--gray-500);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .clients__logos {
-      display: flex;
-      align-items: center;
-      gap: var(--space-8);
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .clients__logo {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--gray-500);
-      opacity: 0.6;
-      transition: opacity 0.2s;
-    }
-
-    .clients__logo:hover {
-      opacity: 1;
-    }
-
-    .clients__count {
-      font-size: 12px;
-      color: var(--gray-500);
-      white-space: nowrap;
-    }
-
-    /* ========================================
-       PROJECTS SECTION
-    ======================================== */
-    .projects {
-      padding: var(--space-9) 0;
-    }
-
-    .projects__header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: var(--space-8);
-      flex-wrap: wrap;
-      gap: var(--space-4);
-    }
-
-    .projects__title {
-      font-size: clamp(36px, 6vw, 72px);
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .projects__meta {
-      font-size: 14px;
-      color: var(--gray-500);
-    }
-
-    .projects__grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: var(--space-4);
-    }
-
-    .project-card {
-      position: relative;
-      aspect-ratio: 4/3;
-      background: var(--gray-100);
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s;
-      cursor: pointer;
-    }
-
-    .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    }
-
-    .project-card__overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, var(--terra) 0%, var(--terra-dark) 100%);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .project-card:hover .project-card__overlay {
-      opacity: 0.9;
-    }
-
-    .project-card__content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: var(--space-4);
-    }
-
-    .project-card__name {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: var(--space-1);
-    }
-
-    .project-card__year {
-      font-size: 14px;
-      font-weight: 500;
-      color: rgba(255,255,255,0.7);
-    }
-
-    .project-card__arrow {
-      position: absolute;
-      top: var(--space-4);
-      right: var(--space-4);
-      width: 40px;
-      height: 40px;
-      background: var(--white);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: all 0.3s;
-    }
-
-    .project-card:hover .project-card__arrow {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .project-card__arrow svg {
-      width: 16px;
-      height: 16px;
-      color: var(--black);
-    }
-
-    /* ========================================
-       WHY CHOOSE US / STATS SECTION
-    ======================================== */
-    .why-us {
-      padding: var(--space-9) 0;
-      background: #0a0a0a;
-    }
-
-    .why-us__header {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto var(--space-8);
-    }
-
-    .why-us__title {
-      font-size: clamp(28px, 4vw, 48px);
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: var(--space-4);
-    }
-
-    .why-us__subtitle {
-      font-size: 18px;
-      color: var(--gray-500);
-      line-height: 1.6;
-    }
-
-    .why-us__grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-4);
-      margin-bottom: var(--space-8);
-    }
-
-    @media (max-width: 900px) {
-      .why-us__grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 500px) {
-      .why-us__grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .stat-card {
-      background: var(--gray-100);
-      border-radius: 16px;
-      padding: var(--space-6);
-      text-align: center;
-      transition: all 0.3s;
-    }
-
-    .stat-card:hover {
-      background: var(--gray-200);
-      transform: translateY(-4px);
-    }
-
-    .stat-card__number {
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 700;
-      color: var(--terra);
-      line-height: 1;
-      margin-bottom: var(--space-2);
-    }
-
-    .stat-card__label {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: var(--space-2);
-    }
-
-    .stat-card__desc {
-      font-size: 13px;
-      color: var(--gray-500);
-      line-height: 1.5;
-    }
-
-    .why-us__cta {
-      text-align: center;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-      padding: var(--space-3) var(--space-6);
-      border-radius: 100px;
-      font-size: 15px;
-      font-weight: 600;
-      transition: all 0.2s;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn--primary {
-      background: var(--terra);
-      color: var(--white);
-    }
-
-    .btn--primary:hover {
-      background: var(--terra-dark);
-      transform: translateY(-2px);
-    }
-
-    .btn--secondary {
-      background: var(--white);
-      color: var(--black);
-    }
-
-    .btn--secondary:hover {
-      background: var(--gray-300);
-    }
-
-    .btn--outline {
-      background: transparent;
-      color: var(--white);
-      border: 1px solid var(--gray-300);
-    }
-
-    .btn--outline:hover {
-      border-color: var(--white);
-    }
-
-    /* ========================================
-       SERVICES SECTION
-    ======================================== */
-    .services {
-      padding: var(--space-9) 0;
-      background: var(--black);
-    }
-
-    .services__header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: var(--space-8);
-      flex-wrap: wrap;
-      gap: var(--space-4);
-    }
-
-    .services__title {
-      font-size: clamp(36px, 6vw, 72px);
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .services__count {
-      font-size: 14px;
-      color: var(--gray-500);
-    }
-
-    .services__grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-4);
-    }
-
-    @media (max-width: 768px) {
-      .services__grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .service-card {
-      background: #0a0a0a;
-      border: 1px solid var(--gray-200);
-      border-radius: 20px;
-      padding: var(--space-6);
-      transition: all 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .service-card:hover {
-      border-color: var(--terra);
-      transform: translateY(-4px);
-    }
-
-    .service-card__number {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--terra);
-      font-family: 'Fragment Mono', monospace;
-      margin-bottom: var(--space-4);
-      letter-spacing: 0.1em;
-    }
-
-    .service-card__title {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: var(--space-3);
-      line-height: 1.2;
-    }
-
-    .service-card__desc {
-      font-size: 15px;
-      color: var(--gray-500);
-      line-height: 1.6;
-      margin-bottom: var(--space-5);
-    }
-
-    .service-card__categories {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-2);
-    }
-
-    .service-card__category {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--gray-500);
-      padding: var(--space-1) var(--space-2);
-      background: var(--gray-100);
-      border-radius: 4px;
-      transition: all 0.2s;
-    }
-
-    .service-card:hover .service-card__category {
-      background: var(--gray-200);
-      color: var(--white);
-    }
-
-    .services__cta {
-      text-align: center;
-      margin-top: var(--space-8);
-    }
-
-    /* ========================================
-       ABOUT / PROCESS SECTION
-    ======================================== */
-    .about {
-      padding: var(--space-9) 0;
-      background: #0a0a0a;
-    }
-
-    .about__header {
-      margin-bottom: var(--space-8);
-    }
-
-    .about__label {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--terra);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: var(--space-3);
-    }
-
-    .about__title {
-      font-size: clamp(28px, 4vw, 48px);
-      font-weight: 700;
-      line-height: 1.1;
-      max-width: 700px;
-    }
-
-    .about__subtitle {
-      font-size: 16px;
-      color: var(--gray-500);
-      margin-top: var(--space-4);
-      max-width: 600px;
-      line-height: 1.6;
-    }
-
-    .about__grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-4);
-    }
-
-    @media (max-width: 900px) {
-      .about__grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 500px) {
-      .about__grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .process-card {
-      position: relative;
-      padding: var(--space-5);
-      background: var(--gray-100);
-      border-radius: 16px;
-      transition: all 0.3s;
-    }
-
-    .process-card:hover {
-      background: var(--gray-200);
-      transform: translateY(-4px);
-    }
-
-    .process-card__number {
-      font-size: 48px;
-      font-weight: 700;
-      color: var(--terra);
-      opacity: 0.3;
-      line-height: 1;
-      margin-bottom: var(--space-4);
-    }
-
-    .process-card__title {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: var(--space-2);
-    }
-
-    .process-card__desc {
-      font-size: 14px;
-      color: var(--gray-500);
-      line-height: 1.5;
-    }
-
-    /* ========================================
-       TESTIMONIALS SECTION
-    ======================================== */
-    .testimonials {
-      padding: var(--space-9) 0;
-      background: var(--black);
-    }
-
-    .testimonials__header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: var(--space-8);
-      flex-wrap: wrap;
-      gap: var(--space-4);
-    }
-
-    .testimonials__title {
-      font-size: clamp(36px, 6vw, 72px);
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .testimonials__rating {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-    }
-
-    .testimonials__stars {
-      display: flex;
-      gap: var(--space-1);
-    }
-
-    .testimonials__star {
-      width: 20px;
-      height: 20px;
-      color: var(--terra);
-    }
-
-    .testimonials__score {
-      font-size: 32px;
-      font-weight: 700;
-    }
-
-    .testimonials__scale {
-      font-size: 14px;
-      color: var(--gray-500);
-    }
-
-    .testimonials__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-4);
-    }
-
-    @media (max-width: 900px) {
-      .testimonials__grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .testimonial-card {
-      background: #0a0a0a;
-      border: 1px solid var(--gray-200);
-      border-radius: 16px;
-      padding: var(--space-6);
-      transition: all 0.3s;
-    }
-
-    .testimonial-card:hover {
-      border-color: var(--terra);
-    }
-
-    .testimonial-card__quote {
-      font-size: 15px;
-      color: var(--gray-500);
-      line-height: 1.7;
-      margin-bottom: var(--space-5);
-      font-style: italic;
-    }
-
-    .testimonial-card__author {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-    }
-
-    .testimonial-card__avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--gray-300);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 18px;
-    }
-
-    .testimonial-card__name {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    .testimonial-card__role {
-      font-size: 13px;
-      color: var(--gray-500);
-    }
-
-    /* ========================================
-       FAQ SECTION
-    ======================================== */
-    .faq {
-      padding: var(--space-9) 0;
-      background: #0a0a0a;
-    }
-
-    .faq__header {
-      margin-bottom: var(--space-8);
-    }
-
-    .faq__title {
-      font-size: clamp(36px, 6vw, 72px);
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .faq__list {
-      max-width: 800px;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid var(--gray-200);
-    }
-
-    .faq-item__question {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: var(--space-5) 0;
-      background: none;
-      border: none;
-      color: var(--white);
-      font-size: 18px;
-      font-weight: 600;
-      text-align: left;
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-
-    .faq-item__question:hover {
-      color: var(--terra);
-    }
-
-    .faq-item__icon {
-      width: 24px;
-      height: 24px;
-      position: relative;
-      flex-shrink: 0;
-    }
-
-    .faq-item__icon::before,
-    .faq-item__icon::after {
-      content: '';
-      position: absolute;
-      background: currentColor;
-      transition: transform 0.3s;
-    }
-
-    .faq-item__icon::before {
-      width: 100%;
-      height: 2px;
-      top: 50%;
-      left: 0;
-      transform: translateY(-50%);
-    }
-
-    .faq-item__icon::after {
-      width: 2px;
-      height: 100%;
-      left: 50%;
-      top: 0;
-      transform: translateX(-50%);
-    }
-
-    .faq-item--open .faq-item__icon::after {
-      transform: translateX(-50%) rotate(90deg);
-    }
-
-    .faq-item__answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-out;
-    }
-
-    .faq-item--open .faq-item__answer {
-      max-height: 300px;
-    }
-
-    .faq-item__answer-inner {
-      padding-bottom: var(--space-5);
-      font-size: 15px;
-      color: var(--gray-500);
-      line-height: 1.7;
-    }
-
-    /* ========================================
-       NEWSLETTER SECTION
-    ======================================== */
-    .newsletter {
-      padding: var(--space-9) 0;
-      background: var(--black);
-      text-align: center;
-    }
-
-    .newsletter__title {
-      font-size: clamp(28px, 4vw, 48px);
-      font-weight: 700;
-      margin-bottom: var(--space-4);
-    }
-
-    .newsletter__subtitle {
-      font-size: 16px;
-      color: var(--gray-500);
-      margin-bottom: var(--space-6);
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .newsletter__form {
-      display: flex;
-      gap: var(--space-3);
-      max-width: 500px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .newsletter__input {
-      flex: 1;
-      min-width: 250px;
-      padding: var(--space-3) var(--space-4);
-      background: var(--gray-100);
-      border: 1px solid var(--gray-300);
-      border-radius: 8px;
-      color: var(--white);
-      font-size: 15px;
-      font-family: inherit;
-      transition: border-color 0.2s;
-    }
-
-    .newsletter__input::placeholder {
-      color: var(--gray-500);
-    }
-
-    .newsletter__input:focus {
-      outline: none;
-      border-color: var(--terra);
-    }
-
-    .newsletter__submit {
-      padding: var(--space-3) var(--space-6);
-      background: var(--terra);
-      color: var(--white);
-      border: none;
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: inherit;
-    }
-
-    .newsletter__submit:hover {
-      background: var(--terra-dark);
-    }
-
-    /* ========================================
-       FOOTER
-    ======================================== */
-    .footer {
-      padding: var(--space-8) 0 var(--space-6);
-      background: #050505;
-      border-top: 1px solid var(--gray-200);
-    }
-
-    .footer__top {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: var(--space-8);
-      margin-bottom: var(--space-8);
-    }
-
-    @media (max-width: 900px) {
-      .footer__top {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 500px) {
-      .footer__top {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .footer__brand {
-      max-width: 300px;
-    }
-
-    .footer__logo {
-      height: 32px;
-      width: auto;
-      margin-bottom: var(--space-4);
-    }
-
-    .footer__tagline {
-      font-size: 14px;
-      color: var(--gray-500);
-      line-height: 1.6;
-    }
-
-    .footer__heading {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--gray-500);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: var(--space-4);
-    }
-
-    .footer__links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-3);
-    }
-
-    .footer__link {
-      font-size: 14px;
-      color: var(--gray-500);
-      transition: color 0.2s;
-    }
-
-    .footer__link:hover {
-      color: var(--white);
-    }
-
-    .footer__contact {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-3);
-    }
-
-    .footer__contact-item {
-      font-size: 14px;
-      color: var(--gray-500);
-      transition: color 0.2s;
-    }
-
-    .footer__contact-item:hover {
-      color: var(--white);
-    }
-
-    .footer__bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: var(--space-6);
-      border-top: 1px solid var(--gray-200);
-      flex-wrap: wrap;
-      gap: var(--space-4);
-    }
-
-    .footer__copyright {
-      font-size: 13px;
-      color: var(--gray-500);
-    }
-
-    .footer__legal {
-      display: flex;
-      gap: var(--space-4);
-    }
-
-    .footer__legal a {
-      font-size: 13px;
-      color: var(--gray-500);
-      transition: color 0.2s;
-    }
-
-    .footer__legal a:hover {
-      color: var(--white);
-    }
-
-    /* ========================================
-       FLOATING CTA
-    ======================================== */
-    .floating-cta {
-      position: fixed;
-      bottom: var(--space-6);
-      right: var(--space-6);
-      z-index: 999;
-    }
-
-    .floating-cta__btn {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: var(--terra);
-      color: var(--white);
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 30px rgba(196, 114, 74, 0.4);
-      transition: all 0.3s;
-    }
-
-    .floating-cta__btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 12px 40px rgba(196, 114, 74, 0.5);
-    }
-
-    .floating-cta__btn svg {
-      width: 24px;
-      height: 24px;
-    }
-
-    /* ========================================
-       ANIMATIONS
-    ======================================== */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-
-    .fade-in--visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ========================================
-       RESPONSIVE
-    ======================================== */
-    @media (max-width: 768px) {
-      .nav__links {
-        display: none;
-      }
-      
-      .nav__contact {
-        display: none;
-      }
-      
-      .hero__services {
-        gap: var(--space-2);
-      }
-      
-      .hero__service {
-        font-size: 12px;
-        padding: var(--space-1) var(--space-2);
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elyon Studios – Infoprodutos para Criadores de Conteúdo Cristão</title>
+    <meta name="description" content="Elyon Studios cria infoprodutos de alto impacto para criadores de conteúdo cristão. Estratégia, design e excelência fundamentados em valores.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://framerusercontent.com/images/ugucZZ77cBC9cEIJsUKZuSdo0.png">
+    
+    <style>
+        /* ============================================
+           RESET & BASE
+        ============================================ */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray-light: #f5f5f5;
+            --gray-mid: #333333;
+            --gray-dark: #0a0a0a;
+            --terra: #C4724A;
+            --terra-dark: #A65D3F;
+        }
+
+        html {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 12px;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ============================================
+           NAVBAR
+        ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .navbar-inner {
+            max-width: 1520px;
+            margin: 0 auto;
+            padding: 20px 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--white);
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .navbar-links a {
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.6);
+            transition: color 0.2s ease;
+        }
+
+        .navbar-links a:hover {
+            color: var(--white);
+        }
+
+        .navbar-contact {
+            display: flex;
+            gap: 24px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ============================================
+           HERO SECTION
+        ============================================ */
+        .hero {
+            min-height: 100vh;
+            background: var(--black);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 160px 36px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(120px, 20vw, 320px);
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            color: rgba(255, 255, 255, 0.03);
+            white-space: nowrap;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .hero-content {
+            max-width: 1520px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .hero-title {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .hero-title-line {
+            font-size: clamp(64px, 8vw, 96px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 0.95;
+            color: var(--white);
+        }
+
+        .hero-right {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            padding-top: 20px;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .hero-tag {
+            font-size: 18px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: -0.01em;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.6;
+            color: var(--white);
+            max-width: 500px;
+        }
+
+        .hero-cta {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .hero-cta-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--terra);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .hero-cta-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .hero-cta-role {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .hero-cta-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .hero-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--terra);
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: background 0.2s ease;
+        }
+
+        .hero-cta-btn:hover {
+            background: var(--terra-dark);
+        }
+
+        /* ============================================
+           CLIENTS SECTION
+        ============================================ */
+        .clients {
+            background: var(--gray-light);
+            padding: 42px 36px;
+        }
+
+        .clients-inner {
+            max-width: 1520px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .clients-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--gray-mid);
+            letter-spacing: 0.05em;
+        }
+
+        .clients-logos {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+        }
+
+        .clients-logo {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray-mid);
+            opacity: 0.5;
+            letter-spacing: -0.01em;
+        }
+
+        /* ============================================
+           SECTION COMMON
+        ============================================ */
+        .section {
+            padding: 120px 36px;
+        }
+
+        .section-dark {
+            background: var(--black);
+        }
+
+        .section-light {
+            background: var(--gray-light);
+        }
+
+        .section-inner {
+            max-width: 1520px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 80px;
+        }
+
+        .section-tag {
+            font-size: 12px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(48px, 6vw, 72px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            color: var(--white);
+        }
+
+        .section-title-dark {
+            color: var(--black);
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 500px;
+        }
+
+        .section-subtitle-dark {
+            color: var(--gray-mid);
+        }
+
+        /* ============================================
+           PROJECTS SECTION
+        ============================================ */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4px;
+        }
+
+        .project-card {
+            background: var(--gray-light);
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            transition: background 0.2s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            background: #eeeeee;
+        }
+
+        .project-card-dark {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .project-card-dark:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .project-meta {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.4);
+            font-weight: 500;
+        }
+
+        .project-meta-dark {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .project-name {
+            font-size: 32px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--black);
+        }
+
+        .project-name-dark {
+            color: var(--white);
+        }
+
+        /* ============================================
+           STATS SECTION
+        ============================================ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4px;
+        }
+
+        .stat-card {
+            background: var(--gray-light);
+            padding: 48px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .stat-number {
+            font-size: 64px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--terra);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .stat-desc {
+            font-size: 14px;
+            color: var(--gray-mid);
+            line-height: 1.5;
+        }
+
+        /* ============================================
+           SERVICES SECTION
+        ============================================ */
+        .services-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .service-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 48px 40px;
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+            transition: background 0.2s ease;
+            cursor: pointer;
+        }
+
+        .service-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .service-number {
+            font-size: 12px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.4);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .service-title {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--white);
+        }
+
+        .service-desc {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .service-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .service-category {
+            font-size: 12px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.4);
+            padding: 6px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+        }
+
+        .services-cta {
+            margin-top: 60px;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            border: 1px solid var(--white);
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .btn-outline-dark {
+            border-color: var(--black);
+            color: var(--black);
+        }
+
+        .btn-outline-dark:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* ============================================
+           PROCESS SECTION
+        ============================================ */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4px;
+        }
+
+        .process-card {
+            background: var(--gray-light);
+            padding: 48px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .process-number {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--terra);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .process-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        /* ============================================
+           TESTIMONIALS SECTION
+        ============================================ */
+        .testimonials-header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .testimonials-rating {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .testimonials-stars {
+            display: flex;
+            gap: 4px;
+        }
+
+        .testimonials-star {
+            width: 20px;
+            height: 20px;
+            background: var(--terra);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
+        .testimonials-count {
+            font-size: 14px;
+            color: var(--gray-mid);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px;
+        }
+
+        .testimonial-card {
+            background: var(--gray-light);
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--black);
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .testimonial-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .testimonial-role {
+            font-size: 12px;
+            color: var(--gray-mid);
+        }
+
+        /* ============================================
+           FAQ SECTION
+        ============================================ */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .faq-item {
+            background: var(--gray-light);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 28px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .faq-question:hover {
+            background: #eeeeee;
+        }
+
+        .faq-question-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .faq-toggle {
+            width: 24px;
+            height: 24px;
+            position: relative;
+        }
+
+        .faq-toggle::before,
+        .faq-toggle::after {
+            content: '';
+            position: absolute;
+            background: var(--black);
+            transition: transform 0.2s ease;
+        }
+
+        .faq-toggle::before {
+            width: 12px;
+            height: 2px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .faq-toggle::after {
+            width: 2px;
+            height: 12px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .faq-item.active .faq-toggle::after {
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer-inner {
+            padding: 0 32px 28px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray-mid);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        /* ============================================
+           NEWSLETTER SECTION
+        ============================================ */
+        .newsletter {
+            background: var(--black);
+            padding: 100px 36px;
+        }
+
+        .newsletter-inner {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .newsletter-title {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--white);
+        }
+
+        .newsletter-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .newsletter-input {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 14px;
+            font-family: inherit;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--terra);
+        }
+
+        .newsletter-btn {
+            width: 100%;
+            padding: 16px 32px;
+            background: var(--white);
+            color: var(--black);
+            font-size: 14px;
+            font-weight: 600;
+            font-family: inherit;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .newsletter-btn:hover {
+            background: var(--gray-light);
+        }
+
+        .newsletter-note {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* ============================================
+           FOOTER
+        ============================================ */
+        .footer {
+            background: var(--black);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 60px 36px 40px;
+        }
+
+        .footer-inner {
+            max-width: 1520px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .footer-desc {
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 300px;
+        }
+
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-section-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-contact-item {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 24px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .footer-legal a:hover {
+            color: var(--white);
+        }
+
+        .footer-copyright {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* ============================================
+           RESPONSIVE
+        ============================================ */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .section-header {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-links,
+            .navbar-contact {
+                display: none;
+            }
+
+            .hero {
+                padding: 120px 24px 80px;
+            }
+
+            .section {
+                padding: 80px 24px;
+            }
+
+            .projects-grid,
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-item {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .footer-legal {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav__inner">
-      <a href="#" class="nav__logo">
-        <img src="logo-elyon-studios-inverted.png" alt="Elyon Studios">
-        <span class="nav__logo-text">ELYON STUDIOS</span>
-      </a>
-      
-      <ul class="nav__links">
-        <li><a href="#services" class="nav__link nav__link--active">Serviços</a></li>
-        <li><a href="#projects" class="nav__link">Projetos</a></li>
-        <li><a href="#about" class="nav__link">Sobre</a></li>
-        <li><a href="#testimonials" class="nav__link">Depoimentos</a></li>
-        <li><a href="#faq" class="nav__link">FAQ</a></li>
-        <li><a href="#contact" class="nav__link nav__link--cta">Começar</a></li>
-      </ul>
-      
-      <div class="nav__contact">
-        <a href="mailto:contato@elyonstudios.com">contato@elyonstudios.com</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero__bg-text">ELYON</div>
-    <div class="hero__content">
-      <h1 class="hero__title">
-        <span class="accent">Elyon</span><br>Studios
-      </h1>
-      
-      <div class="hero__services">
-        <span class="hero__service">Branding e Identidade</span>
-        <span class="hero__service">Copywriting</span>
-        <span class="hero__service">Tráfego Pago</span>
-        <span class="hero__service">Design</span>
-      </div>
-      
-      <p class="hero__tagline">
-        Sem sites genéricos. Sem promessas vazias de marketing. Apenas ferramentas e estratégias que ajudam seu negócio a crescer e sua marca a brilhar.
-      </p>
-      
-      <a href="#contact" class="hero__cta">
-        Vamos conversar
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
-    </div>
-    
-    <div class="hero__scroll">
-      <span>Scroll</span>
-      <div class="hero__scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- Clients Bar -->
-  <section class="clients">
-    <div class="clients__inner container--wide">
-      <span class="clients__label">Nossos clientes</span>
-      <div class="clients__logos">
-        <span class="clients__logo">Creators Hub</span>
-        <span class="clients__logo">FaithFilms</span>
-        <span class="clients__logo">BibleCoach</span>
-        <span class="clients__logo">WorshipLab</span>
-        <span class="clients__logo"> GospelTech</span>
-        <span class="clients__logo">ChristMedia</span>
-      </div>
-      <span class="clients__count">(2016-25)</span>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section class="projects section" id="projects">
-    <div class="container">
-      <div class="projects__header">
-        <h2 class="projects__title">Projetos.</h2>
-        <span class="projects__meta">©2025</span>
-      </div>
-      
-      <p style="color: var(--gray-500); margin-bottom: var(--space-6); max-width: 600px;">
-        Ajudamos criadores de conteúdo cristão a alcançar seus objetivos. Aqui estão alguns dos nossos projetos recentes.
-      </p>
-      
-      <div class="projects__grid">
-        <article class="project-card">
-          <div class="project-card__overlay"></div>
-          <div class="project-card__content">
-            <h3 class="project-card__name">FaithFilms</h3>
-            <span class="project-card__year">/ 2025</span>
-          </div>
-          <div class="project-card__arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </div>
-        </article>
-        
-        <article class="project-card">
-          <div class="project-card__overlay"></div>
-          <div class="project-card__content">
-            <h3 class="project-card__name">BibleCoach</h3>
-            <span class="project-card__year">/ 2025</span>
-          </div>
-          <div class="project-card__arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </div>
-        </article>
-        
-        <article class="project-card">
-          <div class="project-card__overlay"></div>
-          <div class="project-card__content">
-            <h3 class="project-card__name">WorshipLab</h3>
-            <span class="project-card__year">/ 2024</span>
-          </div>
-          <div class="project-card__arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </div>
-        </article>
-        
-        <article class="project-card">
-          <div class="project-card__overlay"></div>
-          <div class="project-card__content">
-            <h3 class="project-card__name">GospelTech</h3>
-            <span class="project-card__year">/ 2024</span>
-          </div>
-          <div class="project-card__arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </div>
-        </article>
-        
-        <article class="project-card">
-          <div class="project-card__overlay"></div>
-          <div class="project-card__content">
-            <h3 class="project-card__name">ChristMedia</h3>
-            <span class="project-card__year">/ 2023</span>
-          </div>
-          <div class="project-card__arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </div>
-        </article>
-        
-        <article class="project-card">
-          <div class="project-card__overlay"></div>
-          <div class="project-card__content">
-            <h3 class="project-card__name">GraceAcademy</h3>
-            <span class="project-card__year">/ 2020</span>
-          </div>
-          <div class="project-card__arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose Us / Stats Section -->
-  <section class="why-us section section--alt" id="why-us">
-    <div class="container">
-      <div class="why-us__header">
-        <h2 class="why-us__title">Resultados comprovados para cada projeto, com foco em design e funcionalidade.</h2>
-        <p class="why-us__subtitle">Sua jornada digital começa com uma conversa. Vamos conversar hoje.</p>
-      </div>
-      
-      <div class="why-us__grid">
-        <div class="stat-card">
-          <div class="stat-card__number" data-count="50">0+</div>
-          <div class="stat-card__label">Projetos realizados</div>
-          <div class="stat-card__desc">Entregamos 50+ projetos que ajudam criadores a gerar resultados reais.</div>
-        </div>
-        
-        <div class="stat-card">
-          <div class="stat-card__number" data-count="98">0%</div>
-          <div class="stat-card__label">Satisfação dos clientes</div>
-          <div class="stat-card__desc">Taxa de satisfação baseada em feedback contínuo dos nossos clientes.</div>
-        </div>
-        
-        <div class="stat-card">
-          <div class="stat-card__number" data-count="12">0+</div>
-          <div class="stat-card__label">Criadores impactados</div>
-          <div class="stat-card__desc">Milhares de pessoas alcançadas através do conteúdo dos nossos clientes.</div>
-        </div>
-        
-        <div class="stat-card">
-          <div class="stat-card__number" data-count="5">0 anos</div>
-          <div class="stat-card__label">De experiência</div>
-          <div class="stat-card__desc">Anos de experiência em branding, design e marketing digital.</div>
-        </div>
-      </div>
-      
-      <div class="why-us__cta">
-        <a href="#contact" class="btn btn--primary">
-          Vamos conversar
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section class="services section" id="services">
-    <div class="container">
-      <div class="services__header">
-        <h2 class="services__title">Serviços.</h2>
-        <span class="services__count">(4)</span>
-      </div>
-      
-      <div class="services__grid">
-        <article class="service-card">
-          <span class="service-card__number">(001)</span>
-          <h3 class="service-card__title">Branding e Identidade</h3>
-          <p class="service-card__desc">Criação de marcas distintas e memoráveis que comunicam seus valores e criam conexões emocionais autênticas com sua audiência.</p>
-          <div class="service-card__categories">
-            <span class="service-card__category">Estratégia de marca</span>
-            <span class="service-card__category">Design de logo</span>
-            <span class="service-card__category">Voz da marca</span>
-            <span class="service-card__category">Sistema de cores</span>
-            <span class="service-card__category">Brand guidelines</span>
-            <span class="service-card__category">Aplicações de identidade</span>
-          </div>
-        </article>
-        
-        <article class="service-card">
-          <span class="service-card__number">(002)</span>
-          <h3 class="service-card__title">Copywriting</h3>
-          <p class="service-card__desc">Textos que vendem, conectam e convertem. Criação de conteúdo persuasivo para landing pages, e-mail marketing, roteiros e materiais institucionais.</p>
-          <div class="service-card__categories">
-            <span class="service-card__category">Landing pages</span>
-            <span class="service-card__category">E-mail marketing</span>
-            <span class="service-card__category">Roteiros de vídeo</span>
-            <span class="service-card__category">Sales letters</span>
-            <span class="service-card__category">Posts para redes</span>
-            <span class="service-card__category">CTA e headlines</span>
-          </div>
-        </article>
-        
-        <article class="service-card">
-          <span class="service-card__number">(003)</span>
-          <h3 class="service-card__title">Tráfego Pago</h3>
-          <p class="service-card__desc">Campanhas estratégicas de anúncios que maximizam seu ROI. Gestão profissional de tráfego pago para Meta Ads, Google Ads e YouTube Ads.</p>
-          <div class="service-card__categories">
-            <span class="service-card__category">Meta Ads</span>
-            <span class="service-card__category">Google Ads</span>
-            <span class="service-card__category">YouTube Ads</span>
-            <span class="service-card__category">Remarketing</span>
-            <span class="service-card__category">Analytics</span>
-            <span class="service-card__category">Otimização</span>
-          </div>
-        </article>
-        
-        <article class="service-card">
-          <span class="service-card__number">(004)</span>
-          <h3 class="service-card__title">Design</h3>
-          <p class="service-card__desc">Design de alta qualidade para todos os pontos de contato da sua marca. Desde identidade visual até interfaces de plataformas e materiais de marketing.</p>
-          <div class="service-card__categories">
-            <span class="service-card__category">Identidade visual</span>
-            <span class="service-card__category">UI/UX Design</span>
-            <span class="service-card__category">Posts e carrosséis</span>
-            <span class="service-card__category">Apresentações</span>
-            <span class="service-card__category">PDFs e e-books</span>
-            <span class="service-card__category">Thumbnails</span>
-          </div>
-        </article>
-      </div>
-      
-      <div class="services__cta">
-        <a href="#contact" class="btn btn--secondary">
-          Começar projeto
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- About / Process Section -->
-  <section class="about section section--alt" id="about">
-    <div class="container">
-      <div class="about__header">
-        <span class="about__label">Sobre nós</span>
-        <h2 class="about__title">Como lançamos infoprodutos e campanhas de marketing.</h2>
-        <p class="about__subtitle">Veja como nossa equipe combina criatividade, tecnologia e estratégia para construir soluções digitais poderosas para criadores cristãos.</p>
-      </div>
-      
-      <div class="about__grid">
-        <div class="process-card">
-          <div class="process-card__number">01</div>
-          <h3 class="process-card__title">A equipe que comunica cada passo</h3>
-          <p class="process-card__desc">Transparência total durante todo o processo. Você sempre sabe o que está acontecendo.</p>
-        </div>
-        
-        <div class="process-card">
-          <div class="process-card__number">02</div>
-          <h3 class="process-card__title">Soluções personalizadas para suas necessidades</h3>
-          <p class="process-card__desc">Nada de templates genéricos. Cada projeto é único e tratado como tal.</p>
-        </div>
-        
-        <div class="process-card">
-          <div class="process-card__number">03</div>
-          <h3 class="process-card__title">Preços transparentes sem surpresas</h3>
-          <p class="process-card__desc">Orçamento claro desde o início. Sem taxas escondidas ou custos inesperados.</p>
-        </div>
-        
-        <div class="process-card">
-          <div class="process-card__number">04</div>
-          <h3 class="process-card__title">Histórico comprovado com resultados mensuráveis</h3>
-          <p class="process-card__desc">Entregamos resultados que você pode ver e medir. Sua crescimento é nosso sucesso.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section class="testimonials section" id="testimonials">
-    <div class="container">
-      <div class="testimonials__header">
-        <h2 class="testimonials__title">Experiências.</h2>
-        <div class="testimonials__rating">
-          <div class="testimonials__stars">
-            <svg class="testimonials__star" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-            <svg class="testimonials__star" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-            <svg class="testimonials__star" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-            <svg class="testimonials__star" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-            <svg class="testimonials__star" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-          </div>
-          <span class="testimonials__score">4.9</span>
-          <span class="testimonials__scale">/5</span>
-        </div>
-      </div>
-      
-      <p style="color: var(--gray-500); margin-bottom: var(--space-6);">
-        Já entregamos 50+ projetos que ajudam criadores a gerar resultados reais.
-      </p>
-      
-      <div class="testimonials__grid">
-        <article class="testimonial-card">
-          <p class="testimonial-card__quote">"Equipe incrível! Entregaram exatamente o que precisávamos, no prazo e acima das expectativas. Recomendo demais."</p>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar">RC</div>
-            <div>
-              <div class="testimonial-card__name">Ricardo Santos</div>
-              <div class="testimonial-card__role">Criador de Conteúdo</div>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="#" class="navbar-logo">ELYON STUDIOS</a>
+            <ul class="navbar-links">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <div class="navbar-contact">
+                <a href="mailto:contato@elyonstudios.com">contato@elyonstudios.com</a>
             </div>
-          </div>
-        </article>
-        
-        <article class="testimonial-card">
-          <p class="testimonial-card__quote">"Processo suave do início ao fim. Equipe altamente profissional e focada em resultados. Vamos trabalhar juntos novamente."</p>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar">MA</div>
-            <div>
-              <div class="testimonial-card__name">Maria Alves</div>
-              <div class="testimonial-card__role">Educadora Cristã</div>
-            </div>
-          </div>
-        </article>
-        
-        <article class="testimonial-card">
-          <p class="testimonial-card__quote">"Transformaram nossa visão em realidade. O branding ficou exatamente como imaginávamos. Parceria perfeita."</p>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar">PB</div>
-            <div>
-              <div class="testimonial-card__name">Paulo巴西</div>
-              <div class="testimonial-card__role">Pastor & Youtuber</div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+        </div>
+    </nav>
 
-  <!-- FAQ Section -->
-  <section class="faq section section--alt" id="faq">
-    <div class="container">
-      <div class="faq__header">
-        <h2 class="faq__title">FAQ.</h2>
-      </div>
-      
-      <div class="faq__list">
-        <div class="faq-item">
-          <button class="faq-item__question">
-            Quanto tempo leva para criar um projeto completo?
-            <span class="faq-item__icon"></span>
-          </button>
-          <div class="faq-item__answer">
-            <div class="faq-item__answer-inner">
-              O tempo varia conforme a complexidade do projeto. Um branding completo costuma levar de 2 a 4 semanas. Projetos de design podem levar de 1 a 3 semanas. Para prazos mais específicos, entre em contato para discutirmos seu projeto.
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-text">ELYON STUDIOS</div>
+        <div class="hero-content">
+            <div class="hero-left">
+                <div class="hero-title">
+                    <span class="hero-title-line">ELYON</span>
+                    <span class="hero-title-line">STUDIOS</span>
+                </div>
+                <div class="hero-tags">
+                    <span class="hero-tag">Infoprodutos Estratégicos</span>
+                    <span class="hero-tag">Design de Excelência</span>
+                    <span class="hero-tag">Conteúdo com Propósito</span>
+                </div>
             </div>
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <button class="faq-item__question">
-            Como funciona o processo de pagamento?
-            <span class="faq-item__icon"></span>
-          </button>
-          <div class="faq-item__answer">
-            <div class="faq-item__answer-inner">
-              Trabalhamos com 50% de sinal no início do projeto e 50% na entrega final. Para projetos maiores, podemos parcelar em até 3x sem juros. Aceitamos transferência bancária e pix.
+            <div class="hero-right">
+                <p class="hero-description">
+                    Sem sites genéricos. Sem promessas vazias de marketing. Apenas ferramentas e estratégias que ajudam criadores de conteúdo cristão a crescer e suas marcas a brilhar.
+                </p>
+                <div class="hero-cta">
+                    <div class="hero-cta-avatar">VV</div>
+                    <div class="hero-cta-info">
+                        <span class="hero-cta-role">Fundador</span>
+                        <span class="hero-cta-name">Victor Velloso</span>
+                    </div>
+                    <a href="#contato" class="hero-cta-btn">
+                        Vamos conversar
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
-          </div>
         </div>
-        
-        <div class="faq-item">
-          <button class="faq-item__question">
-            Vocês trabalham com clientes de fora do Brasil?
-            <span class="faq-item__icon"></span>
-          </button>
-          <div class="faq-item__answer">
-            <div class="faq-item__answer-inner">
-              Sim! Trabalhamos com criadores de conteúdo cristão de diversos países. A comunicação é feita principalmente por e-mail e chamadas de vídeo, facilitando a colaboração independente de localização.
-            </div>
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <button class="faq-item__question">
-            Qual a diferença da Elyon Studios para outras agências?
-            <span class="faq-item__icon"></span>
-          </button>
-          <div class="faq-item__answer">
-            <div class="faq-item__answer-inner">
-              Somos especializados no mercado cristão e de infoprodutos. Entendemos as particularidades desse nicho, desde a criação de conteúdo que respeita valores bíblicos até estratégias de monetização específicas para criadores de cursos e treinamentos.
-            </div>
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <button class="faq-item__question">
-            Oferecem suporte após a entrega do projeto?
-            <span class="faq-item__icon"></span>
-          </button>
-          <div class="faq-item__answer">
-            <div class="faq-item__answer-inner">
-              Sim! Oferecemos 30 dias de suporte gratuito após a entrega para ajustes e dúvidas. Também temos planos de manutenção mensal para quem deseja suporte contínuo e evoluções regulares.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Newsletter Section -->
-  <section class="newsletter section" id="newsletter">
-    <div class="container">
-      <h2 class="newsletter__title">Receba novidades e insights</h2>
-      <p class="newsletter__subtitle">
-        Tendências, estratégias e insights diretamente da nossa equipe. Junte-se a +500 assinantes.
-      </p>
-      
-      <form class="newsletter__form" onsubmit="event.preventDefault(); alert('Obrigado por se inscrever!');">
-        <input type="email" class="newsletter__input" placeholder="Seu melhor e-mail" required>
-        <button type="submit" class="newsletter__submit">Inscrever</button>
-      </form>
-    </div>
-  </section>
+    <!-- Clients Section -->
+    <section class="clients">
+        <div class="clients-inner">
+            <span class="clients-label">Nossos clientes</span>
+            <div class="clients-logos">
+                <span class="clients-logo">Criadores de Conteúdo</span>
+                <span class="clients-logo">Igrejas</span>
+                <span class="clients-logo">Ministérios</span>
+                <span class="clients-logo">Educadores Cristãos</span>
+                <span class="clients-logo">Podcasts</span>
+            </div>
+        </div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer" id="contact">
-    <div class="container">
-      <div class="footer__top">
-        <div class="footer__brand">
-          <img src="logo-elyon-studios-inverted.png" alt="Elyon Studios" class="footer__logo">
-          <p class="footer__tagline">
-            Transformando vidas através do conhecimento com propósito. Criamos infoprodutos de alto impacto para criadores de conteúdo cristão.
-          </p>
+    <!-- Projects Section -->
+    <section id="projetos" class="section section-light">
+        <div class="section-inner">
+            <div class="section-header">
+                <div>
+                    <p class="section-tag" style="color: var(--gray-mid);">Projetos</p>
+                    <h2 class="section-title section-title-dark">Projetos.</h2>
+                </div>
+                <p class="section-subtitle section-subtitle-dark">
+                    Ajudamos criadores a transformar conhecimento em infoprodutos de alto impacto. Aqui estão alguns dos nossos projetos recentes.
+                </p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <span class="project-meta">2026</span>
+                    <h3 class="project-name">Mentoria de Excelência</h3>
+                </div>
+                <div class="project-card">
+                    <span class="project-meta">2026</span>
+                    <h3 class="project-name">Curso de Produção Audiovisual</h3>
+                </div>
+                <div class="project-card">
+                    <span class="project-meta">2025</span>
+                    <h3 class="project-name">Plataforma de Membros</h3>
+                </div>
+                <div class="project-card">
+                    <span class="project-meta">2025</span>
+                    <h3 class="project-name">Sistema de Lançamentos</h3>
+                </div>
+            </div>
         </div>
-        
-        <div>
-          <h4 class="footer__heading">Navegação</h4>
-          <ul class="footer__links">
-            <li><a href="#services" class="footer__link">Serviços</a></li>
-            <li><a href="#projects" class="footer__link">Projetos</a></li>
-            <li><a href="#about" class="footer__link">Sobre</a></li>
-            <li><a href="#testimonials" class="footer__link">Depoimentos</a></li>
-            <li><a href="#faq" class="footer__link">FAQ</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 class="footer__heading">Serviços</h4>
-          <ul class="footer__links">
-            <li><a href="#services" class="footer__link">Branding</a></li>
-            <li><a href="#services" class="footer__link">Copywriting</a></li>
-            <li><a href="#services" class="footer__link">Tráfego Pago</a></li>
-            <li><a href="#services" class="footer__link">Design</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 class="footer__heading">Contato</h4>
-          <div class="footer__contact">
-            <a href="mailto:contato@elyonstudios.com" class="footer__contact-item">contato@elyonstudios.com</a>
-            <a href="https://instagram.com/elyonstudios" class="footer__contact-item">@elyonstudios</a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="footer__bottom">
-        <p class="footer__copyright">© 2025 Elyon Studios. Todos os direitos reservados.</p>
-        <div class="footer__legal">
-          <a href="#">Política de Privacidade</a>
-          <a href="#">Termos de Uso</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- Floating CTA -->
-  <div class="floating-cta">
-    <button class="floating-cta__btn" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-      </svg>
-    </button>
-  </div>
+    <!-- Stats Section -->
+    <section class="section section-light">
+        <div class="section-inner">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Projetos Entregues</span>
+                    <p class="stat-desc">Infoprodutos lançados que geraram resultados reais para nossos parceiros.</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Satisfação</span>
+                    <p class="stat-desc">Taxa de satisfação entre clientes e parceiros da Elyon Studios.</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">12M+</span>
+                    <span class="stat-label">Alcance Gerado</span>
+                    <p class="stat-desc">Pessoas impactadas por conteúdos criados com nossa parceria.</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">R$ 5M+</span>
+                    <span class="stat-label">Receita Auxiliada</span>
+                    <p class="stat-desc">Receita gerada para criadores através de nossos infoprodutos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- JavaScript -->
-  <script>
-    // FAQ Accordion
-    document.querySelectorAll('.faq-item__question').forEach(button => {
-      button.addEventListener('click', () => {
-        const faqItem = button.parentElement;
-        const wasOpen = faqItem.classList.contains('faq-item--open');
-        
-        // Close all
-        document.querySelectorAll('.faq-item').forEach(item => {
-          item.classList.remove('faq-item--open');
+    <!-- Services Section -->
+    <section id="servicos" class="section section-dark">
+        <div class="section-inner">
+            <div class="section-header">
+                <div>
+                    <p class="section-tag">O que fazemos</p>
+                    <h2 class="section-title">Serviços.</h2>
+                </div>
+                <p class="section-subtitle">
+                    Sem enrolação, apenas resultados. Design pensado e ferramentas que facilitam seu trabalho. Focamos em design inteligente e funcionalidades úteis, projeto após projeto.
+                </p>
+            </div>
+            <div class="services-list">
+                <div class="service-item">
+                    <span class="service-number">001</span>
+                    <div>
+                        <h3 class="service-title">Design e Desenvolvimento Web</h3>
+                        <p class="service-desc">Sites modernos, responsivos e user-friendly projetados para engajar visitantes e converter.</p>
+                        <div class="service-categories">
+                            <span class="service-category">Landing Pages</span>
+                            <span class="service-category">Sales Pages</span>
+                            <span class="service-category">Membership Sites</span>
+                            <span class="service-category">Hotites</span>
+                        </div>
+                    </div>
+                    <div class="service-categories">
+                        <span class="service-category">UI/UX Design</span>
+                        <span class="service-category">Copywriting</span>
+                        <span class="service-category">SEO</span>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <span class="service-number">002</span>
+                    <div>
+                        <h3 class="service-title">Infoprodutos Completos</h3>
+                        <p class="service-desc">Cursos online, mentorias e programas de formação completos com estratégia de lançamento.</p>
+                        <div class="service-categories">
+                            <span class="service-category">Cursos Online</span>
+                            <span class="service-category">Mentorias</span>
+                            <span class="service-category">Programas</span>
+                            <span class="service-category">Workshops</span>
+                        </div>
+                    </div>
+                    <div class="service-categories">
+                        <span class="service-category">Estruturação</span>
+                        <span class="service-category">Produção</span>
+                        <span class="service-category">Lançamento</span>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <span class="service-number">003</span>
+                    <div>
+                        <h3 class="service-title">Marketing Digital Estratégico</h3>
+                        <p class="service-desc">Campanhas data-driven projetadas para construir awareness e conectar com sua audiência alvo.</p>
+                        <div class="service-categories">
+                            <span class="service-category">Estratégia</span>
+                            <span class="service-category">Tráfego Pago</span>
+                            <span class="service-category">Email Marketing</span>
+                            <span class="service-category">Automação</span>
+                        </div>
+                    </div>
+                    <div class="service-categories">
+                        <span class="service-category">Analytics</span>
+                        <span class="service-category">Funis</span>
+                        <span class="service-category">CRUD</span>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <span class="service-number">004</span>
+                    <div>
+                        <h3 class="service-title">Branding e Identidade</h3>
+                        <p class="service-desc">Experiências de marca distintas e memoráveis que comunicam seus valores e criam conexões emocionais.</p>
+                        <div class="service-categories">
+                            <span class="service-category">Estratégia de Marca</span>
+                            <span class="service-category">Design de Logo</span>
+                            <span class="service-category">Voz da Marca</span>
+                            <span class="service-category">Guia de Estilo</span>
+                        </div>
+                    </div>
+                    <div class="service-categories">
+                        <span class="service-category">Paleta de Cores</span>
+                        <span class="service-category">Tipografia</span>
+                        <span class="service-category">Brandbook</span>
+                    </div>
+                </div>
+            </div>
+            <div class="services-cta">
+                <a href="#contato" class="btn-outline">
+                    Começar projeto
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="sobre" class="section section-light">
+        <div class="section-inner">
+            <div class="section-header">
+                <div>
+                    <p class="section-tag" style="color: var(--gray-mid);">Sobre nós</p>
+                    <h2 class="section-title section-title-dark">Como lançamos infoprodutos.</h2>
+                </div>
+                <p class="section-subtitle section-subtitle-dark">
+                    Veja como nossa equipe combina criatividade, tecnologia e estratégia para construir soluções digitais poderosas.
+                </p>
+            </div>
+            <div class="process-grid">
+                <div class="process-card">
+                    <span class="process-number">01</span>
+                    <h3 class="process-title">A equipe que comunica cada passo</h3>
+                    <p class="stat-desc">Transparência total durante todo o processo. Você sempre sabe o que está acontecendo.</p>
+                </div>
+                <div class="process-card">
+                    <span class="process-number">02</span>
+                    <h3 class="process-title">Soluções personalizadas para você</h3>
+                    <p class="stat-desc">Nada de fórmulas genéricas. Cada projeto é único e tratado como tal.</p>
+                </div>
+                <div class="process-card">
+                    <span class="process-number">03</span>
+                    <h3 class="process-title">Preço transparente sem surpresas</h3>
+                    <p class="stat-desc">Orçamento claro desde o início. Sem custos escondidos ou taxas extras.</p>
+                </div>
+                <div class="process-card">
+                    <span class="process-number">04</span>
+                    <h3 class="process-title">Trilha de resultados comprovados</h3>
+                    <p class="stat-desc">Métodos testados e aprovados que já geraram milhões para nossos parceiros.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="depoimentos" class="section section-dark">
+        <div class="section-inner">
+            <div class="section-header">
+                <div>
+                    <p class="section-tag">Experiências</p>
+                    <h2 class="section-title">Depoimentos.</h2>
+                </div>
+                <div class="testimonials-header">
+                    <span class="testimonials-rating">4.9</span>
+                    <div>
+                        <div class="testimonials-stars">
+                            <span class="testimonials-star"></span>
+                            <span class="testimonials-star"></span>
+                            <span class="testimonials-star"></span>
+                            <span class="testimonials-star"></span>
+                            <span class="testimonials-star"></span>
+                        </div>
+                        <span class="testimonials-count">+50 clientes satisfeitos</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Equipe incrível! Entregaram exatamente o que precisávamos, no prazo e acima das expectativas."</p>
+                    <div class="testimonial-author">
+                        <span class="testimonial-name">Pedro Santos</span>
+                        <span class="testimonial-role">Criador de Conteúdo</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Processo suave do início ao fim. Equipe altamente profissional e focada em resultados."</p>
+                    <div class="testimonial-author">
+                        <span class="testimonial-name">Marina Lima</span>
+                        <span class="testimonial-role">Pastora & Educadora</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Transformaram minha ideia em um infoproduto de sucesso. O faturamento do meu curso triplicou."</p>
+                    <div class="testimonial-author">
+                        <span class="testimonial-name">Ricardo Oliveira</span>
+                        <span class="testimonial-role">Ministério de Jovens</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section section-light">
+        <div class="section-inner">
+            <div class="section-header">
+                <div>
+                    <p class="section-tag" style="color: var(--gray-mid);">Dúvidas</p>
+                    <h2 class="section-title section-title-dark">FAQ.</h2>
+                </div>
+                <p class="section-subtitle section-subtitle-dark">
+                    Tem uma pergunta? Temos as respostas. Se estiver faltando algo, envie uma mensagem e conversamos.
+                </p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        <span class="faq-question-text">Quanto tempo leva para criar um infoproduto?</span>
+                        <span class="faq-toggle"></span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            O tempo varia conforme a complexidade do projeto. Um curso online completo pode levar de 4 a 12 semanas. Landing pages e materiais menores podem ser entregues em 2 a 4 semanas. Sempre definimos cronogramas claros no início.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-question-text">Vocês trabalham com criadores de qualquer nicho?</span>
+                        <span class="faq-toggle"></span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Especializamo-nos em criadores de conteúdo cristão, mas trabalhamos com qualquer nicho que compartilhe valores de integridade e propósito. Se sua missão alinha com nossos valores, queremos ouvir sobre seu projeto.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-question-text">Qual o investimento mínimo?</span>
+                        <span class="faq-toggle"></span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Cada projeto é único e o investimento varia conforme escopo e complexidade. Agendemos uma conversa para entender suas necessidades e apresentar uma proposta personalizada. Não acreditamos em soluções únicas para todos.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-question-text">Vocês oferecem suporte pós-lançamento?</span>
+                        <span class="faq-toggle"></span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Sim! Oferecemos suporte técnico e estratégico pós-lançamento. Isso inclui ajustes, otimizações e CONSULTORIA contínua para garantir que seu infoproduto continue performando e evoluindo.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-question-text">Como funciona o processo de pagamento?</span>
+                        <span class="faq-toggle"></span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Trabalhamos com 50% de entrada e 50% na entrega final. Para projetos maiores, podemos parcelar em até 4x sem juros. Aceitamos transferência bancária, PIX e principais cartões de crédito.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="newsletter-inner">
+            <h2 class="newsletter-title">Newsletter</h2>
+            <p class="section-subtitle" style="text-align: center; max-width: 400px;">
+                Receba insights sobre criação de infoprodutos, estratégias de crescimento e tendências do mercado.
+            </p>
+            <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+                <input type="text" class="newsletter-input" placeholder="Seu nome" required>
+                <input type="email" class="newsletter-input" placeholder="Seu melhor email" required>
+                <button type="submit" class="newsletter-btn">Inscrever-se</button>
+            </form>
+            <p class="newsletter-note">Junte-se a +500 criadores que já recebem nossos insights.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contato" class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="footer-logo">ELYON STUDIOS</span>
+                    <p class="footer-desc">
+                        Transformando vidas através do conhecimento com propósito. Infoprodutos de alto impacto para criadores de conteúdo cristão.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <span class="footer-section-title">Navegação</span>
+                    <ul class="footer-links">
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#projetos">Projetos</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <span class="footer-section-title">Contato</span>
+                    <span class="footer-contact-item">contato@elyonstudios.com</span>
+                    <span class="footer-contact-item">+55 (11) 99999-9999</span>
+                    <span class="footer-contact-item">São Paulo, SP — Brasil</span>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                </div>
+                <span class="footer-copyright">© 2026 Elyon Studios. Todos os direitos reservados.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Toggle current
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
         });
-        
-        // Toggle current
-        if (!wasOpen) {
-          faqItem.classList.add('faq-item--open');
+
+        // Newsletter Submit
+        function handleNewsletterSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const inputs = form.querySelectorAll('input');
+            alert('Obrigado por se inscrever! Entraremos em contato em breve.');
+            form.reset();
         }
-      });
-    });
 
-    // Counter Animation
-    const animateCounters = () => {
-      document.querySelectorAll('.stat-card__number').forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-count'));
-        const suffix = counter.textContent.replace(/[0-9]/g, '');
-        let current = 0;
-        const increment = target / 50;
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= target) {
-            counter.textContent = target + suffix;
-            clearInterval(timer);
-          } else {
-            counter.textContent = Math.floor(current) + suffix;
-          }
-        }, 30);
-      });
-    };
-
-    // Intersection Observer for animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in--visible');
-          if (entry.target.classList.contains('stat-card')) {
-            animateCounters();
-          }
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.stat-card, .service-card, .process-card, .testimonial-card, .project-card').forEach(el => {
-      el.classList.add('fade-in');
-      observer.observe(el);
-    });
-
-    // Smooth scroll for navigation
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    // Nav background on scroll
-    window.addEventListener('scroll', () => {
-      const nav = document.querySelector('.nav');
-      if (window.scrollY > 100) {
-        nav.style.background = 'rgba(0,0,0,0.98)';
-      } else {
-        nav.style.background = 'rgba(0,0,0,0.9)';
-      }
-    });
-  </script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
