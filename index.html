@@ -3,1176 +3,1522 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Elyon Studios — Ferramentas e estratégias que ajudam seu negócio a crescer e sua marca brilhar. Web design, branding e marketing digital.">
-<title>Elyon Studios® — Web Design, Branding & Digital Growth</title>
+<meta name="description" content="Elyon Studios — Impulsionamos especialistas cristãos a escalarem suas mensagens, transformarem vidas e viverem o propósito para o qual foram chamados.">
+<title>Elyon Studios® — Resultado com Propósito</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root {
-  --black: #000000;
-  --near-black: #0a0a0a;
-  --dark-gray: #090909;
-  --white: #ffffff;
-  --light-gray: #f5f5f5;
-  --mid-gray: #ebebeb;
-  --text-gray: #888888;
-  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --radius: 12px;
-  --max-w: 1200px;
-  --transition: all 0.3s ease;
+  --bg:            #111111;
+  --bg-alt:        #181818;
+  --surface:       #1E1E1E;
+  --text:          #EBEBEB;
+  --text-sec:      rgba(235,235,235,0.5);
+  --text-muted:    rgba(235,235,235,0.25);
+  --accent:        rgb(242,86,43);
+  --accent-dim:    rgba(242,86,43,0.1);
+  --border:        rgba(255,255,255,0.07);
+  --border-mid:    rgba(255,255,255,0.11);
+  --font-display:  'Geist', sans-serif;
+  --font-body:     'Inter', sans-serif;
+  --max-w:         1200px;
+  --pill:          50px;
+  --ease:          cubic-bezier(0.4,0,0.2,1);
 }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+html { scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
 
 body {
-  font-family: var(--font);
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--black);
-  background: var(--white);
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
   overflow-x: hidden;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+a { color:inherit; text-decoration:none; }
+img { display:block; max-width:100%; }
 
-.container {
+.wrap {
   max-width: var(--max-w);
   margin: 0 auto;
   padding: 0 40px;
 }
 
-/* ─── NAVIGATION ─── */
+/* ─── BUTTONS ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: var(--pill);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  border: none;
+  transition: all 0.22s var(--ease);
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-mid);
+}
+.btn-outline:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-1px); }
+
+/* ─── NAV ─── */
 .nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  padding: 20px 40px;
+  inset: 0 0 auto 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--black);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 20px 40px;
+  background: rgba(17,17,17,0.88);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border-bottom: 1px solid var(--border);
 }
-
 .nav-logo {
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--white);
 }
-
-.nav-logo .reg {
-  font-size: 10px;
-  font-weight: 400;
-  opacity: 0.6;
-}
-
+.nav-logo sup { font-size:8px; opacity:.4; font-weight:400; }
 .nav-links {
   display: flex;
-  align-items: center;
   gap: 36px;
   list-style: none;
 }
-
 .nav-links a {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  transition: var(--transition);
+  color: var(--text-sec);
+  transition: color .2s;
 }
-
-.nav-links a:hover {
-  color: var(--white);
-}
-
-.nav-contact {
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--white);
-  border: 1px solid rgba(255,255,255,0.25);
-  padding: 8px 20px;
-  border-radius: 100px;
-  transition: var(--transition);
-}
-
-.nav-contact:hover {
-  background: var(--white);
-  color: var(--black);
-}
+.nav-links a:hover { color: var(--text); }
 
 /* ─── HERO ─── */
-.hero {
-  background: var(--black);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 120px 40px 80px;
+.hero-wrap {
   position: relative;
+  min-height: 100svh;
   overflow: hidden;
 }
-
-.hero::before {
+.hero-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.28;
+}
+.hero-video::after {
   content: '';
   position: absolute;
-  top: -50%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
-  pointer-events: none;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(17,17,17,.6) 0%,
+    rgba(17,17,17,.1) 40%,
+    rgba(17,17,17,.85) 80%,
+    #111 100%);
 }
-
-.hero-logo {
-  font-size: clamp(64px, 12vw, 144px);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 0.9;
-  color: var(--white);
-  margin-bottom: 12px;
-}
-
-.hero-logo span {
-  display: block;
-  font-size: clamp(32px, 6vw, 72px);
-  font-weight: 300;
-  letter-spacing: 0.3em;
-  margin-top: 8px;
-  opacity: 0.4;
-  text-transform: uppercase;
-}
-
-.hero-tagline {
-  font-size: clamp(16px, 2.5vw, 22px);
-  font-weight: 400;
-  line-height: 1.5;
-  color: rgba(255,255,255,0.5);
-  max-width: 640px;
-  margin: 32px auto 0;
-}
-
-.hero-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 48px;
-  padding: 16px 40px;
-  background: var(--white);
-  color: var(--black);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  border-radius: 100px;
-  transition: var(--transition);
-}
-
-.hero-cta:hover {
-  transform: scale(1.04);
-  box-shadow: 0 8px 32px rgba(255,255,255,0.15);
-}
-
-.hero-scroll {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.2);
-}
-
-/* ─── SERVICES ─── */
-.services {
-  background: var(--white);
-  padding: 120px 0;
-}
-
-.section-label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-gray);
-  margin-bottom: 16px;
-}
-
-.section-title {
-  font-size: clamp(28px, 4vw, 48px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  color: var(--black);
-  margin-bottom: 64px;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2px;
-  background: var(--mid-gray);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.service-card {
-  background: var(--white);
-  padding: 48px 40px;
-  transition: var(--transition);
-}
-
-.service-card:hover {
-  background: var(--light-gray);
-}
-
-.service-number {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  color: var(--text-gray);
-  margin-bottom: 24px;
-}
-
-.service-name {
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--black);
-  margin-bottom: 12px;
-}
-
-.service-desc {
-  font-size: 14px;
-  line-height: 1.7;
-  color: #555;
-}
-
-.service-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 24px;
-}
-
-.service-tag {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--text-gray);
-  background: var(--light-gray);
-  padding: 5px 12px;
-  border-radius: 100px;
-}
-
-/* ─── PROJECTS ─── */
-.projects {
-  background: var(--near-black);
-  padding: 120px 0;
-}
-
-.projects .section-title {
-  color: var(--white);
-}
-
-.projects-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 64px;
-}
-
-.projects-header p {
-  font-size: 15px;
-  color: rgba(255,255,255,0.4);
-  max-width: 480px;
-  line-height: 1.7;
-  margin-top: 16px;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  background: rgba(255,255,255,0.06);
-}
-
-.project-item {
-  background: var(--near-black);
-  aspect-ratio: 4/3;
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 32px;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  transition: var(--transition);
+  padding: 160px 40px 80px;
+  max-width: var(--max-w);
+  margin: 0 auto;
 }
-
-.project-item::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
-  transition: var(--transition);
-}
-
-.project-item:hover::before {
-  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.3) 100%);
-}
-
-.project-placeholder {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 48px;
-  font-weight: 800;
-  color: rgba(255,255,255,0.04);
-  letter-spacing: -0.04em;
-  transition: var(--transition);
-}
-
-.project-item:hover .project-placeholder {
-  color: rgba(255,255,255,0.08);
-}
-
-.project-info {
-  position: relative;
-  z-index: 1;
-}
-
-.project-name {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 4px;
-}
-
-.project-year {
-  font-size: 12px;
-  color: rgba(255,255,255,0.4);
-  letter-spacing: 0.06em;
-}
-
-/* ─── STATS ─── */
-.stats {
-  background: var(--white);
-  padding: 100px 0;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 48px;
-}
-
-.stat-item {
-  text-align: center;
-}
-
-.stat-number {
-  font-size: clamp(40px, 5vw, 64px);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  color: var(--black);
-  line-height: 1;
-  margin-bottom: 8px;
-}
-
-.stat-number span {
-  font-weight: 300;
-  opacity: 0.3;
-}
-
-.stat-label {
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-gray);
-}
-
-/* ─── WHY ─── */
-.why {
-  background: var(--light-gray);
-  padding: 120px 0;
-}
-
-.why-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.why-text h2 {
-  font-size: clamp(24px, 3vw, 36px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.2;
-  color: var(--black);
-  margin-bottom: 24px;
-}
-
-.why-text p {
-  font-size: 15px;
-  line-height: 1.8;
-  color: #555;
-}
-
-.why-features {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.why-feature {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-}
-
-.why-feature-num {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--white);
-  background: var(--black);
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.why-feature-text {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #333;
-}
-
-/* ─── CTA ─── */
-.cta-section {
-  background: var(--black);
-  padding: 120px 0;
-  text-align: center;
-}
-
-.cta-section h2 {
-  font-size: clamp(28px, 4vw, 52px);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
-  color: var(--white);
-  margin-bottom: 20px;
-}
-
-.cta-section p {
-  font-size: 16px;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 48px;
-}
-
-.cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 18px 48px;
-  background: var(--white);
-  color: var(--black);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  border-radius: 100px;
-  transition: var(--transition);
-}
-
-.cta-btn:hover {
-  transform: scale(1.04);
-  box-shadow: 0 8px 32px rgba(255,255,255,0.15);
-}
-
-/* ─── TESTIMONIALS ─── */
-.testimonials {
-  background: var(--white);
-  padding: 120px 0;
-}
-
-.testimonials-header {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  margin-bottom: 32px;
-}
-
-.testimonials-rating {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-}
-
-.testimonials-rating .num {
-  font-size: 48px;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  color: var(--black);
-}
-
-.testimonials-rating .max {
-  font-size: 20px;
-  font-weight: 300;
-  color: var(--text-gray);
-}
-
-.testimonials-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.testimonial-card {
-  background: var(--light-gray);
-  border-radius: var(--radius);
-  padding: 32px;
-}
-
-.testimonial-stars {
-  font-size: 14px;
-  color: #f5a623;
-  margin-bottom: 16px;
-  letter-spacing: 2px;
-}
-
-.testimonial-text {
-  font-size: 14px;
-  line-height: 1.7;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.testimonial-author {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--black);
-}
-
-.testimonial-company {
-  font-size: 12px;
-  color: var(--text-gray);
-  margin-top: 2px;
-}
-
-/* ─── TEAM ─── */
-.team {
-  background: var(--near-black);
-  padding: 120px 0;
-}
-
-.team .section-title {
-  color: var(--white);
-}
-
-.team-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: var(--radius);
-  padding: 48px;
-  display: flex;
-  align-items: center;
-  gap: 48px;
-  margin-top: 64px;
-}
-
-.team-avatar {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  background: var(--dark-gray);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36px;
-  font-weight: 800;
-  color: var(--white);
-  flex-shrink: 0;
-  border: 2px solid rgba(255,255,255,0.1);
-}
-
-.team-info h3 {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 4px;
-}
-
-.team-role {
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 12px;
-}
-
-.team-bio {
-  font-size: 14px;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.5);
-}
-
-.team-cta {
-  margin-left: auto;
-  flex-shrink: 0;
-}
-
-.team-cta a {
+.hero-tag {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 14px 32px;
-  border: 1px solid rgba(255,255,255,0.2);
-  color: var(--white);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  border-radius: 100px;
-  transition: var(--transition);
+  padding: 5px 12px 5px 8px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--pill);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-sec);
+  letter-spacing: .04em;
+  margin-bottom: 32px;
+  width: fit-content;
+  backdrop-filter: blur(6px);
 }
-
-.team-cta a:hover {
-  background: var(--white);
-  color: var(--black);
+.hero-tag .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px rgba(242,86,43,.7);
 }
-
-/* ─── NEWSLETTER ─── */
-.newsletter {
-  background: var(--light-gray);
-  padding: 80px 0;
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 5.5vw, 80px);
+  font-weight: 700;
+  line-height: .9;
+  letter-spacing: -.05em;
+  color: var(--text);
+  max-width: 920px;
+  margin-bottom: 28px;
 }
-
-.newsletter-inner {
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero-sub {
+  font-size: 17px;
+  color: var(--text-sec);
+  max-width: 500px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+.hero-actions { display:flex; gap:12px; flex-wrap:wrap; }
+.hero-foot {
+  margin-top: 64px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 48px;
 }
-
-.newsletter-text h3 {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--black);
-  margin-bottom: 6px;
+.hero-stats { display:flex; gap:48px; }
+.stat-n {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -.04em;
 }
-
-.newsletter-text p {
-  font-size: 14px;
-  color: var(--text-gray);
+.stat-l {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
 }
-
-.newsletter-form {
+.scroll-hint {
   display: flex;
-  gap: 12px;
-  flex: 1;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.scroll-hint span { display:block; width:28px; height:1px; background:var(--border-mid); }
+
+/* ─── MARQUEE ─── */
+.marquee {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-alt);
+  padding: 18px 0;
+  overflow: hidden;
+}
+.marquee-inner {
+  display: flex;
+  width: max-content;
+  animation: ticker 28s linear infinite;
+}
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 28px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.marquee-item .sep {
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: .5;
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ─── SECTION UTILS ─── */
+.s-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.s-tag::before {
+  content: '';
+  display: block;
+  width: 22px; height: 1px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+h2.s-title {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 4.5vw, 64px);
+  font-weight: 700;
+  letter-spacing: -.04em;
+  line-height: 1;
+  color: var(--text);
+}
+h2.s-title em { font-style:normal; color:var(--accent); }
+.s-body {
+  font-size: 15px;
+  color: var(--text-sec);
+  line-height: 1.7;
   max-width: 480px;
 }
 
-.newsletter-form input {
-  flex: 1;
-  padding: 14px 20px;
-  border: 1px solid #ddd;
-  border-radius: 100px;
+/* ─── DIVIDER ─── */
+.hr { height: 1px; background: var(--border); }
+
+/* ─── MANIFESTO ─── */
+.manifesto {
+  background: var(--bg-alt);
+  padding: 120px 0;
+}
+.manifesto-inner {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0 72px;
+  align-items: start;
+}
+.manifesto-divider {
+  width: 1px;
+  background: var(--border-mid);
+  align-self: stretch;
+}
+.manifesto-left {
+  padding-right: 0;
+}
+.manifesto-quote {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 3.5vw, 48px);
+  font-weight: 700;
+  letter-spacing: -.04em;
+  line-height: 1.08;
+  color: var(--text);
+}
+.manifesto-quote em { font-style:normal; color:var(--accent); }
+.manifesto-accent {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--accent);
+  margin-top: 36px;
+}
+.manifesto-right {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding-top: 6px;
+}
+.manifesto-right p {
+  font-size: 15px;
+  color: var(--text-sec);
+  line-height: 1.75;
+}
+
+/* ─── PARA QUEM ─── */
+.para-quem {
+  padding: 120px 0;
+  background: var(--bg);
+}
+.pq-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: end;
+  margin-bottom: 80px;
+}
+.pq-list {
+  display: flex;
+  flex-direction: column;
+}
+.pq-item {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 0;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--border);
+  transition: background .2s;
+  position: relative;
+}
+.pq-item:first-child { border-top: 1px solid var(--border); }
+.pq-item::before {
+  content:'';
+  position:absolute;
+  left:-40px; right:-40px; top:0; bottom:0;
+  background: var(--bg-alt);
+  opacity:0;
+  transition:opacity .25s;
+  pointer-events:none;
+  z-index:0;
+}
+.pq-item > * { position:relative; z-index:1; }
+.pq-item:hover::before { opacity:1; }
+.pq-num {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: .04em;
+  padding-top: 4px;
+  position: relative;
+}
+.pq-content { position: relative; }
+.pq-content h3 {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 600;
+  letter-spacing: -.03em;
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+.pq-content p {
   font-size: 14px;
-  font-family: var(--font);
-  background: var(--white);
-  outline: none;
-  transition: var(--transition);
+  color: var(--text-sec);
+  line-height: 1.65;
+  max-width: 560px;
 }
 
-.newsletter-form input:focus {
-  border-color: var(--black);
+/* ─── METODOLOGIA ─── */
+.metodologia {
+  padding: 120px 0;
+  background: var(--bg-alt);
+}
+.met-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: end;
+  margin-bottom: 72px;
+}
+.met-steps {
+  position: relative;
+}
+.met-step {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 0 24px;
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--border);
+  transition: all .2s var(--ease);
+  cursor: default;
+  position: relative;
+}
+.met-step:first-child { border-top: 1px solid var(--border); }
+.met-step::before {
+  content:'';
+  position:absolute;
+  left:-40px;right:-40px;top:0;bottom:0;
+  background: rgba(255,255,255,.025);
+  opacity:0;
+  transition:opacity .2s;
+  z-index:0;
+}
+.met-step > * { position:relative; z-index:1; }
+.met-step:hover::before { opacity:1; }
+.met-step:hover .met-step-num { color:var(--accent); }
+.met-step-num {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -.05em;
+  color: rgba(255,255,255,.08);
+  line-height: 1;
+  transition: color .25s;
+  position: relative;
+}
+.met-step-body h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -.03em;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+.met-step-body p {
+  font-size: 13px;
+  color: var(--text-sec);
+  line-height: 1.6;
+  max-width: 480px;
+}
+.met-step-tag {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--pill);
 }
 
-.newsletter-form button {
-  padding: 14px 28px;
-  background: var(--black);
-  color: var(--white);
+/* ─── SERVIÇOS ─── */
+.servicos {
+  padding: 120px 0;
+  background: var(--bg);
+}
+.srv-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: end;
+  margin-bottom: 72px;
+}
+.srv-list {
+  display: flex;
+  flex-direction: column;
+}
+.srv-item {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 0 36px;
+  align-items: start;
+  padding: 44px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  position: relative;
+  transition: all .25s var(--ease);
+}
+.srv-item:first-child { border-top: 1px solid var(--border); }
+.srv-item::before {
+  content:'';
+  position:absolute;
+  left:-40px;right:-40px;top:0;bottom:0;
+  background:var(--bg-alt);
+  opacity:0;
+  transition:opacity .2s;
+  z-index:0;
+}
+.srv-item > * { position:relative; z-index:1; }
+.srv-item:hover::before { opacity:1; }
+.srv-num {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: .08em;
+  position: relative;
+  padding-top: 6px;
+}
+.srv-body { position: relative; }
+.srv-body h3 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.8vw, 32px);
+  font-weight: 700;
+  letter-spacing: -.04em;
+  color: var(--text);
+  margin-bottom: 14px;
+  line-height: 1;
+  transition: color .2s;
+}
+.srv-item:hover .srv-body h3 { color: var(--accent); }
+.srv-body p {
+  font-size: 14px;
+  color: var(--text-sec);
+  line-height: 1.65;
+  max-width: 540px;
+  margin-bottom: 20px;
+}
+.srv-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.srv-pill {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--pill);
+  letter-spacing: .03em;
+  transition: all .2s;
+}
+.srv-item:hover .srv-pill {
+  border-color: rgba(242,86,43,.25);
+  color: var(--text-sec);
+}
+.srv-cta {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 6px;
+  flex-shrink: 0;
+}
+.srv-arrow {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .25s var(--ease);
+  flex-shrink: 0;
+}
+.srv-arrow svg {
+  width: 14px; height: 14px;
+  stroke: var(--text-sec);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: all .25s var(--ease);
+}
+.srv-item:hover .srv-arrow {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translate(4px,-4px);
+}
+.srv-item:hover .srv-arrow svg { stroke: #fff; }
+
+/* ─── NÚMEROS ─── */
+.numeros {
+  padding: 0;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.num-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+.num-item {
+  padding: 72px 48px;
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+.num-item:last-child { border-right: none; }
+.num-item::before {
+  content:'';
+  position:absolute;
+  top:0;left:0;
+  width:36px;height:2px;
+  background:var(--accent);
+}
+.num-val {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 6vw, 80px);
+  font-weight: 800;
+  letter-spacing: -.05em;
+  line-height: 1;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.num-val sup {
+  font-size: .45em;
+  font-weight: 600;
+  color: var(--accent);
+  vertical-align: super;
+  letter-spacing: 0;
+}
+.num-label {
+  font-size: 14px;
+  color: var(--text-sec);
+  line-height: 1.55;
+  max-width: 220px;
+}
+
+/* ─── DIFERENCIAIS ─── */
+.diferenciais {
+  padding: 120px 0;
+  background: var(--bg);
+}
+.dif-head {
+  margin-bottom: 72px;
+}
+.dif-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.dif-card {
+  background: var(--bg-alt);
+  padding: 44px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: background .2s;
+}
+.dif-card:hover { background: var(--surface); }
+.dif-icon {
+  width: 44px; height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-mid);
+  border-radius: 10px;
+  margin-bottom: 6px;
+  transition: border-color .2s;
+}
+.dif-icon svg {
+  width: 20px;height:20px;
+  stroke: var(--text-sec);
+  fill:none;
+  stroke-width:1.5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  transition:stroke .2s;
+}
+.dif-card:hover .dif-icon { border-color:rgba(242,86,43,.35); }
+.dif-card:hover .dif-icon svg { stroke:var(--accent); }
+.dif-card h3 {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -.02em;
+  color: var(--text);
+}
+.dif-card p {
+  font-size: 13px;
+  color: var(--text-sec);
+  line-height: 1.65;
+}
+
+/* ─── FOUNDER ─── */
+.founder {
+  padding: 120px 0;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+}
+.founder-inner {
+  display: grid;
+  grid-template-columns: 480px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.founder-img {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--surface);
+  aspect-ratio: 4/5;
+}
+.founder-img img {
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center center;
+  display:block;
+}
+.founder-img-placeholder {
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:14px;color:var(--text-muted);
+}
+.founder-img-placeholder svg { opacity:.2; }
+.founder-img-placeholder span {
+  font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+}
+.founder-content {
+  display:flex;flex-direction:column;gap:24px;
+  padding-top:12px;
+}
+.founder-name {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 5vw, 68px);
+  font-weight: 700;
+  letter-spacing: -.05em;
+  line-height: .95;
+  color: var(--text);
+}
+.founder-role {
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: .1em;
   text-transform: uppercase;
-  border: none;
-  border-radius: 100px;
-  cursor: pointer;
-  font-family: var(--font);
-  transition: var(--transition);
-  white-space: nowrap;
+  color: var(--accent);
+}
+.founder-bio {
+  font-size: 15px;
+  color: var(--text-sec);
+  line-height: 1.75;
+}
+.founder-stats {
+  display:flex;gap:40px;
+  padding-top:28px;
+  border-top:1px solid var(--border);
+}
+.f-stat-n {
+  font-family:var(--font-display);
+  font-size:30px;font-weight:700;
+  letter-spacing:-.04em;
+  color:var(--text);
+}
+.f-stat-l {
+  font-size:11px;color:var(--text-muted);margin-top:4px;
 }
 
-.newsletter-form button:hover {
-  background: #222;
+/* ─── CTA ─── */
+.cta {
+  padding: 140px 0;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-inner {
+  display:flex;flex-direction:column;align-items:center;gap:36px;
+}
+.cta h2 {
+  font-family: var(--font-display);
+  font-size: clamp(44px,6vw,88px);
+  font-weight: 700;
+  letter-spacing: -.05em;
+  line-height: .95;
+  color: var(--text);
+  max-width: 800px;
+}
+.cta h2 em { font-style:normal; color:var(--accent); }
+.cta p {
+  font-size:16px;color:var(--text-sec);
+  max-width:440px;line-height:1.65;
+}
+.cta-btns { display:flex;gap:12px;flex-wrap:wrap;justify-content:center; }
+.cta-note { font-size:12px;color:var(--text-muted); }
+
+/* ─── FAQ ─── */
+.faq {
+  padding: 120px 0;
+  background: var(--bg-alt);
+}
+.faq-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.faq-list {
+  display:flex;flex-direction:column;
+}
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-q {
+  width:100%;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:24px 0;
+  font-family:var(--font-display);
+  font-size:16px;font-weight:600;letter-spacing:-.02em;
+  color:var(--text);background:none;border:none;cursor:pointer;text-align:left;
+  gap:20px;transition:color .2s;
+}
+.faq-item.open .faq-q { color:var(--accent); }
+.faq-toggle {
+  width:26px;height:26px;flex-shrink:0;
+  border-radius:50%;border:1px solid var(--border-mid);
+  display:flex;align-items:center;justify-content:center;
+  transition:all .3s;
+}
+.faq-toggle svg { width:10px;height:10px;stroke:var(--text-sec);fill:none;stroke-width:2;transition:transform .3s; }
+.faq-item.open .faq-toggle { background:var(--accent-dim);border-color:rgba(242,86,43,.3); }
+.faq-item.open .faq-toggle svg { stroke:var(--accent);transform:rotate(45deg); }
+.faq-a { max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(0,0,.2,1); }
+.faq-item.open .faq-a { max-height:200px; }
+.faq-a-inner {
+  padding:0 0 24px;
+  font-size:14px;color:var(--text-sec);line-height:1.7;
 }
 
 /* ─── FOOTER ─── */
 .footer {
-  background: var(--black);
-  padding: 80px 0 40px;
-  color: var(--white);
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 72px 0 40px;
 }
-
-.footer-top {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 64px;
-  margin-bottom: 64px;
+.footer-inner {
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:48px;
+  margin-bottom:60px;
 }
-
-.footer-brand .nav-logo {
-  margin-bottom: 16px;
-  display: inline-flex;
+.f-brand-name {
+  font-family:var(--font-display);
+  font-size:13px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;
 }
-
-.footer-brand p {
-  font-size: 14px;
-  line-height: 1.8;
-  color: rgba(255,255,255,0.4);
-  max-width: 300px;
+.f-brand-name sup { font-size:8px;opacity:.4;font-weight:400; }
+.f-brand p {
+  margin-top:16px;
+  font-size:13px;color:var(--text-sec);line-height:1.65;
+  max-width:260px;
 }
-
-.footer-col h4 {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
-  margin-bottom: 20px;
+.f-col h4 {
+  font-size:10px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--text-muted);
+  margin-bottom:18px;
 }
-
-.footer-col ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.footer-col a {
-  font-size: 14px;
-  color: rgba(255,255,255,0.5);
-  transition: var(--transition);
-}
-
-.footer-col a:hover {
-  color: var(--white);
-}
-
+.f-col ul { list-style:none;display:flex;flex-direction:column;gap:10px; }
+.f-col ul a { font-size:13px;color:var(--text-sec);transition:color .2s; }
+.f-col ul a:hover { color:var(--text); }
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding-top: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding-top:28px;
+  border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
 }
-
-.footer-bottom p {
-  font-size: 12px;
-  color: rgba(255,255,255,0.25);
-}
-
-.footer-social {
-  display: flex;
-  gap: 20px;
-}
-
-.footer-social a {
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
-  transition: var(--transition);
-}
-
-.footer-social a:hover {
-  color: var(--white);
-}
+.f-copy { font-size:12px;color:var(--text-muted); }
+.f-legal { display:flex;gap:20px; }
+.f-legal a { font-size:12px;color:var(--text-muted);transition:color .2s; }
+.f-legal a:hover { color:var(--text-sec); }
 
 /* ─── RESPONSIVE ─── */
-@media (max-width: 1024px) {
-  .services-grid { grid-template-columns: 1fr; }
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-  .why-content { grid-template-columns: 1fr; gap: 48px; }
-  .testimonials-list { grid-template-columns: 1fr; }
-  .team-card { flex-direction: column; text-align: center; }
-  .team-cta { margin-left: 0; }
-  .footer-top { grid-template-columns: repeat(2, 1fr); gap: 40px; }
-  .newsletter-inner { flex-direction: column; text-align: center; }
-  .newsletter-form { max-width: 100%; width: 100%; }
+@media(max-width:1024px){
+  .manifesto-inner { grid-template-columns:1fr; gap:48px; }
+  .manifesto-divider { display:none; }
+  .pq-head,
+  .met-head,
+  .srv-head,
+  .faq-inner { grid-template-columns:1fr; gap:36px; }
+  .founder-inner { grid-template-columns:1fr; gap:56px; }
+  .founder-img { max-width:420px; }
+  .num-grid { grid-template-columns:1fr 1fr; }
+  .num-item:nth-child(2) { border-right:none; }
+  .num-item:last-child { grid-column:1/-1;border-top:1px solid var(--border); }
+  .dif-grid { grid-template-columns:1fr 1fr; }
+  .footer-inner { grid-template-columns:1fr 1fr; }
 }
 
-@media (max-width: 768px) {
-  .container { padding: 0 24px; }
-  .nav { padding: 16px 24px; }
-  .nav-links { display: none; }
-  .hero { padding: 100px 24px 60px; }
-  .services, .projects, .stats, .why, .cta-section,
-  .testimonials, .team { padding: 80px 0; }
-  .projects-grid { grid-template-columns: 1fr; }
-  .projects-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  .footer-top { grid-template-columns: 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-  .newsletter-form { flex-direction: column; }
-  .newsletter-form button { width: 100%; }
+@media(max-width:768px){
+  .wrap { padding:0 20px; }
+  .nav { padding:16px 20px; }
+  .nav-links { display:none; }
+  .hero { padding:120px 20px 60px; }
+  .hero-stats { gap:24px; }
+  .hero-foot { flex-direction:column;align-items:flex-start;gap:20px; }
+  .pq-item,
+  .met-step { grid-template-columns:52px 1fr; }
+  .met-step-tag { display:none; }
+  .srv-item { grid-template-columns:44px 1fr; }
+  .srv-cta { display:none; }
+  .num-grid { grid-template-columns:1fr; }
+  .num-item { border-right:none;border-top:1px solid var(--border); }
+  .num-item:first-child { border-top:none; }
+  .dif-grid { grid-template-columns:1fr; }
+  .footer-inner { grid-template-columns:1fr; }
+  .cta h2 { font-size:clamp(36px,10vw,54px); }
 }
 </style>
 </head>
 <body>
 
-<!-- ─── NAVIGATION ─── -->
+<!-- NAV -->
 <nav class="nav">
-  <a href="#" class="nav-logo">elyon<span class="reg">®</span></a>
+  <a href="/" class="nav-logo">Elyon Studios<sup>®</sup></a>
   <ul class="nav-links">
-    <li><a href="#services">Serviços</a></li>
-    <li><a href="#projects">Projetos</a></li>
-    <li><a href="#about">Sobre</a></li>
-    <li><a href="#testimonials">Depoimentos</a></li>
+    <li><a href="#metodologia">Metodologia</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#faq">FAQ</a></li>
   </ul>
-  <a href="#contact" class="nav-contact">Contato</a>
+  <a href="https://wa.me/5527998835051" class="btn btn-primary" style="font-size:11px;padding:10px 20px;">Falar com a Elyon</a>
 </nav>
 
-<!-- ─── HERO ─── -->
-<section class="hero">
-  <div class="hero-logo">
-    elyon
-    <span>Studio</span>
+<!-- HERO -->
+<div class="hero-wrap">
+  <div class="hero-video">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="/public/bwbackground.mp4" type="video/mp4">
+    </video>
   </div>
-  <p class="hero-tagline">
-    Sem sites genéricos. Sem promessas vazias de marketing.<br>
-    Apenas ferramentas e estratégias que ajudam seu negócio a crescer e sua marca brilhar.
-  </p>
-  <a href="#contact" class="hero-cta">
-    Vamos conversar
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </a>
-  <span class="hero-scroll">Role para descobrir</span>
-</section>
+  <div class="hero">
+    <h1>O mundo precisa do que <em>você carrega.</em></h1>
+    <p class="hero-sub">
+      Impulsionamos especialistas cristãos a escalarem suas mensagens,
+      transformarem vidas e viverem o propósito para o qual foram chamados.
+    </p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5527998835051" class="btn btn-primary">Quero escalar minha mensagem</a>
+      <a href="#metodologia" class="btn btn-outline">Ver a metodologia</a>
+    </div>
+    <div class="hero-foot">
+      <div class="hero-stats">
+        <div>
+          <div class="stat-n">7+</div>
+          <div class="stat-l">Anos de experiência</div>
+        </div>
+        <div>
+          <div class="stat-n">R$25M+</div>
+          <div class="stat-l">Em projetos acompanhados</div>
+        </div>
+        <div>
+          <div class="stat-n">20+</div>
+          <div class="stat-l">Nichos diferentes trabalhados</div>
+        </div>
+      </div>
+      <div class="scroll-hint">
+        <span></span>Role para conhecer
+      </div>
+    </div>
+  </div>
+</div>
 
-<!-- ─── SERVICES ─── -->
-<section class="services" id="services">
-  <div class="container">
-    <p class="section-label">O que fazemos</p>
-    <h2 class="section-title">Serviços.</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-number">001</div>
-        <h3 class="service-name">Web Design &amp; Desenvolvimento</h3>
-        <p class="service-desc">Sites modernos, responsivos e focados em conversão. UX/UI estratégico que engaja visitantes e transforma em clientes.</p>
-        <div class="service-tags">
-          <span class="service-tag">UI/UX Design</span>
-          <span class="service-tag">Landing Pages</span>
-          <span class="service-tag">E-commerce</span>
-          <span class="service-tag">WordPress</span>
-        </div>
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-inner">
+    <div class="marquee-item">Posicionamento<span class="sep"></span></div>
+    <div class="marquee-item">Copy com integridade<span class="sep"></span></div>
+    <div class="marquee-item">Funis de vendas<span class="sep"></span></div>
+    <div class="marquee-item">Tráfego pago<span class="sep"></span></div>
+    <div class="marquee-item">Especialistas cristãos<span class="sep"></span></div>
+    <div class="marquee-item">Lançar a semente<span class="sep"></span></div>
+    <div class="marquee-item">Movimento real<span class="sep"></span></div>
+    <div class="marquee-item">Mensagem com propósito<span class="sep"></span></div>
+    <div class="marquee-item">Posicionamento<span class="sep"></span></div>
+    <div class="marquee-item">Copy com integridade<span class="sep"></span></div>
+    <div class="marquee-item">Funis de vendas<span class="sep"></span></div>
+    <div class="marquee-item">Tráfego pago<span class="sep"></span></div>
+    <div class="marquee-item">Especialistas cristãos<span class="sep"></span></div>
+    <div class="marquee-item">Lançar a semente<span class="sep"></span></div>
+    <div class="marquee-item">Movimento real<span class="sep"></span></div>
+    <div class="marquee-item">Mensagem com propósito<span class="sep"></span></div>
+  </div>
+</div>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="wrap">
+    <div class="manifesto-inner">
+      <div class="manifesto-left">
+        <div class="s-tag">Manifesto</div>
+        <p class="manifesto-quote">
+          O inimigo se beneficia do <em>silêncio dos bons.</em>
+        </p>
+        <span class="manifesto-accent"></span>
       </div>
-      <div class="service-card">
-        <div class="service-number">002</div>
-        <h3 class="service-name">Branding &amp; Identidade Visual</h3>
-        <p class="service-desc">Logo, paleta de cores, tipografia e manual de marca. Posicionamento único que comunica seus valores e cria conexões emocionais.</p>
-        <div class="service-tags">
-          <span class="service-tag">Estratégia de Marca</span>
-          <span class="service-tag">Design de Logo</span>
-          <span class="service-tag">Rebranding</span>
-          <span class="service-tag">Manual de Marca</span>
-        </div>
-      </div>
-      <div class="service-card">
-        <div class="service-number">003</div>
-        <h3 class="service-name">Marketing de Redes Sociais</h3>
-        <p class="service-desc">Gestão completa de redes sociais, conteúdo estratégico e campanhas data-driven que constroem awareness e conectam com sua audiência.</p>
-        <div class="service-tags">
-          <span class="service-tag">Estratégia de Conteúdo</span>
-          <span class="service-tag">Gestão de Comunidade</span>
-          <span class="service-tag">Tráfego Pago</span>
-          <span class="service-tag">Analytics</span>
-        </div>
-      </div>
-      <div class="service-card">
-        <div class="service-number">004</div>
-        <h3 class="service-name">SEO &amp; Marketing de Conteúdo</h3>
-        <p class="service-desc">Otimização para buscas, blog posts, landing pages e funis de conteúdo que aumentam visibilidade e geram tráfego orgânico qualificado.</p>
-        <div class="service-tags">
-          <span class="service-tag">Pesquisa de Palavras-chave</span>
-          <span class="service-tag">Conteúdo SEO</span>
-          <span class="service-tag">Link Building</span>
-          <span class="service-tag">Blog</span>
+      <div class="manifesto-divider"></div>
+      <div class="manifesto-right">
+        <p>
+          Vivemos em um mundo onde o errado é normalizado, os valores são destruídos
+          e Cristo é sistematicamente deixado de lado. Enquanto isso acontece,
+          especialistas cristãos com mensagens poderosas ficam em silêncio —
+          por medo, vergonha ou falta de ferramentas.
+        </p>
+        <p>
+          A Elyon Studios existe para mudar isso. Não somos uma agência de marketing.
+          Somos um movimento — e nossa missão é armar especialistas cristãos com
+          as ferramentas que a mensagem certa precisa para chegar onde precisa chegar.
+        </p>
+        <div style="margin-top:12px;">
+          <a href="#sobre" class="btn btn-outline">Nossa história</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── PROJECTS ─── -->
-<section class="projects" id="projects">
-  <div class="container">
-    <div class="projects-header">
+<!-- PARA QUEM -->
+<section class="para-quem">
+  <div class="wrap">
+    <div class="pq-head">
       <div>
-        <p class="section-label">Portfólio</p>
-        <h2 class="section-title">Projetos.</h2>
+        <div class="s-tag">Para quem é</div>
+        <h2 class="s-title">Você tem uma mensagem.<br>Nós construímos<br>o caminho.</h2>
       </div>
-      <p>Ajudamos empresas de diversos setores a alcançar seus objetivos. Aqui estão alguns dos nossos projetos recentes.</p>
+      <p class="s-body">
+        Servimos especialistas cristãos que já acreditam — e só precisam
+        de um parceiro que entenda tanto de marketing quanto de fé.
+      </p>
     </div>
-    <div class="projects-grid">
-      <div class="project-item">
-        <div class="project-placeholder">Conecta.</div>
-        <div class="project-info">
-          <div class="project-name">Conecta.</div>
-          <div class="project-year">Branding · 2025</div>
+    <div class="pq-list">
+      <div class="pq-item">
+        <div class="pq-num">01</div>
+        <div class="pq-content">
+          <h3>Especialista invisível online</h3>
+          <p>Você tem conhecimento, tem fé, tem mensagem — mas ainda não tem resultado escalável na internet. Sabe que pode mais, mas não encontrou o método certo.</p>
         </div>
       </div>
-      <div class="project-item">
-        <div class="project-placeholder">Essência.</div>
-        <div class="project-info">
-          <div class="project-name">Essência.</div>
-          <div class="project-year">Identidade Visual · 2025</div>
+      <div class="pq-item">
+        <div class="pq-num">02</div>
+        <div class="pq-content">
+          <h3>Indignado com o mercado</h3>
+          <p>Vê gente pior do que você faturando alto vendendo ilusão online. Você sabe que tem algo verdadeiro a dizer — e isso precisa chegar a mais pessoas.</p>
         </div>
       </div>
-      <div class="project-item">
-        <div class="project-placeholder">Ascend.</div>
-        <div class="project-info">
-          <div class="project-name">Ascend.</div>
-          <div class="project-year">Web + SEO · 2024</div>
-        </div>
-      </div>
-      <div class="project-item">
-        <div class="project-placeholder">MailPro.</div>
-        <div class="project-info">
-          <div class="project-name">MailPro.</div>
-          <div class="project-year">Sistema Web · 2024</div>
-        </div>
-      </div>
-      <div class="project-item">
-        <div class="project-placeholder">Turbo.</div>
-        <div class="project-info">
-          <div class="project-name">Turbo.</div>
-          <div class="project-year">Landing Page · 2023</div>
-        </div>
-      </div>
-      <div class="project-item">
-        <div class="project-placeholder">Nuvemx.</div>
-        <div class="project-info">
-          <div class="project-name">Nuvemx.</div>
-          <div class="project-year">Plataforma · 2020</div>
+      <div class="pq-item">
+        <div class="pq-num">03</div>
+        <div class="pq-content">
+          <h3>Pronto para viver o propósito</h3>
+          <p>Quer crescer sem abrir mão de quem você é. Quer que seu negócio seja uma missão — e que o resultado financeiro seja consequência de obediência, não de vaidade.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── STATS ─── -->
-<section class="stats">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <div class="stat-number">27<span>+</span></div>
-        <div class="stat-label">Projetos Entregues</div>
+<!-- METODOLOGIA -->
+<section class="metodologia" id="metodologia">
+  <div class="wrap">
+    <div class="met-head">
+      <div>
+        <div class="s-tag">A metodologia</div>
+        <h2 class="s-title">Do invisível<br>ao movimento.</h2>
       </div>
-      <div class="stat-item">
-        <div class="stat-number">4.9<span>/5</span></div>
-        <div class="stat-label">Satisfação dos Clientes</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">6<span>+</span></div>
-        <div class="stat-label">Anos de Experiência</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">100<span>%</span></div>
-        <div class="stat-label">Compromisso com Resultados</div>
-      </div>
+      <p class="s-body">
+        Não existe funil que salve uma mensagem fraca. E não existe mensagem forte
+        que chegue longe sem funil. A metodologia Elyon une os dois — na ordem certa.
+      </p>
     </div>
-  </div>
-</section>
-
-<!-- ─── WHY ─── -->
-<section class="why" id="about">
-  <div class="container">
-    <div class="why-content">
-      <div class="why-text">
-        <p class="section-label">Por que nos escolher</p>
-        <h2>Resultados reais para cada projeto. Design inteligente e ferramentas que facilitam seu trabalho.</h2>
-        <p>Focamos em design inteligente e funcionalidades úteis, projeto após projeto. Cada solução é personalizada para suas necessidades específicas.</p>
-      </div>
-      <div class="why-features">
-        <div class="why-feature">
-          <div class="why-feature-num">01</div>
-          <p class="why-feature-text"><strong>Equipe que comunica cada passo</strong> — Transparência total durante todo o processo de criação.</p>
+    <div class="met-steps">
+      <div class="met-step">
+        <div class="met-step-num">01</div>
+        <div class="met-step-body">
+          <h3>Diagnóstico</h3>
+          <p>Entendemos profundamente quem você é, o que carrega e onde quer chegar antes de criar qualquer coisa.</p>
         </div>
-        <div class="why-feature">
-          <div class="why-feature-num">02</div>
-          <p class="why-feature-text"><strong>Soluções personalizadas</strong> — Nada de templates genéricos. Tudo feito sob medida para você.</p>
+        <div class="met-step-tag">Entender antes de construir</div>
+      </div>
+      <div class="met-step">
+        <div class="met-step-num">02</div>
+        <div class="met-step-body">
+          <h3>Fundação</h3>
+          <p>Construímos seu movimento — posicionamento, ICP, voz da marca e pilares de conteúdo orgânico.</p>
         </div>
-        <div class="why-feature">
-          <div class="why-feature-num">03</div>
-          <p class="why-feature-text"><strong>Preços transparentes</strong> — Sem surpresas nem custos escondidos. O que combinamos é o que você paga.</p>
+        <div class="met-step-tag">Construir antes de vender</div>
+      </div>
+      <div class="met-step">
+        <div class="met-step-num">03</div>
+        <div class="met-step-body">
+          <h3>Oferta</h3>
+          <p>Estruturamos a oferta irresistível — com análise interna e externa do mercado antes de qualquer decisão.</p>
         </div>
-        <div class="why-feature">
-          <div class="why-feature-num">04</div>
-          <p class="why-feature-text"><strong>Histórico comprovado</strong> — Resultados mensuráveis e clientes satisfeitos que voltaram.</p>
+        <div class="met-step-tag">Produto irresistível</div>
+      </div>
+      <div class="met-step">
+        <div class="met-step-num">04</div>
+        <div class="met-step-body">
+          <h3>Funil</h3>
+          <p>Desenhamos a máquina de vendas — da estrutura de páginas ao roteiro de VSL, order bumps e upsells.</p>
+        </div>
+        <div class="met-step-tag">Máquina de vendas</div>
+      </div>
+      <div class="met-step">
+        <div class="met-step-num">05</div>
+        <div class="met-step-body">
+          <h3>Execução e Escala</h3>
+          <p>Colocamos tudo no ar, rodamos tráfego pago e otimizamos continuamente com base nas métricas reais.</p>
+        </div>
+        <div class="met-step-tag">Vender e otimizar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="servicos" id="servicos">
+  <div class="wrap">
+    <div class="srv-head">
+      <div>
+        <div class="s-tag">Como trabalhamos</div>
+        <h2 class="s-title">Escolha o modelo<br>certo para você.</h2>
+      </div>
+      <p class="s-body">
+        Do acompanhamento mais profundo ao método que você aplica sozinho —
+        a Elyon tem o caminho certo para cada estágio da sua jornada.
+      </p>
+    </div>
+    <div class="srv-list">
+      <div class="srv-item">
+        <div class="srv-num">001</div>
+        <div class="srv-body">
+          <h3>Aliança</h3>
+          <p>O modelo mais profundo. A Elyon entra como sócia — estratégia, copy, design, tráfego pago e acompanhamento completo. Apostamos junto no resultado. Seleção por curadoria rigorosa.</p>
+          <div class="srv-pills">
+            <span class="srv-pill">Estratégia</span>
+            <span class="srv-pill">Copy</span>
+            <span class="srv-pill">Design & Dev</span>
+            <span class="srv-pill">Tráfego pago</span>
+            <span class="srv-pill">Entry fee + %</span>
+          </div>
+        </div>
+        <div class="srv-cta">
+          <a href="#contato" class="srv-arrow">
+            <svg viewBox="0 0 14 14"><path d="M2 12L12 2M12 2H5M12 2v7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="srv-item">
+        <div class="srv-num">002</div>
+        <div class="srv-body">
+          <h3>Implementação + Mentoria</h3>
+          <p>Construímos seu funil do zero enquanto você aprende o método ao vivo. Calls quinzenais, conteúdo gravado e comunidade de coerdeiros. Você sai com o funil no ar.</p>
+          <div class="srv-pills">
+            <span class="srv-pill">Funil construído pela Elyon</span>
+            <span class="srv-pill">Calls quinzenais</span>
+            <span class="srv-pill">Comunidade</span>
+          </div>
+        </div>
+        <div class="srv-cta">
+          <a href="#contato" class="srv-arrow">
+            <svg viewBox="0 0 14 14"><path d="M2 12L12 2M12 2H5M12 2v7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="srv-item">
+        <div class="srv-num">003</div>
+        <div class="srv-body">
+          <h3>Mentoria em Grupo</h3>
+          <p>Acesso ao método Elyon com mentoria ao vivo e comunidade de coerdeiros. Você implementa com suporte direto — calls quinzenais e o método completo.</p>
+          <div class="srv-pills">
+            <span class="srv-pill">Método completo</span>
+            <span class="srv-pill">Calls quinzenais</span>
+            <span class="srv-pill">Comunidade exclusiva</span>
+          </div>
+        </div>
+        <div class="srv-cta">
+          <a href="#contato" class="srv-arrow">
+            <svg viewBox="0 0 14 14"><path d="M2 12L12 2M12 2H5M12 2v7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="srv-item">
+        <div class="srv-num">004</div>
+        <div class="srv-body">
+          <h3>Curso Gravado</h3>
+          <p>O método Elyon completo — posicionamento, copy e funis para especialistas cristãos — no seu ritmo. Acesso imediato e permanente. Garantia de 7 dias.</p>
+          <div class="srv-pills">
+            <span class="srv-pill">Posicionamento</span>
+            <span class="srv-pill">Copy</span>
+            <span class="srv-pill">Funis</span>
+            <span class="srv-pill">Acesso imediato</span>
+          </div>
+        </div>
+        <div class="srv-cta">
+          <a href="#contato" class="srv-arrow">
+            <svg viewBox="0 0 14 14"><path d="M2 12L12 2M12 2H5M12 2v7"/></svg>
+          </a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── CTA ─── -->
-<section class="cta-section" id="contact">
-  <div class="container">
-    <h2>Sua jornada digital<br>começa com uma conversa.</h2>
-    <p>Vamos transformar suas ideias em resultados reais.</p>
-    <a href="mailto:contato@elyonstudios.com" class="cta-btn">
-      Vamos conversar
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-  </div>
-</section>
-
-<!-- ─── TESTIMONIALS ─── -->
-<section class="testimonials" id="testimonials">
-  <div class="container">
-    <div class="testimonials-header">
-      <p class="section-label">Experiências</p>
-      <div class="testimonials-rating">
-        <span class="num">4.9</span>
-        <span class="max">/5</span>
+<!-- NÚMEROS -->
+<div class="numeros">
+  <div class="wrap">
+    <div class="num-grid">
+      <div class="num-item">
+        <div class="num-val">7<sup>anos</sup></div>
+        <div class="num-label">Nos bastidores de projetos reais no mercado digital</div>
       </div>
-    </div>
-    <h2 class="section-title">O que nossos<br>clientes dizem.</h2>
-    <div class="testimonials-list">
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Equipe incrível! Entregaram exatamente o que precisávamos, no prazo e acima das expectativas. Recomendo demais."</p>
-        <div class="testimonial-author">Ana Silva</div>
-        <div class="testimonial-company">Wilson & Co</div>
+      <div class="num-item">
+        <div class="num-val">R$25<sup>M+</sup></div>
+        <div class="num-label">Em vendas online geradas nos projetos onde atuamos</div>
       </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Processo super fluido do início ao fim. Profissionalismo nota 10 e um resultado final que superou nossas expectativas."</p>
-        <div class="testimonial-author">Carlos Mendes</div>
-        <div class="testimonial-company">StartUp Hub</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"A estratégia de redes sociais que desenvolveram triplicou nosso engajamento em 3 meses. Resultados comprovados."</p>
-        <div class="testimonial-author">Fernanda Lima</div>
-        <div class="testimonial-company">Diretora de Marketing</div>
+      <div class="num-item">
+        <div class="num-val">20<sup>+</sup></div>
+        <div class="num-label">Nichos diferentes trabalhados nos bastidores de projetos reais</div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ─── TEAM ─── -->
-<section class="team">
-  <div class="container">
-    <p class="section-label">Sobre nós</p>
-    <h2 class="section-title">Conheça o líder.</h2>
-    <div class="team-card">
-      <div class="team-avatar">VV</div>
-      <div class="team-info">
-        <h3>Victor Velloso</h3>
-        <div class="team-role">Líder de Equipe · Elyon Studios®</div>
-        <p class="team-bio">Apaixonado por criar ferramentas e estratégias que ajudam negócios a crescer. Focado em entregar resultados reais com design inteligente e tecnologia.</p>
-      </div>
-      <div class="team-cta">
-        <a href="mailto:contato@elyonstudios.com">
-          Vamos conversar
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
+<!-- DIFERENCIAIS -->
+<section class="diferenciais">
+  <div class="wrap">
+    <div class="dif-head">
+      <div class="s-tag">Por que a Elyon</div>
+      <h2 class="s-title">Não somos uma agência.<br>Somos <em>coerdeiros.</em></h2>
     </div>
-  </div>
-</section>
-
-<!-- ─── NEWSLETTER ─── -->
-<section class="newsletter">
-  <div class="container">
-    <div class="newsletter-inner">
-      <div class="newsletter-text">
-        <h3>Newsletter</h3>
-        <p>Receba novidades, insights e dicas de marketing digital.</p>
+    <div class="dif-grid">
+      <div class="dif-card">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Skin in the game real</h3>
+        <p>No modelo Aliança, nossa remuneração depende do seu resultado. Não somos fornecedores — somos sócios.</p>
       </div>
-      <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Enviado!'; this.querySelector('button').style.background='#222';">
-        <input type="email" placeholder="Seu melhor e-mail" required>
-        <button type="submit">Inscrever</button>
-      </form>
+      <div class="dif-card">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3>Método, não improviso</h3>
+        <p>5 fases validadas em R$25M+ de projetos. A ordem importa — quem pula etapas queima dinheiro.</p>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Fé como fundamento</h3>
+        <p>Não somos cristãos que fazem marketing. A fé não é argumento de venda — é o alicerce de tudo.</p>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+        </div>
+        <h3>Zero manipulação</h3>
+        <p>Nenhuma urgência artificial. Nenhum gatilho falso. Copy com integridade — persuadir sem manipular.</p>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>Curadoria rigorosa</h3>
+        <p>Não trabalhamos com qualquer cliente. A mensagem precisa ser genuína e os valores alinhados.</p>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <h3>Resultado verificável</h3>
+        <p>7 anos, R$25M+ em projetos acompanhados. O resultado não é promessa — é histórico documentado.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ─── FOOTER ─── -->
+<!-- FOUNDER -->
+<section class="founder" id="sobre">
+  <div class="wrap">
+    <div class="founder-inner">
+      <div class="founder-img">
+        <img src="/assets/victorvelloso2.JPG" alt="Victor Velloso — Fundador da Elyon Studios"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="founder-img-placeholder" style="display:none;">
+          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".8">
+            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+          <span>Victor Velloso</span>
+        </div>
+      </div>
+      <div class="founder-content">
+        <div class="s-tag">O fundador</div>
+        <h2 class="founder-name">Victor<br>Velloso</h2>
+        <div class="founder-role">Fundador · Elyon Studios<sup style="font-size:.6em">®</sup></div>
+        <p class="founder-bio">
+          Trabalho com marketing digital desde 2019. Estive nos bastidores de dezenas
+          de projetos e participei de mais de R$25 milhões em vendas online como
+          estrategista e gestor de projetos.
+        </p>
+        <p class="founder-bio">
+          Por anos, achei que tudo era sobre dinheiro — até perceber que essa jornada
+          era rasa e vazia. Vi de perto pessoas vendendo golpes enquanto especialistas
+          com mensagens verdadeiras ficavam invisíveis. Entendi que precisava trazer
+          esse conhecimento para o lado certo.
+        </p>
+        <p class="founder-bio">
+          Assim nasceu a Elyon Studios — não como agência, mas como movimento.
+        </p>
+        <div class="founder-stats">
+          <div>
+            <div class="f-stat-n">7+</div>
+            <div class="f-stat-l">Anos no digital</div>
+          </div>
+          <div>
+            <div class="f-stat-n">R$25M+</div>
+            <div class="f-stat-l">Em projetos</div>
+          </div>
+          <div>
+            <div class="f-stat-n">20+</div>
+            <div class="f-stat-l">Nichos atendidos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contato">
+  <div class="wrap">
+    <div class="cta-inner">
+      <div class="s-tag" style="justify-content:center;">Vamos conversar</div>
+      <h2>Sua mensagem não pode ficar em <em>silêncio.</em></h2>
+      <p>
+        Se você sente que tem algo importante a dizer e as pessoas certas ainda
+        não chegaram até você — essa conversa é para você.
+      </p>
+      <div class="cta-btns">
+        <a href="https://wa.me/5527998835051" class="btn btn-primary">Falar com a Elyon agora</a>
+      </div>
+      <p class="cta-note">Respondemos em até 24h. Sem robô, sem qualificação infinita.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="faq-inner">
+      <div>
+        <div class="s-tag">Perguntas frequentes</div>
+        <h2 class="s-title">Antes de<br>conversar,<br>leia isso.</h2>
+        <p class="s-body" style="margin-top:24px;">
+          Perguntas que recebemos antes de qualquer conversa.
+          Se a sua não estiver aqui, fale com a gente.
+        </p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item open">
+          <button class="faq-q">
+            A Elyon é uma agência de marketing?
+            <span class="faq-toggle"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Não. Somos uma parceira de coprodução. Uma agência recebe briefing e entrega peça. A Elyon entra no projeto como sócia — constrói a fundação, a oferta, o funil e roda o tráfego junto com você.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            Preciso ser cristão para trabalhar com a Elyon?
+            <span class="faq-toggle"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Não é um requisito formal — mas a Elyon foi construída para servir especialistas com mensagens alinhadas com valores bíblicos. Se isso ressoa com você, muito provavelmente somos o parceiro certo.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            Qual é o modelo de co-produção da Aliança?
+            <span class="faq-toggle"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Entry fee reduzido ou zero + percentual sobre os resultados. A Elyon aposta junto no projeto — nossa remuneração depende do seu resultado. Por isso, a seleção é por curadoria rigorosa.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            Vocês trabalham com qualquer nicho?
+            <span class="faq-toggle"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Não. Avaliamos cada projeto antes de aceitar — a mensagem precisa ser genuína, o especialista precisa estar comprometido e o projeto precisa estar do lado certo.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            Quais resultados posso esperar?
+            <span class="faq-toggle"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Nossa metodologia foi construída para levar especialistas a R$30–50k/mês ou mais em vendas online. O resultado depende da qualidade da mensagem, do comprometimento e do mercado.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            Como começa o processo?
+            <span class="faq-toggle"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Com uma conversa. Entre em contato, conte sobre você e sua mensagem. Se houver fit, conduzimos um diagnóstico completo antes de qualquer proposta. Sem compromisso na primeira conversa.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer class="footer">
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#" class="nav-logo">elyon<span class="reg">®</span></a>
-        <p>Ferramentas e estratégias que ajudam seu negócio a crescer e sua marca brilhar. Feito com propósito e estratégia.</p>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="f-brand">
+        <div class="f-brand-name">Elyon Studios<sup>®</sup></div>
+        <p>Impulsionamos especialistas cristãos a escalarem suas mensagens e viverem o propósito para o qual foram chamados.</p>
       </div>
-      <div class="footer-col">
+      <div class="f-col">
         <h4>Navegação</h4>
         <ul>
-          <li><a href="#services">Serviços</a></li>
-          <li><a href="#projects">Projetos</a></li>
-          <li><a href="#about">Sobre</a></li>
-          <li><a href="#testimonials">Depoimentos</a></li>
+          <li><a href="#metodologia">Metodologia</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="f-col">
+        <h4>Serviços</h4>
+        <ul>
+          <li><a href="#servicos">Aliança</a></li>
+          <li><a href="#servicos">Implementação + Mentoria</a></li>
+          <li><a href="#servicos">Mentoria em Grupo</a></li>
+          <li><a href="#servicos">Curso Gravado</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
         <h4>Contato</h4>
         <ul>
           <li><a href="mailto:contato@elyonstudios.com">contato@elyonstudios.com</a></li>
-          <li><a href="tel:+5511999999999">+55 (11) 99999-9999</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="#">Política de Privacidade</a></li>
-          <li><a href="#">Termos de Serviço</a></li>
+          <li><a href="https://instagram.com/elyonstudios">Instagram</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Elyon Studios® · Todos os direitos reservados.</p>
-      <div class="footer-social">
-        <a href="#">Instagram</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">Behance</a>
+      <span class="f-copy">© 2026 Elyon Studios®. Todos os direitos reservados.</span>
+      <div class="f-legal">
+        <a href="/legal/privacy-policy/">Privacidade</a>
+        <a href="/legal/terms-of-service/">Termos</a>
       </div>
     </div>
   </div>
 </footer>
 
+<script>
+/* FAQ accordion */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+/* Fade-in on scroll — só ativa após o usuário começar a rolar */
+let scrolled = false;
+window.addEventListener('scroll', () => { scrolled = true; }, { once: true, passive: true });
+
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.06, rootMargin: '0px 0px -32px 0px' });
+
+window.addEventListener('load', () => {
+  document.querySelectorAll('.pq-item, .met-step, .srv-item, .dif-card, .num-item').forEach((el, i) => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top > window.innerHeight) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(16px)';
+      el.style.transition = `opacity 0.45s ease ${i * 0.04}s, transform 0.45s ease ${i * 0.04}s`;
+      obs.observe(el);
+    }
+  });
+});
+</script>
 </body>
 </html>

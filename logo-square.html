@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #000; display: flex; align-items: center; justify-content: center; width: 1080px; height: 1080px; overflow: hidden; }
+  .logo-square {
+    width: 1080px;
+    height: 1080px;
+    background: #0D0D0D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+  }
+  .frame {
+    position: absolute;
+    inset: 40px;
+    border: 1px solid #1A1A1A;
+    pointer-events: none;
+  }
+  .elyon {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 148px;
+    font-weight: 700;
+    letter-spacing: 20px;
+    color: #FFFFFF;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .divider {
+    width: 320px;
+    height: 1px;
+    background: #2A2A2A;
+    margin: 28px 0;
+  }
+  .studios-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .studios {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 52px;
+    font-weight: 300;
+    letter-spacing: 22px;
+    color: #999999;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .tm {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: #555555;
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+  <div class="logo-square">
+    <div class="frame"></div>
+    <div class="elyon">ELYON</div>
+    <div class="divider"></div>
+    <div class="studios-row">
+      <div class="studios">STUDIOS</div>
+      <div class="tm">™</div>
+    </div>
+  </div>
+</body>
+</html>
