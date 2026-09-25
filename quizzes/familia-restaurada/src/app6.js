@@ -372,7 +372,8 @@ function renderPitch(el){
   }).join("");
   var faq1 = {C:ele()+" volta", F:"meu filho volta pra Deus", D:"a dívida some"}[r.main];
   var faq = "";
-  if(faq1) faq += "<details class='fr-acc'><summary>Isso garante que "+esc(faq1)+"?</summary><p>Não. Milagre é decisão de Deus. O material te mostra a causa e o que fazer em cada situação.</p></details>";
+  if(r.main==="O") faq += "<details class='fr-acc'><summary>Isso garante que Deus vai responder do jeito que eu quero?</summary><p>Não. O material te ajuda a orar com direção e constância. A resposta é de Deus, no tempo dele.</p></details>";
+  else if(faq1) faq += "<details class='fr-acc'><summary>Isso garante que "+esc(faq1)+"?</summary><p>Não. Milagre é decisão de Deus. O material te mostra a causa e o que fazer em cada situação.</p></details>";
   faq += "<details class='fr-acc'><summary>E se "+ele()+" não quer mudar?</summary><p>Você responde pela sua oração, não pelas escolhas "+dele()+". Interceder é orar por quem não ora.</p></details>"
     + "<details class='fr-acc'><summary>Quase não oro. Serve pra mim?</summary><p>Serve. Começa do começo, com oração pronta. Não precisa orar bonito.</p></details>"
     + "<details class='fr-acc'><summary>Não tenho tempo.</summary><p>De 5 a 15 minutos. Cada situação cabe numa manhã.</p></details>"

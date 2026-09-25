@@ -84,6 +84,11 @@ const only = process.argv[2];
     for (const s of (e.present || [])) if (!visited.includes(s)) fail.push(`missing ${s}`);
     for (const s of (e.absent || [])) if (visited.includes(s)) fail.push(`should skip ${s}`);
     for (const t of (e.contains || [])) if (!allText.includes(t)) fail.push(`text missing: ${t}`);
+    if (path.id === 'P3-oracao-nao-ora') {
+      const full = await page.evaluate(() => (document.querySelector('#fr-stage') || {}).textContent || '');
+      const ans = 'Não. O material te ajuda a orar com direção e constância. A resposta é de Deus, no tempo dele.';
+      if (!full.includes(ans)) fail.push('text missing: ' + ans);
+    }
     for (const t of (e.notContains || [])) { const hit = Object.entries(texts).find(([k, v]) => !k.startsWith('t18') && !k.startsWith('t08') && v.includes(t)); if (hit) fail.push(`forbidden text "${t}" on ${hit[0]}`); }
     for (const t of ['Você me contou','Você me disse','Eu acredito.']) { const hit = Object.entries(texts).find(([k, v]) => v.includes(t)); if (hit) fail.push(`old echo "${t}" on ${hit[0]}`); }
     if (visited.indexOf('t34-captura') < 0 || visited.indexOf('t34-captura') > visited.indexOf('t35-resultado')) fail.push('capture not before result');
