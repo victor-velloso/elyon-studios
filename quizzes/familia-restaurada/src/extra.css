@@ -142,6 +142,8 @@
 #fr-quiz .fr-ciclo-ring{position:absolute;left:18%;top:8%;width:64%;height:70%;pointer-events:none}
 #fr-quiz .fr-ciclo .cn{background:#fff !important;border:1.5px solid #EAE0D5;border-radius:14px;padding:10px 8px;text-align:center;font-size:16px !important;line-height:1.35;color:#2F2118 !important;position:relative;z-index:1}
 #fr-quiz .fr-ciclo .k{width:26px;height:26px;border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;background:#FAF6F1 !important;color:#A25A38 !important;border:1.5px solid #A25A38;font-weight:700}
+#fr-quiz .fr-ciclo .cn b{display:block}
+#fr-quiz .fr-ciclo .cn .sub{display:block;margin-top:4px;font-size:16px !important;line-height:1.35}
 #fr-quiz .fr-ciclo .cmid{grid-column:1 / -1;text-align:center;font-family:'Raleway',sans-serif !important;font-weight:800 !important;font-size:18px !important;line-height:1.3;color:#256F31 !important}
 #fr-quiz .fr-ciclo-nota{text-align:center !important;font-size:16px !important;font-weight:700;color:#256F31 !important;margin:8px 0 0}
 #fr-quiz .fr-p3art{width:120px;height:120px;margin:0 auto 10px;border-radius:16px;overflow:hidden;background:#FAF6F1 !important;display:flex;align-items:center;justify-content:center;gap:8px;color:#A25A38}

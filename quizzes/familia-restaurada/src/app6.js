@@ -327,9 +327,9 @@ function cicloHtml(){
   return "<div class='fr-ciclo'>"
     + "<svg class='fr-ciclo-ring' viewBox='0 0 200 200' aria-hidden='true'><path d='M100 28a72 72 0 0 1 62 36' fill='none' stroke='#A25A38' stroke-width='1.5'/><path d='M162 100a72 72 0 0 1-36 62' fill='none' stroke='#A25A38' stroke-width='1.5'/><path d='M100 172a72 72 0 0 1-62-36' fill='none' stroke='#A25A38' stroke-width='1.5'/><path d='M38 100a72 72 0 0 1 36-62' fill='none' stroke='#A25A38' stroke-width='1.5'/></svg>"
     + "<div class='cn c1'><span class='k'>1</span><b>A situação aperta</b></div>"
-    + "<div class='cn c2'><span class='k'>2</span><b>Você reage</b><span>"+esc(n2)+"</span></div>"
+    + "<div class='cn c2'><span class='k'>2</span><b>Você reage</b><span class='sub'>"+esc(n2)+"</span></div>"
     + "<div class='cn c3'><span class='k'>3</span><b>"+esc(n3)+"</b></div>"
-    + "<div class='cn c4'><span class='k'>4</span><b>Vem a culpa</b><span>“será que o problema sou eu?”</span></div>"
+    + "<div class='cn c4'><span class='k'>4</span><b>Vem a culpa</b><span class='sub'>“será que o problema sou eu?”</span></div>"
     + "<div class='cmid'>O problema não é você.</div>"
     + "</div>"
     + (LUTOU() ? "<p class='fr-ciclo-nota'>Quem já lutou assim por essa casa não tem fé pequena.</p>" : "");
