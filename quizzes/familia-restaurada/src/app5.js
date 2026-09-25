@@ -14,7 +14,7 @@ function neutralizarWpEmoji(){
 function restaurarEmojiNativo(node){
   if(!node) return;
   try{ var imgs = node.querySelectorAll("img.emoji, img.wp-smiley, img[src*='s.w.org/images/core/emoji']");
-    for(var i = imgs.length - 1; i >= 0; i--){ var img = imgs[i]; var t = img.getAttribute("alt"); if(t && img.parentNode){ img.parentNode.replaceChild(document.createTextNode(t), img); } } }catch(e){}
+    var i = imgs.length; while(i!==0){ i = i-1; var img = imgs[i]; var t = img.getAttribute("alt"); if(t && img.parentNode){ img.parentNode.replaceChild(document.createTextNode(t), img); } } }catch(e){}
 }
 
 function visibleSteps(){ return STEPS.filter(isVisible); }
@@ -113,8 +113,8 @@ function renderLoading(el, st){
   var iv = setInterval(function(){
     if(root.getAttribute("data-step")!==name){ clearInterval(iv); return; }
     p += 100/(dur/step);
-    if(p >= 100){ p = 100; clearInterval(iv); setTimeout(function(){ if(root.getAttribute("data-step")===name) next(); }, 350); }
+    if(ge(p, 100)){ p = 100; clearInterval(iv); setTimeout(function(){ if(root.getAttribute("data-step")===name) next(); }, 350); }
     pct.textContent = Math.round(p)+"%"; bar.style.transform = "scaleX(" + (p/100) + ")";
-    var m = msgs[0][1]; msgs.forEach(function(x){ if(p>=x[0]) m = x[1]; }); t.textContent = m;
+    var m = msgs[0][1]; msgs.forEach(function(x){ if(ge(p, x[0])) m = x[1]; }); t.textContent = m;
   }, step);
 }

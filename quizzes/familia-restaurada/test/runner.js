@@ -46,7 +46,7 @@ const only = process.argv[2];
       const before = step;
       if (step === 't01-abertura') await page.click(`.fr-gcard[data-v="${path.sexo}"]`);
       else if (step.includes('loading')) { /* auto */ }
-      else if (step === 't35-resultado') { await page.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 300) { window.scrollTo(0, y); await new Promise(r => setTimeout(r, 60)); } }); await new Promise(r => setTimeout(r, 300)); if (SHOTS && path.shots && path.shots.includes('t35-resultado')) { await page.screenshot({ path: `${SHOTS}/${path.id}-t35-resultado-full.png`, fullPage: true }); } await page.click('#fr-next'); }
+      else if (step === 't35-resultado') { await page.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 300) { window.scrollTo(0, y); await new Promise(r => setTimeout(r, 80)); } }); await new Promise(r => setTimeout(r, 500)); if (SHOTS && path.shots && path.shots.includes('t35-resultado')) { await page.screenshot({ path: `${SHOTS}/${path.id}-t35-resultado-full.png`, fullPage: true }); } const printBtn = await page.$('#fr-print'); if (!printBtn) errs.push('print button missing'); else await printBtn.click(); await page.click('#fr-next'); }
       else if (step === 't34-captura') {
         await page.type('#fr-nome', path.nome || 'Teste Quiz');
         await page.type('#fr-zap', '31999990000');
@@ -96,12 +96,17 @@ const only = process.argv[2];
       if (pl.fonte !== 'quiz-familia-restaurada') fail.push('payload fonte ' + pl.fonte);
       if (typeof pl.aceite !== 'boolean') fail.push('payload aceite not boolean');
       if (!pl.situacao) fail.push('payload situacao empty');
+      if (!pl.respostas || !pl.respostas.idade) fail.push('respostas.idade empty');
       if (e.utmPayload) for (const k in e.utmPayload) if (pl.utms[k] !== e.utmPayload[k]) fail.push('payload utm ' + k + '=' + pl.utms[k]); }
     for (const t of (e.resultNot || [])) { if ((texts['t35-resultado'] || '').includes(t)) fail.push(`result has removed text "${t}"`); if (t.startsWith('Juntando') && (texts['t33-loading']||'').includes(t)) fail.push('old T33 text'); }
     if (!(texts['t35-resultado'] || '').includes('QUERO VER O CAMINHO COMPLETO')) fail.push('result button missing');
+    if ((allText).includes('É assim que a Pra. Ezenete chama essa situação')) fail.push('old situation sentence');
     const ev = await page.evaluate(() => (window.__fbqCalls || []).map(c => c[1]));
-    for (const n of ['Quiz_resultado_visto', 'Quiz_arma_vista', 'Quiz_clique_caminho_completo']) if (!ev.includes(n)) fail.push('fbq event missing ' + n);
+    for (const n of ['Quiz_start', 'Quiz_lead', 'Quiz_resultado_visto', 'Quiz_arma_vista', 'Quiz_clique_caminho_completo', 'Quiz_pitch_visto', 'Quiz_primeiro_passo_visto', 'Quiz_clique_print']) if (!ev.includes(n)) fail.push('fbq event missing ' + n);
+    if (!ev.some(n => n && String(n).indexOf('Quiz_step_') === 0)) fail.push('fbq event missing Quiz_step_*');
     if (ev.filter(n => n === 'Quiz_arma_vista').length !== 1) fail.push('arma_vista fired ' + ev.filter(n => n === 'Quiz_arma_vista').length + 'x');
+    if (ev.filter(n => n === 'Quiz_primeiro_passo_visto').length !== 1) fail.push('primeiro_passo_visto fired ' + ev.filter(n => n === 'Quiz_primeiro_passo_visto').length + 'x');
+    if (ev.filter(n => n === 'Quiz_clique_print').length !== 1) fail.push('clique_print fired ' + ev.filter(n => n === 'Quiz_clique_print').length + 'x');
     const f20 = await page.evaluate(() => { const F = window.__FR, old = F.S.answers.idade, out = {}; for (const a of ['a25','a33','a40','a50','a60','a61']) { F.S.answers.idade = a; out[a] = F.sitTitulo('F20'); } F.S.answers.idade = old; return out; });
     for (const a of ['a25','a33','a40']) if (/netos/.test(f20[a])) fail.push('F20 has netos at ' + a);
     for (const a of ['a50','a60','a61']) if (!/e netos/.test(f20[a])) fail.push('F20 missing netos at ' + a);

@@ -80,6 +80,6 @@ Q("t32-frase","frase","Então vamos ao ponto. Qual dessas frases parece ter sido
       + cta("QUERO SABER O QUE FAZER");
   }},
 Q("t39-autocrenca","autocrenca","Agora que você entendeu o que está acontecendo: você acredita que a história da sua casa pode ser diferente daqui pra frente?",[o("creio","🙌","Creio"),o("quero","🙏","Quero crer. Preciso de direção.")]),
-{ name:"t40-loading-plano", type:"loading", dur:3000, msgsFn:function(){ return [[0,"Separando o que fazer em \""+sitTitulo(computeScore().sit)+"\"..."],[40,"Escolhendo as situações que parecem com a sua..."],[85,"Pronto."]]; } },
+{ name:"t40-loading-plano", type:"loading", dur:3000, msgsFn:function(){ return [[0,"Separando o que fazer em \""+sitNome(computeScore().sit)+"\"..."],[40,"Escolhendo as situações que parecem com a sua..."],[85,"Pronto."]]; } },
 { name:"t41-pitch", type:"pitch" }
 ];

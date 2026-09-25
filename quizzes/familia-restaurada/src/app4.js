@@ -19,7 +19,8 @@ function computeScore(){
     return ORDER.indexOf(x)-ORDER.indexOf(y);
   });
   var main = ranked[0];
-  var second = (ranked[1] && sc[ranked[1]]>=2) ? ranked[1] : null;
+  var second = null;
+  if(ranked[1]){ if(ge(sc[ranked[1]], 2)){ second = ranked[1]; } }
   return { score:sc, main:main, second:second, sit:sitFor(main) };
 }
 function sitFor(area){
@@ -46,210 +47,446 @@ function jovem(){ return ["a25","a33","a40"].indexOf(V("idade"))>-1; }  /* F20: 
 var LINHA_AREA = {
   C:function(sit){
     if(sit==="C14") return "";
-    if(sit==="C7") return "<b>"+g("Ele não é o seu inimigo","Ela não é a sua inimiga")+"</b>, mesmo tendo ido embora. A luta é contra o que está prendendo a mente "+dele()+".";
-    return "E guarda isto: <b>"+g("o seu marido não é o seu inimigo.","a sua esposa não é a sua inimiga.")+"</b> "+Ele()+" pode estar muito "+g("errado","errada")+". Mas a luta é contra o que está entrando pela brecha."; },
-  F:function(){ return "<b>Ele responde pelas escolhas dele. Você responde pela sua parte.</b> E isso já tira um peso enorme das suas costas."; },
+    if(sit==="C7") return "<b>"+g("Ele não é o seu inimigo","Ela não é a sua inimiga")+"</b>, mesmo tendo ido embora.";
+    return "<b>"+g("O seu marido não é o seu inimigo.","a sua esposa não é a sua inimiga.")+"</b> A luta é contra o que entra pela brecha.";
+  },
+  F:function(){ return "<b>Ele responde pelas escolhas dele. Você, pela sua parte.</b>"; },
   O:function(){ return "<b>E não é Deus que desistiu de você.</b>"; },
   D:function(){ return "<b>Deus não te chamou pra barganhar. Chamou pra trazer tudo pra luz, com Ele.</b>"; }
 };
-var FRASE_FIM = {
-  C:function(){ return EX() ? "E o fim de um casamento quase nunca deixa uma dor só. Tem a mágoa, a saudade, a raiva, o recomeço." : "E casamento quase nunca tem uma situação só. Tem a palavra que feriu, o silêncio, a frieza, a desconfiança, a mágoa que não sai."; },
-  F:function(){ return "E com filho quase nunca é uma situação só. Tem a igreja que ficou pra trás, as amizades, a rebeldia, o medo de madrugada."; },
-  O:function(){ return "E o que afasta a gente da oração quase nunca é uma coisa só: a vontade que some, a rotina que engole, a crise que rouba, não saber o que dizer."; },
-  D:function(){ return "E aperto de dinheiro quase nunca vem sozinho. Vem a dívida, a vergonha, o peso de segurar tudo, a noite sem dormir."; }
-};
 function AREA2_TXT(a){ return {C:(EX()?"a dor do casamento que acabou":"o seu casamento"), F:"o seu filho", O:"a sua vida de oração", D:"as contas da casa"}[a]; }
 function sitTitulo(id){ var s = SITS[id]; return s ? txt(s.t) : ""; }
-/* Cada situacao: t (titulo), d1 (cena), d2 [antes, destaque em negrito, depois], pq (por que ainda nao mudou), arma, princ (principio), passo, voz. */
+function sitNome(id){ var s = SITS[id]; return s ? txt(s.nome) : ""; }
+/* t = título "Quando…" (capítulo do PDF). nome = {NOME_SITUACAO}. frase = uma linha. */
 var SITS = {
-  C1:{ t:function(){return "Quando "+ele()+" me feriu com palavras";},
-    d1:function(){return "Não é só o que "+ele()+" fala. É o jeito. Aquele tom de desprezo que dói mais que a própria palavra. E a frase fica martelando depois, na hora da louça, na hora de deitar.";},
-    d2:function(){return ["E tem uma coisa que quase ninguém percebe: a ferida não fica no dia em que a palavra foi dita.","De tanto voltar na sua cabeça, ela começa a parecer verdade sobre você.","E você vai ficando pequena dentro da própria casa. É por essa ferida aberta que o inimigo entra. Não pela boca "+dele()+". Pelo que ficou em você."];},
-    pq:function(){return "Quando dói assim, parece que só existem dois caminhos: devolver na mesma moeda ou engolir calada. Os dois deixam a ferida aberta."+(T18("conversei")?" Por isso cada discussão deixa a casa mais pesada.":"")+(T18("chorei")?" E engolir chorando escondido só empurra a dor mais pra dentro.":"");},
-    arma:"entregar a ferida e guardar a própria boca.",
-    princ:function(){return "Não é revidar. Também não é fingir que não doeu. É levar a ferida pra Deus antes que ela vire raiz. A palavra "+dele()+" feriu. A sua pode curar, ou pode abrir mais uma brecha.";},
-    passo:function(){return horaTxt()+", escreva num papel a frase que mais te feriu, do jeito que "+ele()+" falou. Leia pra Deus em voz alta e diga: \"Senhor, isso doeu. Eu não vou deixar essa frase morar em mim\". Depois rasgue o papel.";},
-    voz:"O que foi dito contra mim não define quem eu sou." },
-  C2:{ t:function(){return "Quando "+ele()+" me ignora e não conversa comigo";},
-    d1:function(){return Ele()+" chega e o que você recebe é um \"oi\", quando recebe. Você puxa assunto e volta um \"hum\". E começa a se perguntar se ainda existe casamento, ou só duas pessoas dividindo o mesmo teto.";},
-    d2:function(){return ["O que você ainda não enxergou é que esse silêncio quase nunca é só contra você. Pode ser cansaço, vergonha, mágoa, pressão lá fora. Só que, do lado de cá, ele costuma virar outra coisa: a gente começa a se culpar, a medir cada palavra, a se sentir sozinha dentro de casa.","É assim que o silêncio vira muro. E o inimigo não precisa de briga nenhuma pra separar uma casa. O muro basta.",""];},
-    pq:function(){return "A reação natural é insistir: cobrar conversa, mandar indireta, falar mais alto. Só que porta fechada por dentro não abre no grito. Cobrança fecha mais."+(T18("conversei")?" E você já viu isso acontecer: quanto mais cobra, mais "+ele()+" se fecha.":"");},
-    arma:"o silêncio diante de Deus, e a paciência.",
-    princ:function(){return "Parece o contrário do que você quer, mas é aqui que começa: falar com Deus sobre "+ele()+" antes de falar com "+ele()+". Tem tempo de calar e tempo de falar. Deus sabe abrir a porta que você não consegue abrir na força.";},
-    passo:function(){return "Hoje, não cobre nada. Faça um gesto de cuidado em silêncio: um café do jeito que "+ele()+" gosta, uma roupa passada, um bilhete curto de \"estou orando por você\". E não comente. "+horaTxt()+", fique cinco minutos em silêncio diante de Deus. Diga só: \"Senhor, estou aqui\". E espere.";},
-    voz:function(){return "Deus fala com "+ele()+" onde a minha voz não chega.";} },
-  C15:{ t:function(){return "Quando eu me sinto "+g("sozinha","sozinho")+" dentro do casamento";},
-    d1:function(){return Ele()+" está em casa. Dorme do seu lado. E mesmo assim você deita sozinha. Tem alguém do seu lado, e parece que não tem ninguém.";},
-    d2:function(){return ["Tem uma coisa que quase ninguém fala:","a solidão dentro do casamento dói mais que a de quem mora sozinha, porque vem com vergonha.",g("Tem marido","Tem esposa")+", então parece que não tem direito de se sentir assim. Aí a gente engole, resolve tudo, carrega tudo. E um coração vazio por muito tempo começa a mendigar o amor que não chega, e a endurecer quando ele não vem. É nessa secura que a brecha abre."];},
-    pq:function(){return "O jeito natural é esperar que "+ele()+" perceba. Cobrar atenção, ou desistir e se fechar também. Só que ninguém consegue encher um vazio que não foi feito pra ser preenchido por "+ele()+".";},
-    arma:"a intimidade com Deus.",
-    princ:function(){return "Antes de esperar tudo "+dele()+", deixar Deus preencher o lugar que só Ele preenche. Quem está cheia de Deus para de mendigar amor e passa a oferecer. E isso muda o clima de uma casa.";},
-    passo:function(){return horaTxt()+", feche a porta e faça o caminho que a Pra. Ezenete ensina, nessa ordem: agradeça por uma coisa, conte pra Deus como você se sente, sem enfeitar, coloque uma música de adoração e fique cinco minutos em silêncio. Só depois peça. E anote o que vier.";},
-    voz:"Deus me vê. Eu não sou invisível pra Ele." },
-  C7:{ t:function(){return "Quando "+ele()+" saiu de casa";},
-    d1:function(){return EX() ? "O casamento acabou no papel, mas não acabou aí dentro. Mesmo separada, você ainda ora por "+ele()+". Isso diz muito sobre o tamanho do amor que ficou."
-                              : "A mala saiu pela porta, ou "+ele()+" foi saindo aos poucos. Agora o lado "+dele()+" da cama está vazio, e a casa ficou grande demais. E você não aceita que acabou.";},
-    d2:function(){return ["A vontade é correr atrás, ou provar que "+ele()+" errou. O que quase ninguém percebe é que","a batalha não está na porta de casa. Está na mente "+dele()+":","nos argumentos que prendem "+ele()+" lá fora, nas vozes ao redor. E ali ninguém entra no grito. Entra de joelhos."];},
-    pq:function(){return "Mensagem, cobrança, ameaça, implorar: tudo isso tenta abrir no braço uma porta que só Deus alcança. Você não controla a vontade "+dele()+". E nem precisa."+(T18("conversei")?" Você já conversou, já cobrou, e viu que por aí não muda.":"");},
-    arma:function(){return "ficar na brecha pela mente "+dele()+".";},
-    princ:function(){return "Interceder é se colocar entre Deus e "+ele()+": orar pela mente "+dele()+", pelas pessoas ao redor "+dele()+", pela salvação "+dele()+". Com a Palavra na boca, e não implorando. Pedir com fé é diferente de implorar com desespero. Deus vai aonde você não pode ir.";},
-    passo:function(){return "Escolha um horário fixo pra orar por "+ele()+" e marque no celular como compromisso. Hoje, nesse horário, leia em voz alta 2 Coríntios 10:4-5 colocando o nome "+dele()+": \"as armas com que eu luto são poderosas em Deus pra destruir as fortalezas na mente de ___\".";},
-    voz:"Deus vai aonde eu não posso ir." },
-  C10:{ t:"Quando o nosso casamento esfriou",
-    d1:"Ainda tem amor aí. Mas virou rotina: conversa sobre conta, sobre o que falta no mercado. Carinho de verdade, olhar nos olhos, faz tempo. Dois cansados dividindo a mesma casa.",
-    d2:function(){return ["E o perigo aqui é justamente não ter briga.","Frieza não faz barulho, então ninguém corre pra apagar.","Ela vai esfriando devagar, até o dia em que vocês viram dois estranhos dentro de casa. Casamento frio não acaba numa explosão. Acaba no silêncio da rotina. E essa é uma brecha que quase ninguém vigia."];},
-    pq:function(){return "O jeito natural é esperar a vontade voltar sozinha, ou esperar que "+ele()+" tome a iniciativa. Só que fogo não volta esperando. Volta quando alguém coloca lenha.";},
-    arma:"voltar ao primeiro amor, com atitude.",
-    princ:"Em Apocalipse 2, Jesus dá o remédio pra quem abandonou o primeiro amor: lembrar de onde caiu e voltar a praticar as primeiras obras. Serve pro casamento também. Não é sentimento primeiro. É gesto primeiro, e o sentimento vem atrás.",
-    passo:function(){return "Faça hoje uma \"primeira obra\", daquelas do começo: um bilhete no bolso "+dele()+", um convite pra um café a dois, ou uma foto antiga mandada pra "+ele()+" com a frase \"lembra disso?\". "+horaTxt()+", entregue o seu casamento de novo a Deus, com as suas palavras.";},
-    voz:"O Espírito Santo sopra sobre as brasas do meu casamento." },
-  C14:{ t:"Quando eu não consigo perdoar",
-    d1:function(){ var c = V("cenaCas");
-      if(c==="perdoar") return "Você sabe o que "+ele()+" fez. E toda vez que lembra, a raiva sobe de novo, como se tivesse sido ontem.";
-      if(c==="paz") return "Você quer recomeçar. Quer paz. Mas alguma coisa do que ficou pra trás ainda não te deixa virar a página.";
-      return "O casamento acabou. A dor não. Ela volta quando você vê uma foto, quando o nome "+dele()+" aparece, quando alguém pergunta."; },
-    d2:function(){return ["O que quase ninguém te explica é que","a mágoa não prende quem feriu. Prende quem foi ferida.","Uma parte de você ficou lá, no dia da dor. É o que a Palavra chama de raiz de amargura: ela brota escondida e vai contaminando o resto. A paz, a oração, até o jeito de olhar pra frente."];},
-    pq:"Tem mulher que já disse \"eu perdoo\" mil vezes e continua sentindo a mesma coisa, e acha que o problema é ela. Não é. É que ensinaram o perdão como sentimento. E sentimento não obedece.",
-    arma:"o perdão como decisão.",
-    princ:function(){return "Perdoar não é dizer que não doeu. Não é voltar a confiar. Não é deixar alguém continuar te ferindo. É tirar "+ele()+" da sua prisão interior e entregar a Deus o direito de julgar. É uma decisão, às vezes tomada todo dia, até o sentimento acompanhar.";},
-    passo:function(){return horaTxt()+", pegue uma folha e escreva o que "+ele()+" fez que te feriu. Sem filtro. Leia cada item em voz alta e diga: \"Eu perdoo ___ por isso. Eu entrego a Ti, Senhor, o direito de julgar\". Depois rasgue a folha e anote a data de hoje.";},
-    voz:"Eu entrego a Deus o direito de julgar. Eu estou livre." },
-  F2:{ t:"Quando eu criei no caminho, e mesmo assim ele se desviou",
-    d1:"Você levou pela mão pra igreja. E mesmo assim ele foi pra um caminho que você nunca imaginou. Agora uma pergunta não te deixa em paz: \"onde foi que eu errei?\". E a cabeça volta em cada bronca, cada ausência, cada decisão.",
-    d2:function(){return ["O que você ainda não enxergou é que","essa culpa parece humildade, mas não é. É uma arma apontada pra você.","Quem passa o dia se acusando não tem força pra orar pelo filho. E a Palavra diz quem é o acusador. Enquanto você carrega essa culpa, a oração pelo seu filho fica travada. É exatamente isso que o inimigo quer."];},
-    pq:function(){return "A reação de mãe é tentar consertar: conversar, aconselhar, chorar, cobrar. Tudo por amor. Mas tudo isso feito debaixo de culpa sai pesado, e ele sente."+(T18("conversei")?" Você já conversou, já cobrou, já deu bronca. E ele continua longe.":"");},
-    arma:"deixar Deus tirar a culpa das suas costas.",
-    princ:"Se você errou em alguma coisa, e todo pai e toda mãe erra, existe perdão. Condenação, não. O \"ensina a criança no caminho\" mostra um caminho de sabedoria. Não é uma sentença contra você. Você intercede de pé, perdoada, e não debaixo da acusação.",
-    passo:function(){return horaTxt()+", escreva num papel tudo aquilo de que você se acusa como mãe. Leia cada item diante de Deus: onde houve erro, peça perdão; onde não houve, diga em voz alta \"isso eu não aceito\". Depois rasgue e escreva no lugar Romanos 8:1: \"Agora já não há condenação para os que estão em Cristo Jesus\". Cole onde você vai ver todo dia.";},
-    voz:"Eu não carrego a culpa das escolhas do meu filho." },
-  F7:{ t:"Quando o meu filho anda com más companhias",
-    d1:function(){return "Ele sai e o seu coração vai junto. Cada demora, cada mensagem sem resposta, e a cabeça já imagina o pior."+((V("lutas")||[]).indexOf("f_vicio")>-1?" E as amizades mudaram. Você já não sabe direito quem está do lado dele.":"");},
-    d2:function(){return ["O que quase ninguém percebe é que","o medo empurra a gente pra dois extremos: vigiar e proibir tudo, ou se calar pra não brigar.","Os dois abrem distância. E um filho longe de casa por dentro fica muito mais perto do que tem lá fora. A luta pela identidade dele não é com os amigos. É espiritual, e começa dentro de casa."];},
-    pq:"Sermão, proibição, desconfiança: tudo nasce do amor e do medo. Só que sermão afasta. Presença aproxima.",
-    arma:"orar pelos lugares por onde ele anda, e chegar perto dentro de casa.",
-    princ:"São duas mãos. Uma é a oração que entra onde você não entra: a escola, a rua, o trabalho, o celular. A outra é trazer ele pra perto. Filho perto de casa por dentro é muito mais difícil de ser levado.",
-    passo:function(){return "Chame ele pra um lanche ou uma volta, só vocês dois, sem cobrança nenhuma. Na conversa, pergunte o nome de um amigo de quem ele gosta muito. "+horaTxt()+", ore por esse amigo pelo nome.";},
-    voz:"O Senhor guarda a saída e a chegada do meu filho." },
-  F8:{ t:"Quando o meu filho é rebelde e me enfrenta",
-    d1:"Qualquer conversa vira briga. Você fala, e ele não ouve. Tem dia que você não reconhece o filho que carregou no colo.",
-    d2:function(){return ["O que quase ninguém te conta é que, nessa hora,","a briga já não é sobre o assunto. É sobre quem ganha.","E quando vira queda de braço, os dois perdem: ele se fecha mais, e a sua voz vai perdendo o peso dentro de casa. Autoridade que precisa gritar já está perdendo a guerra."];},
-    pq:"O jeito natural é falar mais, falar mais alto, repetir o sermão. Pelo filho que não quer ouvir, a arma quase nunca é falar mais.",
-    arma:"autoridade com mansidão, e a estratégia que vem de Deus.",
-    princ:"A Pra. Ezenete conta que, numa fase de guerra dentro de casa com o filho, ela parou e pediu a Deus uma estratégia. E Deus mostrou pra ela uma coisa que ela não estava enxergando. Cada filho tem um jeito. O que abre um, fecha o outro. Por isso a estratégia vem de Deus, e não do grito.",
-    passo:function(){return "Faça hoje uma coisa com ele em que você não vai corrigir nada. Nem a roupa, nem o quarto, nem o jeito de falar. Só estar junto. "+horaTxt()+", peça a Deus uma estratégia pra esse filho e anote o que vier.";},
-    voz:"A minha autoridade não precisa de grito pra ser autoridade." },
-  F20:{ t:function(){ return jovem() ? "Quando vamos consagrar os nossos filhos" : "Quando vamos consagrar os nossos filhos e netos"; },
-    d1:"Graças a Deus, o seu filho está bem. E mesmo assim tem uma inquietação aí dentro: você vê o que o mundo tem feito com tanto filho por aí, e quer cobrir o seu antes que a vida aperte.",
-    d2:function(){return ["Você está enxergando uma coisa que muita mãe só enxerga depois:","o alvo do inimigo não é só a casa de hoje. É a geração.","E a hora de cobrir é justamente quando está tudo bem, não quando já apertou."];},
-    pq:"A maioria das famílias só ora forte pelos filhos quando a crise chega. Aí é correr atrás. Você tem a chance de fazer o contrário.",
-    arma:"a bênção falada sobre ele.",
-    princ:"Ana recebeu o filho e o entregou ao Senhor. Consagrar é reconhecer em voz alta que o seu filho é herança de Deus, e entregar a Ele o que já é Dele. A Pra. Ezenete conta que o pai dela a gerava em oração no culto das cinco da manhã. Hoje ela é a oração do pai.",
-    passo:"Abençoe o seu filho com Números 6:24-26, trocando o \"te\" pelo nome dele: \"O Senhor te abençoe e te guarde…\". Se der, com a mão sobre ele. Se ele estiver longe, faça sobre uma foto e mande uma mensagem dizendo que orou por ele hoje.",
-    voz:"Os meus filhos são herança do Senhor." },
-  O7:{ t:"Quando eu oro e parece que Deus não me ouve",
-    d1:"Você ora, e parece que a oração bate no teto e volta. O mesmo pedido, de novo e de novo. E vem aquele pensamento que dá medo de falar em voz alta: \"será que Deus parou de me ouvir?\".",
-    d2:function(){return ["O que quase ninguém percebe é que","o perigo aqui não é a demora. É o que a demora vai fazendo com você.","O desânimo chega devagar e sussurra que não adianta. E desistir no meio é abortar o que estava sendo gerado. O inimigo não consegue impedir Deus de ouvir. Então ele tenta convencer você a parar."];},
-    pq:"O jeito natural é orar mais alto, mais tempo, ou pedir pra mais gente orar junto. Só que o que falta não é volume. É saber que a resposta tem tempo, e o que fazer enquanto ela não chega.",
-    arma:"perseverar e confiar no tempo de Deus.",
-    princ:"Daniel orou e ficou vinte e um dias sem ver resposta. Depois soube que tinha sido ouvido desde o primeiro dia (Daniel 10:12). A demora não é silêncio de Deus. E a sua fé não fica na resposta. Fica em Deus.",
-    passo:function(){return horaTxt()+", escreva a lista dos pedidos pelos quais você ora há muito tempo, cada um com a data em que começou. Ao lado de cada um, escreva: \"Deus ouviu desde o primeiro dia\". Depois leia Daniel 10:12 em voz alta.";},
-    voz:"A demora não é silêncio de Deus. É o tempo de Deus." },
-  O2:{ t:"Quando eu não sei o que falar com Deus",
-    d1:function(){ var j = V("jeitoOrar");
-      if(j==="choro") return "Você chega diante de Deus e as palavras não saem. Só saem lágrimas. Você não sabe nem o que pedir.";
-      if(j==="comosei") return "Você quer falar com Deus, mas não sabe como. Fala do jeito que sabe, e fica achando que é pouco.";
-      return "Você ora, mas sente que ora sem direção. As mesmas frases de sempre, e a sensação de que não está chegando a lugar nenhum."; },
-    d2:function(){return ["E tem uma coisa que ninguém te disse:","isso não é problema de fé.","Muita gente acha que oração de verdade é aquela cheia de palavras bonitas, da irmã que fala sem parar. Perto disso, a própria oração parece pobre. E essa vergonha vai afastando a gente de Deus, um pouquinho por dia."];},
-    pq:"O jeito natural é se esforçar pra falar mais, ou procurar vídeo de como orar. Só que o que falta não é esforço. São palavras. E Deus já te deu as Dele.",
-    arma:"orar a Palavra.",
-    princ:"Quando faltam palavras, você usa as de Deus. Os próprios discípulos pediram \"Senhor, ensina a gente a orar\", e Jesus deu uma oração pronta. Os Salmos foram escritos pra serem orados. Isso não é preguiça espiritual. É sabedoria.",
-    passo:function(){return horaTxt()+", abra o Salmo 23 e leia em voz alta, devagar. Depois de cada versículo, pare e diga uma frase sua pra Deus. Por exemplo: \"O Senhor é o meu pastor. Pai, cuida de mim hoje\". E anote qual versículo falou mais com você.";},
-    voz:"Quando me faltam palavras, eu oro a Palavra." },
-  O5:{ t:"Quando eu perdi a vontade de orar",
-    d1:"Não é que você não saiba orar. É que a vontade sumiu. Parece que não tem mais o que falar com Deus. E isso dá medo, porque você sabe que precisa.",
-    d2:function(){return ["O que a Pra. Ezenete ensina muda tudo aqui:","a fé não esfria. O que acontece é distância.","A fé que Deus colocou em você não morreu. E isso é uma boa notícia, porque distância dá pra voltar. O perigo é ficar esperando a vontade voltar sozinha. Enquanto você espera sentir, a distância cresce."];},
-    pq:"O jeito natural é esperar o dia em que a vontade volta, ou se forçar e se sentir culpada quando não consegue. As duas coisas cansam.",
-    arma:"decidir antes de sentir, e falar com a própria alma.",
-    princ:"O salmista fazia isso: conversava com a própria alma e mandava ela esperar em Deus (Salmos 42:11). O sentimento vem depois do passo, e não antes.",
-    passo:function(){return horaTxt()+", diga pra Deus em voz alta: \"Eu não tenho vontade, mas eu estou aqui\". Depois coloque um louvor de que você gosta e cante junto, do começo ao fim, mesmo sem vontade.";},
-    voz:"Minha alma, espere em Deus. Eu ainda vou louvá-Lo." },
-  O12:{ t:"Quando a rotina não me deixa tempo para Deus",
-    d1:"Você quer orar mais. De verdade. Mas o dia engole tudo. E fica aquela sensação de estar devendo pra Deus.",
-    d2:function(){return ["O que quase ninguém percebe é","a promessa escondida no \"quando\": quando as coisas acalmarem, quando a vida der uma folga.","Essa fase não chega. A vida com Deus não espera a fase ideal. E cada dia esperando a hora certa, a culpa cresce e a oração diminui."];},
-    pq:"O jeito natural é prometer uma hora inteira de oração, que nunca cabe no dia. Aí não cumpre, se sente mal e desiste de novo.",
-    arma:"dar um lugar e uma hora pra Deus dentro da rotina de verdade.",
-    princ:"Não é largar as tarefas. É dar a Deus um lugar fixo no meio delas, mesmo pequeno, e espalhar oração pelo resto do dia. Jesus disse a Marta que só uma coisa era necessária.",
-    passo:"Escolha uma âncora que já existe no seu dia: o café, o banho, o ônibus. Escreva num papel: \"Este é o meu horário com Deus\". Amanhã, nessa âncora, cumpra cinco minutos. Só cinco.",
-    voz:"A minha vida com Deus não espera a fase ideal." },
-  O1:{ t:"Quando eu quero orar, mas não consigo começar",
-    d1:function(){ return V("jeitoOrar")==="ensinou"
-      ? "Você quer falar com Deus, mas ninguém nunca te mostrou por onde começar. E fica a sensação de que todo mundo sabe, menos você."
-      : "Você sente o desejo. Sabe que precisa. \"Agorinha eu oro.\" E o agorinha não chega. O dia passa e fica pra amanhã."; },
-    d2:function(){return ["O que trava não é falta de fé.","É o tamanho que a oração ganhou.","Muita gente imagina que orar de verdade é uma hora de joelho, com as palavras certas, no lugar certo. Como isso nunca cabe no dia, nunca começa. E quanto mais o tempo passa, mais difícil parece."];},
-    pq:"O jeito natural é esperar o momento certo, ou prometer que amanhã vai ser diferente. Só que o momento certo não aparece sozinho.",
-    arma:"começar pequeno, antes de tudo.",
-    princ:"A Pra. Ezenete ensina: cai da cama já de joelhos. Cinco minutos, dez, não importa. O que importa é que, antes de qualquer coisa, você diz a Deus que depende Dele. Pequeno e fiel vale mais que grande e nunca.",
-    passo:"Hoje à noite, coloque a Bíblia em cima do seu celular. Amanhã, antes de pegar o celular, sente na beirada da cama e diga: \"Senhor, hoje eu começo contigo\". Só isso. Faça sete dias seguidos. Se falhar um, continue no outro.",
-    voz:"O meu tempo com Deus começa agora, não depois." },
-  O15:{ t:"Quando a crise da minha casa está roubando a minha oração",
-    d1:"A casa aperta tanto que não sobra força nem pra orar. Você está cansada demais. E às vezes nem sabe mais o que pedir.",
-    d2:function(){return ["Quando a casa aperta desse jeito,","a oração vira mais um peso na lista.","Como se tudo dependesse de você. Não depende. Você não é a salvadora da sua casa. Jesus é."];},
-    pq:"O jeito natural é achar que precisa de mais força pra orar mais. Só que ninguém sai do cansaço colocando mais peso nas costas.",
-    arma:"entregar o peso a Deus, e deixar outras pessoas orarem com você.",
-    princ:"A Bíblia manda lançar sobre Deus toda a ansiedade, e manda também carregar o fardo uns dos outros. A sua parte agora não é fazer mais. É entregar, e deixar outras pessoas carregarem junto.",
-    passo:function(){return horaTxt()+", diga a Deus com sinceridade: \"Senhor, as minhas forças acabaram\". Isso não é falta de fé. Depois mande uma mensagem pra duas ou três pessoas de confiança pedindo que orem por você nesta semana.";},
-    voz:"Eu não carrego este fardo sozinha." },
-  D1:{ t:"Quando as dívidas tiram a minha paz",
-    d1:function(){ return (V("dinheiro")==="paga"?"Paga uma conta, aparece outra. ":"")+"O dinheiro virou um peso que não sai da cabeça."+(V("frase")==="D"?" E de noite, quando devia descansar, é nisso que você pensa.":""); },
-    d2:function(){return ["O que quase ninguém percebe é que","o medo cresce no escuro.","Enquanto a dívida não tem tamanho, ela parece impagável. Aí a gente evita olhar: o boleto vai pra gaveta, o aplicativo do banco fica fechado. E quanto menos olha, maior ela fica por dentro. Não é só o dinheiro que aperta. É a paz que vai embora."];},
-    pq:"O jeito natural é pedir um milagre e torcer. Ou trabalhar mais e não olhar. Só que o que foge da luz continua crescendo.",
-    arma:"trazer tudo pra luz e entregar a ansiedade.",
-    princ:"Filipenses 4 não diz \"não tenha problemas\". Diz: leve tudo a Deus em oração, com gratidão, e a paz Dele vai guardar o seu coração. Colocar a dívida no papel diante de Deus não é falta de fé. É parar de fugir.",
-    passo:function(){return horaTxt()+", pegue uma folha e escreva no alto: \"Senhor, eu olho para isso contigo\". Embaixo, comece a lista do que você deve: pra quem, quanto, quantas parcelas faltam. Mesmo que não termine hoje, comece.";},
-    voz:"Eu não fujo mais. Eu trago tudo pra luz, diante de Deus." },
-  D16:{ t:"Quando eu tenho vergonha de dever e de pedir ajuda",
-    d1:"Ninguém sabe o tamanho do buraco. E a vergonha pesa quase mais que a própria dívida.",
-    d2:function(){return ["O que a vergonha faz é","mandar a gente se esconder.","Foi assim no jardim, com Adão e Eva. Escondida, a gente passa aperto calada, fica longe de quem podia ajudar, e ainda carrega uma culpa que parece espiritual: \"crente endividado envergonha o nome do Senhor\". Mas estar devendo não te faz menos filha."];},
-    pq:"O jeito natural é resolver sozinha, em segredo, antes que alguém descubra. Só que o segredo é justamente o que dá força pra vergonha.",
-    arma:"receber a graça e sair do esconderijo.",
-    princ:"Deus foi atrás de Adão e Eva quando eles se esconderam. Em Cristo não há condenação. A resposta pra dívida não é o isolamento. É a verdade, a humildade e um plano, um passo de cada vez.",
-    passo:"Diga a Deus, com as suas palavras, do que você tem vergonha. Chame pelo nome. Depois mande uma mensagem pra alguém maduro na fé: \"Estou passando por um aperto e preciso de oração. Posso conversar com você?\".",
-    voz:"Em Cristo Jesus não há condenação pra mim." },
-  D11:{ t:function(){return "Quando sou eu que seguro a casa "+g("sozinha","sozinho");},
-    d1:"Tudo passa por você. Conta, compra, problema, o mês que vem. E você está cansada. Quem cuida de todo mundo quase nunca tem quem cuide dela.",
-    d2:function(){return ["O que quase ninguém percebe é que","esse cansaço não é só do corpo. É de carregar sozinha o que não foi feito pra uma pessoa só.","Moisés tentou, e ouviu do sogro: \"o que você está fazendo não é bom, você vai se esgotar\". Quem segura tudo acaba com vergonha de pedir ajuda, e a oração vira mais uma obrigação."];},
-    pq:"O jeito natural é aguentar mais um pouco. Trabalhar mais, dormir menos, não reclamar. Só que força tem limite.",
-    arma:"entregar o peso a Deus e aceitar ajuda.",
-    princ:"Jesus disse: \"Venham a mim, todos os que estão cansados e sobrecarregados, e eu lhes darei descanso\". Não é o descanso de parar de trabalhar. É parar de carregar sozinha o que é de Deus carregar, e deixar outras pessoas dividirem o peso.",
-    passo:function(){return horaTxt()+", faça uma lista do que está nas suas costas. Em oração, entregue a Deus, item por item, o que só Ele resolve. E escolha uma tarefa pra pedir ajuda hoje: um filho, um parente, uma irmã da igreja. Uma só.";},
-    voz:"Eu não preciso carregar tudo sozinha." }
-};
-/* 7.1 · 3. Bloco da oracao (entra logo depois do "Por que ainda nao mudou") */
-var DEPOIS_LINHA = {melhorou:"Por isso melhora uns dias e volta tudo.", nada:"Por isso parece que Deus não te ouve. Ele ouve. A arma é que era outra.", cansando:"Por isso você foi cansando. Não era pra carregar desse jeito.", piorou:"Por isso, em vez de melhorar, piorou."};
-function blocoOracao(nome){
-  if(LUTOU()){
-    var t = tentou(), feitos = [];
-    var todos = t.indexOf("tudo")>-1;  /* "Tudo isso, mais de uma vez" = campanha, jejum e madrugada */
-    if(todos || t.indexOf("campanha")>-1) feitos.push("fez campanha");
-    if(todos || t.indexOf("jejum")>-1) feitos.push("jejuou");
-    if(todos || t.indexOf("madrugada")>-1) feitos.push("passou madrugada de joelho");
-    if(!feitos.length) feitos.push("fez campanha");  /* veio da T8 */
-    return "<b>"+(nome?nome+", escuta":"Escuta")+": não foi falta de fé.</b> Quem já "+joinE(feitos)+" por essa casa não tem fé pequena. Você lutou com a arma que te ensinaram. Só que essa situação pede outra."
-      + (DEPOIS_LINHA[V("depois")] ? " "+DEPOIS_LINHA[V("depois")] : "");
+  C1:{
+    t:function(){ return "Quando "+ele()+" me feriu com palavras"; },
+    nome:"Palavras que ainda doem",
+    frase:function(){ return Ele()+" falou uma vez, e a frase fica tocando na sua cabeça até parecer verdade sobre você."; },
+    sinais:[
+      {i:"bubble", t:"O tom de desprezo dói mais que a palavra"},
+      {i:"refresh", t:"A frase volta na louça, na hora de deitar"},
+      {i:"user", t:"Você vai ficando pequena dentro de casa"}
+    ],
+    virada:function(){ return "A ferida não fica no dia em que "+ele()+" falou. De tanto voltar, ela vira verdade sobre você. É por ela que o inimigo entra."; },
+    tentou:["Devolver na mesma moeda","Engolir calada"],
+    chave:"Os dois deixam a ferida aberta.",
+    arma:"Entregar a ferida e guardar a boca",
+    princ:"Levar a dor pra Deus antes que ela vire raiz.",
+    passo:[
+      function(){ return "Escreva a frase que mais te feriu, do jeito que "+ele()+" falou."; },
+      'Leia pra Deus: "Isso doeu. Essa frase não vai morar em mim."',
+      "Rasgue o papel."
+    ],
+    voz:"O que foi dito contra mim não define quem eu sou.",
+    acao:"tear"
+  },
+  C2:{
+    t:function(){ return "Quando "+ele()+" me ignora e não conversa comigo"; },
+    nome:"O muro do silêncio",
+    frase:function(){ return Ele()+" chega, dá um \"oi\" quando dá, e você fica medindo cada palavra dentro da própria casa."; },
+    sinais:[
+      {i:"door", t:function(){ return Ele()+" chega e mal fala"; }},
+      {i:"bubble", t:'Você puxa assunto, volta um "hum"'},
+      {i:"home", t:"Dois estranhos dividindo o teto"}
+    ],
+    virada:"O silêncio quase nunca é só contra você. Mas, do lado de cá, ele vira muro. E o inimigo não precisa de briga pra separar uma casa. O muro basta.",
+    tentou:["Cobrar conversa","Indireta, falar mais alto"],
+    chave:"Porta fechada por dentro não abre no grito.",
+    arma:"O silêncio diante de Deus, e a paciência",
+    princ:function(){ return "Falar com Deus sobre "+ele()+" antes de falar com "+ele()+"."; },
+    passo:[
+      "Hoje, não cobre nada.",
+      function(){ return "Faça um gesto em silêncio: um café do jeito "+dele()+', um bilhete "estou orando por você".'; },
+      function(){ return horaTxt()+', 5 minutos diante de Deus. Diga só: "Senhor, estou aqui."'; }
+    ],
+    voz:function(){ return "Deus fala com "+ele()+" onde a minha voz não chega."; },
+    acao:"coffee"
+  },
+  C15:{
+    t:function(){ return "Quando eu me sinto "+g("sozinha","sozinho")+" dentro do casamento"; },
+    nome:function(){ return g("Sozinha do lado ","Sozinho do lado ")+dele(); },
+    frase:function(){ return Ele()+" dorme do seu lado, e mesmo assim você deita "+g("sozinha","sozinho")+", e ainda tem vergonha de sentir isso."; },
+    sinais:[
+      {i:"bed", t:"Tem alguém do lado, parece que não tem ninguém"},
+      {i:"shh", t:function(){ return 'Você engole, porque "'+g("tem marido","tem esposa")+'"'; }},
+      {i:"box", t:"Resolve tudo, carrega tudo"}
+    ],
+    virada:"Solidão no casamento dói mais, porque vem com vergonha. E coração vazio por muito tempo começa a mendigar amor, e a endurecer.",
+    tentou:[function(){ return "Esperar "+ele()+" perceber"; },"Se fechar também"],
+    chave:function(){ return "Ninguém enche um vazio que não foi feito pra "+ele()+" encher."; },
+    arma:"A intimidade com Deus",
+    princ:"Quem está cheia de Deus para de mendigar amor e passa a oferecer.",
+    passoIntro:function(){ return horaTxt()+", de porta fechada:"; },
+    passo:[
+      "Agradeça por uma coisa.",
+      "Conte pra Deus como você se sente, sem enfeitar.",
+      "Um louvor e 5 minutos de silêncio. Só depois peça."
+    ],
+    voz:"Deus me vê. Eu não sou invisível pra Ele.",
+    acao:"music"
+  },
+  C7:{
+    t:function(){ return "Quando "+ele()+" saiu de casa"; },
+    nome:function(){ return "O vazio que "+ele()+" deixou"; },
+    frase:function(){
+      if(EX()) return "Acabou no papel, mas aí dentro não acabou, e você ainda ora por "+ele()+".";
+      return Ele()+" foi embora, a casa ficou grande demais, e aí dentro você ainda não aceita que acabou.";
+    },
+    sinais:[
+      {i:"door", t:function(){ return "O lado "+dele()+" ficou vazio"; }},
+      {i:"moon", t:"A casa ficou grande demais"},
+      {i:"phone", t:"A vontade de correr atrás"}
+    ],
+    virada:function(){ return "A batalha não está na porta de casa. Está na mente "+dele()+". E ali ninguém entra no grito. Entra de joelhos."; },
+    tentou:["Mensagem, cobrança","Implorar"],
+    chave:function(){ return "Você não controla a vontade "+dele()+". E nem precisa."; },
+    arma:function(){ return "Ficar na brecha pela mente "+dele(); },
+    princ:function(){ return "Orar pela mente "+dele()+" e por quem está ao redor, com a Palavra, sem implorar."; },
+    passo:[
+      function(){ return "Escolha um horário fixo pra orar por "+ele()+" e marque no celular."; },
+      function(){ return "Hoje, nesse horário, leia 2 Coríntios 10:4-5 com o nome "+dele()+"."; }
+    ],
+    voz:"Deus vai aonde eu não posso ir.",
+    acao:"clock"
+  },
+  C10:{
+    t:"Quando o nosso casamento esfriou",
+    nome:"Casamento no piloto automático",
+    frase:"Ainda tem amor, mas a conversa virou conta, lista de mercado e cansaço.",
+    sinais:[
+      {i:"list", t:"Conversa só de conta e mercado"},
+      {i:"eyeoff", t:"Olhar nos olhos, faz tempo"},
+      {i:"cloud", t:"Dois cansados na mesma casa"}
+    ],
+    virada:"Frieza não faz barulho, então ninguém corre pra apagar. Casamento frio não acaba numa explosão. Acaba no silêncio da rotina.",
+    tentou:[function(){ return "Esperar a vontade voltar"; }, function(){ return "Esperar "+ele()+" tomar a iniciativa"; }],
+    chave:"Fogo não volta esperando. Volta quando alguém coloca lenha.",
+    arma:"Voltar ao primeiro amor, com atitude",
+    princ:"Gesto primeiro, o sentimento vem atrás (Apocalipse 2).",
+    passo:[
+      function(){ return 'Faça uma "primeira obra": um bilhete no bolso '+dele()+', um café a dois ou uma foto antiga com "lembra disso?".'; },
+      function(){ return horaTxt()+", entregue o seu casamento a Deus com as suas palavras."; }
+    ],
+    voz:"O Espírito Santo sopra sobre as brasas do meu casamento.",
+    acao:"heart"
+  },
+  C14:{
+    t:"Quando eu não consigo perdoar",
+    nome:"Mágoa que não passa",
+    frase:"Acabou, mas a dor volta numa foto, num nome, numa pergunta, e não te deixa virar a página.",
+    sinais:[
+      {i:"camera", t:"A dor volta numa foto, num nome"},
+      {i:"flame", t:"Parece que foi ontem"},
+      {i:"book", t:"A página não vira"}
+    ],
+    virada:"A mágoa não prende quem feriu. Prende quem foi ferida. Uma parte de você ficou lá, no dia da dor.",
+    tentou:['Dizer "eu perdoo" e esperar sentir',"Tentar esquecer"],
+    chave:"Te ensinaram o perdão como sentimento. E sentimento não obedece.",
+    arma:"O perdão como decisão",
+    princ:"Não é dizer que não doeu, nem voltar a confiar. É entregar a Deus o direito de julgar.",
+    passo:[
+      function(){ return "Escreva o que "+ele()+" fez, sem filtro."; },
+      'Leia cada item: "Eu perdoo ___ por isso. Entrego a Ti o direito de julgar."',
+      "Rasgue e anote a data de hoje."
+    ],
+    voz:"Eu entrego a Deus o direito de julgar. Eu estou livre.",
+    acao:"pen"
+  },
+  F2:{
+    t:"Quando eu criei no caminho, e mesmo assim ele se desviou",
+    nome:function(){ return g("A culpa de mãe","A culpa de pai"); },
+    frase:'Você levou pela mão pra igreja, e agora a pergunta não sai da cabeça: "onde foi que eu errei?".',
+    sinais:[
+      {i:"church", t:"Criou na igreja, e ele foi pra outro caminho"},
+      {i:"help", t:'"Onde foi que eu errei?"'},
+      {i:"refresh", t:"A cabeça volta em cada bronca, cada ausência"}
+    ],
+    virada:"Essa culpa parece humildade, mas é uma arma apontada pra você. Quem passa o dia se acusando não tem força pra orar pelo filho.",
+    tentou:["Conversar, aconselhar, cobrar","Chorar escondido"],
+    chave:"Tudo feito debaixo de culpa sai pesado. E ele sente.",
+    arma:"Deixar Deus tirar a culpa das suas costas",
+    princ:"Onde houve erro, tem perdão. Condenação, não.",
+    passo:[
+      "Escreva tudo de que você se acusa como mãe.",
+      'Onde errou, peça perdão. Onde não, diga: "isso eu não aceito".',
+      "Rasgue e cole no lugar Romanos 8:1."
+    ],
+    voz:"Eu não carrego a culpa das escolhas do meu filho.",
+    acao:"tear"
+  },
+  F7:{
+    t:"Quando o meu filho anda com más companhias",
+    nome:"O medo de cada saída",
+    frase:"Ele sai, o seu coração vai junto, e cada mensagem sem resposta já vira o pior na sua cabeça.",
+    sinais:[
+      {i:"door", t:"Ele sai e o coração vai junto"},
+      {i:"phone", t:"Mensagem sem resposta, e a cabeça imagina o pior"},
+      {i:"clock", t:"Cada demora pesa"}
+    ],
+    virada:"O medo empurra pra dois extremos: vigiar tudo ou se calar. Os dois abrem distância. E filho longe por dentro fica mais perto do que tem lá fora.",
+    tentou:["Sermão","Proibir, desconfiar"],
+    chave:"Sermão afasta. Presença aproxima.",
+    arma:"Orar por onde ele anda e chegar perto em casa",
+    princ:"Uma mão na oração, onde você não entra. A outra trazendo ele pra perto.",
+    passo:[
+      "Chame ele pra um lanche, só vocês dois, sem cobrança.",
+      "Pergunte o nome de um amigo de quem ele gosta.",
+      function(){ return horaTxt()+", ore por esse amigo pelo nome."; }
+    ],
+    voz:"O Senhor guarda a saída e a chegada do meu filho.",
+    acao:"coffee"
+  },
+  F8:{
+    t:"Quando o meu filho é rebelde e me enfrenta",
+    nome:"Queda de braço em casa",
+    frase:"Qualquer conversa vira briga, e tem dia que você não reconhece o filho que carregou no colo.",
+    sinais:[
+      {i:"flame", t:"Qualquer conversa vira briga"},
+      {i:"ear", t:"Você fala, ele não ouve"},
+      {i:"heart", t:"Nem parece o filho que você carregou no colo"}
+    ],
+    virada:"A briga já não é sobre o assunto. É sobre quem ganha. E autoridade que precisa gritar já está perdendo a guerra.",
+    tentou:["Falar mais alto","Repetir o sermão"],
+    chave:"Pra filho que não quer ouvir, a arma quase nunca é falar mais.",
+    arma:"Autoridade com mansidão, e a estratégia de Deus",
+    princ:"Cada filho tem um jeito. A estratégia vem de Deus, não do grito.",
+    passo:[
+      "Faça uma coisa com ele sem corrigir nada: nem roupa, nem quarto, nem jeito de falar.",
+      function(){ return horaTxt()+", peça a Deus uma estratégia pra esse filho e anote o que vier."; }
+    ],
+    voz:"A minha autoridade não precisa de grito pra ser autoridade.",
+    acao:"pen"
+  },
+  F20:{
+    t:function(){ return jovem() ? "Quando vamos consagrar os nossos filhos" : "Quando vamos consagrar os nossos filhos e netos"; },
+    nome:"Filho bem, coração inquieto",
+    frase:"Graças a Deus ele tá bem, mas você vê o que o mundo faz com tanto filho e quer cobrir o seu antes que aperte.",
+    sinais:[
+      {i:"hands", t:"Graças a Deus, ele está bem"},
+      {i:"globe", t:"Você vê o que o mundo faz com tanto filho"},
+      {i:"shield", t:"E quer cobrir antes que aperte"}
+    ],
+    virada:"O alvo do inimigo não é só a casa de hoje. É a geração. E a hora de cobrir é quando está tudo bem.",
+    tentou:["Orar forte só quando a crise chega"],
+    chave:"Aí é correr atrás. Você tem a chance de fazer o contrário.",
+    arma:"A bênção falada sobre ele",
+    princ:"Dizer em voz alta que o seu filho é herança de Deus.",
+    passo:[
+      "Abençoe o seu filho com Números 6:24-26, usando o nome dele.",
+      'Se der, com a mão sobre ele. Se ele estiver longe, sobre uma foto, e mande "orei por você hoje".'
+    ],
+    voz:"Os meus filhos são herança do Senhor.",
+    acao:"hands"
+  },
+  O7:{
+    t:"Quando eu oro e parece que Deus não me ouve",
+    nome:"Oração que bate no teto",
+    frase:"Você pede a mesma coisa há tanto tempo que já dá medo de perguntar se Deus ainda escuta.",
+    sinais:[
+      {i:"refresh", t:"O mesmo pedido, de novo e de novo"},
+      {i:"wall", t:"Parece que bate no teto e volta"},
+      {i:"help", t:'"Será que Deus parou de me ouvir?"'}
+    ],
+    virada:"O perigo não é a demora. É o que a demora faz com você. O inimigo não impede Deus de ouvir. Então tenta convencer você a parar.",
+    tentou:["Orar mais alto, mais tempo","Pedir pra mais gente orar"],
+    chave:"Não falta volume. Falta saber o que fazer enquanto a resposta não chega.",
+    arma:"Perseverar no tempo de Deus",
+    princ:"Daniel foi ouvido no primeiro dia, e só viu a resposta 21 dias depois (Daniel 10:12).",
+    passo:[
+      "Liste os pedidos antigos, com a data em que cada um começou.",
+      'Ao lado de cada um: "Deus ouviu desde o primeiro dia".',
+      "Leia Daniel 10:12 em voz alta."
+    ],
+    voz:"A demora não é silêncio de Deus. É o tempo de Deus.",
+    acao:"list"
+  },
+  O2:{
+    t:"Quando eu não sei o que falar com Deus",
+    nome:"Sem palavras diante de Deus",
+    frase:"Você chega pra orar, não sabe o que dizer, e fica achando que a sua oração é pobre.",
+    sinais:[
+      {i:"refresh", t:"As mesmas frases de sempre"},
+      {i:"cloud", t:"Às vezes só sai choro"},
+      {i:"bubble", t:"Perto da irmã que ora bonito, a sua parece pouca"}
+    ],
+    virada:'Isso não é problema de fé. É vergonha de orar "feio". E essa vergonha vai afastando você de Deus, um pouquinho por dia.',
+    tentou:["Se esforçar pra falar mais","Vídeo de como orar"],
+    chave:"Não falta esforço. Faltam palavras. E Deus já te deu as Dele.",
+    arma:"Orar a Palavra",
+    princ:"Quando faltam palavras, você usa as de Deus. Os Salmos foram escritos pra isso.",
+    passo:[
+      function(){ return horaTxt()+", leia o Salmo 23 devagar, em voz alta."; },
+      "Depois de cada versículo, diga uma frase sua pra Deus.",
+      "Anote o versículo que mais falou com você."
+    ],
+    voz:"Quando me faltam palavras, eu oro a Palavra.",
+    acao:"book"
+  },
+  O5:{
+    t:"Quando eu perdi a vontade de orar",
+    nome:"A vontade de orar sumiu",
+    frase:"Você sabe que precisa, mas a vontade foi embora, e isso dá medo.",
+    sinais:[
+      {i:"flame", t:"A vontade foi embora"},
+      {i:"help", t:"Parece que não tem o que falar com Deus"},
+      {i:"alert", t:"E dá medo, porque você sabe que precisa"}
+    ],
+    virada:"A fé não esfriou. O que tem é distância. E distância dá pra voltar. O perigo é esperar a vontade voltar sozinha.",
+    tentou:["Esperar a vontade voltar","Se forçar e se culpar"],
+    chave:"As duas coisas cansam.",
+    arma:"Decidir antes de sentir",
+    princ:"O salmista mandava a própria alma esperar em Deus (Salmos 42:11).",
+    passo:[
+      function(){ return horaTxt()+', diga em voz alta: "Eu não tenho vontade, mas estou aqui."'; },
+      "Coloque um louvor de que você gosta e cante junto, do começo ao fim."
+    ],
+    voz:"Minha alma, espere em Deus. Eu ainda vou louvá-Lo.",
+    acao:"music"
+  },
+  O12:{
+    t:"Quando a rotina não me deixa tempo para Deus",
+    nome:"Deus sempre pra depois",
+    frase:"Você quer orar, de verdade, mas o dia engole tudo e fica aquela sensação de estar devendo pra Deus.",
+    sinais:[
+      {i:"clock", t:"O dia engole tudo"},
+      {i:"list", t:'"Quando a vida acalmar, eu oro"'},
+      {i:"cloud", t:"Aquela sensação de estar devendo pra Deus"}
+    ],
+    virada:"A fase ideal não chega. E cada dia esperando a hora certa, a culpa cresce e a oração diminui.",
+    tentou:["Prometer uma hora inteira de oração"],
+    chave:"Não cabe no dia. Você não cumpre, se sente mal e desiste de novo.",
+    arma:"Um lugar fixo pra Deus na rotina de verdade",
+    princ:"Pequeno e fixo, no meio das tarefas.",
+    passo:[
+      "Escolha uma âncora do seu dia: o café, o banho, o ônibus.",
+      'Escreva: "Este é o meu horário com Deus".',
+      "Amanhã, nessa âncora, 5 minutos. Só 5."
+    ],
+    voz:"A minha vida com Deus não espera a fase ideal.",
+    acao:"coffee"
+  },
+  O1:{
+    t:"Quando eu quero orar, mas não consigo começar",
+    nome:"Travada na hora de começar",
+    frase:'Você quer orar, mas não sabe por onde começar, e o "agorinha eu oro" vira amanhã.',
+    sinais:[
+      {i:"heart", t:"A vontade existe"},
+      {i:"clock", t:'"Agorinha eu oro"… e o agorinha não chega'},
+      {i:"help", t:"Parece que todo mundo sabe orar, menos você"}
+    ],
+    virada:"Não é falta de fé. É o tamanho que a oração ganhou na sua cabeça. Uma hora de joelho nunca cabe no dia, então nunca começa.",
+    tentou:["Esperar o momento certo",'"Amanhã vai ser diferente"'],
+    chave:"O momento certo não aparece sozinho.",
+    arma:"Começar pequeno, antes de tudo",
+    princ:"Pequeno e fiel vale mais que grande e nunca.",
+    passo:[
+      "Hoje à noite, ponha a Bíblia em cima do celular.",
+      'Amanhã, antes de pegar o celular: "Senhor, hoje eu começo contigo."',
+      "Sete dias seguidos. Se falhar um, continue no outro."
+    ],
+    voz:"O meu tempo com Deus começa agora, não depois.",
+    acao:"phone"
+  },
+  O15:{
+    t:"Quando a crise da minha casa está roubando a minha oração",
+    nome:"Cansada demais pra orar",
+    frase:"A casa aperta tanto que, quando chega a hora de orar, não sobra força nem pra pedir.",
+    sinais:[
+      {i:"battery", t:"Sem força nem pra orar"},
+      {i:"home", t:"A casa aperta por todo lado"},
+      {i:"clipboard", t:"A oração virou mais um peso na lista"}
+    ],
+    virada:"Parece que tudo depende de você. Não depende. Você não é a salvadora da sua casa. Jesus é.",
+    tentou:["Buscar mais força pra orar mais"],
+    chave:"Ninguém sai do cansaço colocando mais peso nas costas.",
+    arma:"Entregar o peso e deixar outros orarem com você",
+    princ:"A sua parte agora não é fazer mais. É entregar.",
+    passo:[
+      function(){ return horaTxt()+', diga a Deus: "Senhor, as minhas forças acabaram."'; },
+      "Mande mensagem pra 2 ou 3 pessoas de confiança pedindo oração nesta semana."
+    ],
+    voz:"Eu não carrego este fardo sozinha.",
+    acao:"phone"
+  },
+  D1:{
+    t:"Quando as dívidas tiram a minha paz",
+    nome:"Dívida tirando a paz",
+    frase:"O dinheiro virou um peso que não sai da cabeça, nem na hora de deitar.",
+    sinais:[
+      {i:"brain", t:"Não sai da cabeça"},
+      {i:"eyeoff", t:"Dá vontade de nem olhar"},
+      {i:"moon", t:"A paz vai embora junto"}
+    ],
+    virada:"O medo cresce no escuro. Dívida sem tamanho parece impagável. E quanto menos você olha, maior ela fica por dentro.",
+    tentou:["Pedir um milagre e torcer","Trabalhar mais e não olhar"],
+    chave:"O que foge da luz continua crescendo.",
+    arma:"Trazer tudo pra luz e entregar a ansiedade",
+    princ:"Levar tudo a Deus em oração, com gratidão (Filipenses 4:6-7).",
+    passo:[
+      function(){ return horaTxt()+', escreva no alto de uma folha: "Senhor, eu olho para isso contigo."'; },
+      "Comece a lista: pra quem, quanto, quantas parcelas. Mesmo que não termine hoje."
+    ],
+    voz:"Eu não fujo mais. Eu trago tudo pra luz, diante de Deus.",
+    acao:"pen"
+  },
+  D16:{
+    t:"Quando eu tenho vergonha de dever e de pedir ajuda",
+    nome:"Vergonha de estar devendo",
+    frase:"Ninguém sabe o tamanho do buraco, e a vergonha pesa quase mais que a dívida.",
+    sinais:[
+      {i:"shh", t:"Ninguém sabe o tamanho do buraco"},
+      {i:"alert", t:"A vergonha pesa mais que a dívida"},
+      {i:"hands", t:"Pedir ajuda, nem pensar"}
+    ],
+    virada:"A vergonha manda a gente se esconder, como no jardim. Mas estar devendo não te faz menos filha.",
+    tentou:["Resolver sozinha, em segredo"],
+    chave:"O segredo é justamente o que dá força pra vergonha.",
+    arma:"Receber a graça e sair do esconderijo",
+    princ:"Deus foi atrás de Adão e Eva. Em Cristo não há condenação.",
+    passo:[
+      "Diga a Deus do que você tem vergonha, pelo nome.",
+      'Mande pra alguém maduro na fé: "Estou num aperto e preciso de oração. Posso conversar com você?"'
+    ],
+    voz:"Em Cristo Jesus não há condenação pra mim.",
+    acao:"bubble"
+  },
+  D11:{
+    t:function(){ return "Quando sou eu que seguro a casa "+g("sozinha","sozinho"); },
+    nome:"A casa inteira nas costas",
+    frase:"Tudo passa por você, conta, compra, problema, e ninguém pergunta quem cuida de você.",
+    sinais:[
+      {i:"box", t:"Tudo passa por você"},
+      {i:"cloud", t:"O cansaço não é só do corpo"},
+      {i:"hands", t:"Quem cuida de todo mundo não tem quem cuide dela"}
+    ],
+    virada:'É carregar sozinha o que não foi feito pra uma pessoa só. Até Moisés ouviu: "assim você vai se esgotar".',
+    tentou:["Aguentar mais um pouco","Dormir menos, não reclamar"],
+    chave:"Força tem limite.",
+    arma:"Entregar o peso a Deus e aceitar ajuda",
+    princ:"Parar de carregar sozinha o que é de Deus carregar (Mateus 11:28).",
+    passo:[
+      function(){ return horaTxt()+", liste o que está nas suas costas."; },
+      "Entregue a Deus, item por item, o que só Ele resolve.",
+      "Peça ajuda hoje em uma tarefa. Uma só."
+    ],
+    voz:"Eu não preciso carregar tudo sozinha.",
+    acao:"hands"
   }
-  if(ORA()==="SIM") return "<b>E não é falta de oração.</b> Você ora. Mas orar do mesmo jeito pra tudo é como tentar abrir todas as portas da casa com uma chave só.";
-  return "<b>E se a oração anda difícil, ou nunca foi costume, isso não quer dizer que a sua fé acabou.</b> Quer dizer que ninguém te mostrou o que fazer numa situação como essa. Dá pra começar de onde você está. Hoje.";
+};
+function blocoOracao(){
+  if(LUTOU()){
+    var extra = {melhorou:"Por isso alivia uns dias e volta.", nada:"Deus ouve. A arma é que era outra.", cansando:"Não era pra carregar desse jeito.", piorou:"Por isso piorou em vez de melhorar."}[V("depois")] || "";
+    return {ico:"hand", html:"<b>Não foi falta de fé.</b> Você lutou com a arma que te ensinaram. Essa situação pede outra."+(extra?" <i>"+extra+"</i>":"")};
+  }
+  if(ORA()==="SIM") return {ico:"key", html:"<b>E não é falta de oração.</b> É tentar abrir todas as portas da casa com uma chave só."};
+  return {ico:"sprout", html:"<b>Oração difícil não quer dizer que a fé acabou.</b> Ninguém te mostrou o que fazer. Dá pra começar hoje."};
 }
 function cuidado(r){
   var l = V("lutas")||[];
-  if(r.main==="C" && (r.sit==="C1" || l.indexOf("c_desprezo")>-1))
-    return fem() ? "Se além das palavras existe agressão, ameaça ou medo dentro de casa, a sua segurança vem primeiro. Ligue 180 (Central de Atendimento à Mulher, gratuito, 24 horas) ou 190 em emergência. Orar e se proteger andam juntos."
-                 : "Se além das palavras existe agressão, ameaça ou medo dentro de casa, a sua segurança vem primeiro. Ligue 190 em emergência. Orar e se proteger andam juntos.";
-  if(r.main==="F" && (l.indexOf("f_vicio")>-1 || V("cenaFil")==="medo"))
-    return "Se o seu filho está no vício, em depressão ou em risco, oração e ajuda profissional andam juntas: CAPS, médico, psicólogo. Em crise, CVV 188 (gratuito, 24 horas).";
-  if(r.main==="O" && l.indexOf("o_longe")>-1 && l.indexOf("o_vontade")>-1)
-    return "Se o desânimo virou uma tristeza que não passa, falta de vontade de viver ou crise de ansiedade, procure também um médico ou psicólogo. Um não substitui o outro. Em crise, CVV 188.";
-  if(r.main==="D")
-    return "Se o aperto está tirando o seu sono a ponto de você pensar em desistir, fala com alguém hoje: CVV 188, gratuito, 24 horas. E procure orientação financeira: pedir ajuda é sabedoria.";
+  if(r.main==="C"){ if(r.sit==="C1" || l.indexOf("c_desprezo")!==-1) return "Se existe agressão, ameaça ou medo em casa, a sua segurança vem primeiro: <b>180</b> (24h, grátis) ou <b>190</b>. Orar e se proteger andam juntos."; }
+  if(r.main==="F"){ if(l.indexOf("f_vicio")!==-1 || V("cenaFil")==="medo") return "Vício, depressão ou risco? Oração e ajuda profissional andam juntas: CAPS, médico, psicólogo. Em crise, <b>CVV 188</b>."; }
+  if(r.main==="O"){ if(l.indexOf("o_longe")!==-1){ if(l.indexOf("o_vontade")!==-1) return "Tristeza que não passa ou crise de ansiedade? Procure também um médico ou psicólogo. Em crise, <b>CVV 188</b>."; } }
+  if(r.main==="D") return "Perdendo o sono a ponto de pensar em desistir? <b>CVV 188</b>, hoje. E buscar orientação financeira é sabedoria.";
   return "";
 }

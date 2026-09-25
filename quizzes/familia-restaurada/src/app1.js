@@ -16,8 +16,32 @@ var CFG = {
     D: "https://chk.eduzz.com/KW8ZZKDR01"
   },
   utmDefaults: { utm_source:"quiz", utm_medium:"funnel", utm_campaign:"familia-restaurada" },
-  avista: "47", parcelas: "11x de R$ 5,22"
+  avista: "47", parcelas: "11x de R$ 5,22",
+  /* Pasta dist/assets/ depois do upload na mídia do WordPress. python3 build.py --asset-base URL */
+  assetBase: "__ASSET_BASE__"
 };
+function au(file){
+  var b = CFG.assetBase || "";
+  if(!b) return "";
+  if(b.charAt(b.length-1)!=="/") b = b+"/";
+  return b+file;
+}
+/* Chaves de situação (C1… e $1/$16/$11), fallback de área e p3. Vazio = não renderiza. */
+CFG.images = {
+  C1:au("fr-cena-C1.webp"), C2:au("fr-cena-C2.webp"), C15:au("fr-cena-C15.webp"), C7:au("fr-cena-C7.webp"), C10:au("fr-cena-C10.webp"), C14:au("fr-cena-C14.webp"),
+  F2:au("fr-cena-F2.webp"), F7:au("fr-cena-F7.webp"), F8:au("fr-cena-F8.webp"), F20:au("fr-cena-F20.webp"),
+  O7:au("fr-cena-O7.webp"), O2:au("fr-cena-O2.webp"), O5:au("fr-cena-O5.webp"), O12:au("fr-cena-O12.webp"), O1:au("fr-cena-O1.webp"), O15:au("fr-cena-O15.webp"),
+  "$1":au("fr-cena-$1.webp"), "$16":au("fr-cena-$16.webp"), "$11":au("fr-cena-$11.webp"),
+  area_C:au("fr-area-C.webp"), area_F:au("fr-area-F.webp"), area_O:au("fr-area-O.webp"), "area_$":au("fr-area-$.webp"),
+  p3:au("fr-p3.webp"),
+  capa_C:au("fr-capa-casamento.webp"), capa_F:au("fr-capa-filhos.webp"), capa_O:au("fr-capa-oracao.webp"), capa_D:au("fr-capa-financeiro.webp"),
+  autora:au("fr-ezenete-autora.webp"),
+  preview_C:au("fr-preview-casamento.webp"),
+  simbolo_C:au("fr-simbolo-casamento.svg"), simbolo_F:au("fr-simbolo-filhos.svg"), simbolo_O:au("fr-simbolo-oracao.svg"), simbolo_D:au("fr-simbolo-financeiro.svg"),
+  relato1:au("fr-relato-1.webp"), relato2:au("fr-relato-2.webp"), relato3:au("fr-relato-3.webp")
+};
+/* Comparação sem o caractere >= (o wpautop do Elementor já trocou x>=2 numa publicação). */
+function ge(a,b){ var d=a-b; return d===Math.abs(d); }
 /* ============================================================= */
 
 var STORE = "fr_state";
