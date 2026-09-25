@@ -84,6 +84,14 @@ const only = process.argv[2];
     for (const s of (e.present || [])) if (!visited.includes(s)) fail.push(`missing ${s}`);
     for (const s of (e.absent || [])) if (visited.includes(s)) fail.push(`should skip ${s}`);
     for (const t of (e.contains || [])) if (!allText.includes(t)) fail.push(`text missing: ${t}`);
+    const pron = await page.evaluate(() => {
+      const F = window.__FR, old = F.S.answers.sexo, out = {};
+      F.S.answers.sexo = 'Mulher'; out.f = F.sitNome('C7');
+      F.S.answers.sexo = 'Homem'; out.m = F.sitNome('C7');
+      F.S.answers.sexo = old; return out;
+    });
+    if (pron.f !== 'O vazio que ele deixou') fail.push('C7 mulher: ' + pron.f);
+    if (pron.m !== 'O vazio que ela deixou') fail.push('C7 homem: ' + pron.m);
     if (path.id === 'P3-oracao-nao-ora') {
       const full = await page.evaluate(() => (document.querySelector('#fr-stage') || {}).textContent || '');
       const ans = 'Não. O material te ajuda a orar com direção e constância. A resposta é de Deus, no tempo dele.';

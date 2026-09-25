@@ -319,7 +319,7 @@ function interiorHtml(area){
     {i:"search", t:"O que está acontecendo"},
     {i:"sword", t:"A arma e o passo a passo"},
     {i:"hands", t:ora},
-    {i:"check", t:"O Pra hoje"}
+    {i:"check", t:"Pra hoje"}
   ];
   var lis = items.map(function(x){ return "<li>"+ico(x.i, 18)+"<span>"+esc(x.t)+"</span></li>"; }).join("");
   var prev = areaPreview(area);
@@ -328,10 +328,10 @@ function interiorHtml(area){
 }
 function cicloHtml(){
   var n2 = reageCurta(), n3 = voltaCurta();
+  void n2;
   return "<div class='fr-ciclo'>"
-    + "<svg class='fr-ciclo-ring' viewBox='0 0 200 200' aria-hidden='true'><path d='M100 28a72 72 0 0 1 62 36' fill='none' stroke='#A25A38' stroke-width='1.5'/><path d='M162 100a72 72 0 0 1-36 62' fill='none' stroke='#A25A38' stroke-width='1.5'/><path d='M100 172a72 72 0 0 1-62-36' fill='none' stroke='#A25A38' stroke-width='1.5'/><path d='M38 100a72 72 0 0 1 36-62' fill='none' stroke='#A25A38' stroke-width='1.5'/></svg>"
     + "<div class='cn c1'><span class='k'>1</span><b>A situação aperta</b></div>"
-    + "<div class='cn c2'><span class='k'>2</span><b>Você reage</b><span class='sub'>"+esc(n2)+"</span></div>"
+    + "<div class='cn c2'><span class='k'>2</span><b>Você reage</b></div>"
     + "<div class='cn c3'><span class='k'>3</span><b>"+esc(n3)+"</b></div>"
     + "<div class='cn c4'><span class='k'>4</span><b>Vem a culpa</b><span class='sub'>“será que o problema sou eu?”</span></div>"
     + "<div class='cmid'>O problema não é você.</div>"
@@ -346,7 +346,7 @@ function p3chips(area){
     D:[["sun","Dívida","os números na luz"],["compass","Sufoco","sabedoria pra renegociar"],["hands","Peso","coragem de pedir ajuda"]]
   };
   return (map[area]||[]).map(function(x){
-    return "<span class='fr-p3chip'>"+ico(x[0], 16)+"<span><b>"+esc(x[1])+"</b> "+esc(x[2])+"</span></span>";
+    return "<span class='fr-p3chip'>"+icoCirc(x[0])+"<span><b>"+esc(x[1])+"</b> <span class='arr'>&rarr;</span> "+esc(x[2])+"</span></span>";
   }).join("");
 }
 function renderPitch(el){
@@ -383,15 +383,17 @@ function renderPitch(el){
     + "<details class='fr-acc'><summary>Como pago?</summary><p>Pix ou cartão. R$ "+CFG.avista+" à vista ou "+CFG.parcelas+".</p></details>"
     + "<details class='fr-acc'><summary>E se eu não gostar?</summary><p>Você tem 7 dias pra pedir o reembolso.</p></details>";
   var btn = "<a class='fr-cta fr-buy' href='"+esc(url)+"'>"+BTN[r.main]+"</a>";
-  var also = r.second ? "<span class='fr-also'>"+symHtml(r.second, 22)+" também: "+AREA2_TXT(r.second)+"</span>" : "";
+  var also = r.second ? "<p class='fr-sum-second'>"+symHtml(r.second, 22)+" também: "+AREA2_TXT(r.second)+"</p>" : "";
   var p3fecha = LUTOU() ? "Não foi falta de fé. Foi o mesmo remédio pra tudo." : "Não é falta de fé. Faltou o remédio certo.";
   var passo3nome = r.main==="C" ? dele() : "dele";
   el.innerHTML = "<div class='fr-pitch'>"
     + "<section class='fr-blk fr-sum'>"
     + "<p class='fr-selo'>SEU RESULTADO</p>"
-    + "<div class='fr-sumrow'>"+symHtml(r.main, 40)+"<span class='fr-sitchip on'>"+esc(sitN)+"</span>"+also+"</div>"
-    + "<p class='fr-okarma'>"+ico("check", 16)+" Primeira arma na mão</p>"
+    + "<div class='fr-summark'>"+symHtml(r.main, 56)+"</div>"
+    + "<h2 class='fr-sumsit'>"+esc(sitN)+"</h2>"
+    + "<p class='fr-okarma'>"+ico("check", 18)+" Primeira arma na mão</p>"
     + "<p class='fr-dx-p'>"+(nome?nome+", ":"")+"me dá 2 minutos. Quero te mostrar por que isso volta, e o que fazer em cada situação.</p>"
+    + also
     + "</section>"
     + "<section class='fr-blk'><h2 class='fr-h2'>Por que parece que nada muda</h2>"+cicloHtml()+"</section>"
     + "<section class='fr-blk'>"
@@ -404,7 +406,7 @@ function renderPitch(el){
     + "</section>"
     + "<section class='fr-blk'><h2 class='fr-h2'>Como a Pra. Ezenete ensina há mais de 20 anos:</h2>"
     + "<ol class='fr-stepper'>"
-    + "<li class='done'><span class='fr-num'>1<span class='ok'>"+ico("check", 12)+"</span></span><div><b>Entender o que está acontecendo.</b><p>Não é “abençoa minha casa”. É dar nome à situação.</p><i class='done-note'>você já fez</i></div></li>"
+    + "<li class='done'><span class='fr-num'>"+ico("check", 18)+"</span><div><b>Entender o que está acontecendo.</b><p>Não é “abençoa minha casa”. É dar nome à situação.</p><i class='done-note'>você já fez</i></div></li>"
     + "<li><span class='fr-num'>2</span><div><b>Usar a arma daquela situação.</b><p>Palavra, louvor, silêncio, perdão, jejum, atitude.</p></div></li>"
     + "<li><span class='fr-num'>3</span><div><b>Falar a Palavra e fazer a sua parte.</b><p>Em voz alta, com o nome "+esc(passo3nome)+", e um passo hoje.</p></div></li>"
     + "</ol>"

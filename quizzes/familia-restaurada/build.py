@@ -244,6 +244,10 @@ def main():
         "type": "section",
     }
     (d / "elementor-quiz-familia-restaurada.json").write_text(json.dumps(pack, ensure_ascii=False))
+    vis = B / "dist-v-visual"
+    vis.mkdir(exist_ok=True)
+    (vis / "quiz-codigo-para-colar.txt").write_text(snippet)
+    (vis / "elementor-quiz-familia-restaurada.json").write_text(json.dumps(pack, ensure_ascii=False))
     print("ok", len(snippet), "assetBase", base or "(vazio)", "assets", len(written))
 
 if __name__ == "__main__":

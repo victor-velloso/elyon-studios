@@ -34,7 +34,7 @@ function sitFor(area){
 var AREA_NAME = {C:"Casamento", F:"Filhos", O:"Vida de Oração", D:"Financeiro"};
 var AREA_NOME = {C:"Casamento", F:"Filhos", O:"Oração", D:"Financeiro"};
 var MATERIAL = {C:"Casamento Restaurado", F:"Filhos Restaurados", O:"Vida de Oração Restaurada", D:"Financeiro Restaurado"};
-var SUB = {C:"20 armas espirituais para restaurar o seu casamento", F:"20 armas espirituais para restaurar os seus filhos", O:"20 armas espirituais para restaurar a sua vida de oração", D:"20 armas espirituais para restaurar o seu financeiro"};
+var SUB = {C:"20 armas espirituais para as situações do seu casamento", F:"20 armas espirituais para as situações dos seus filhos", O:"20 armas espirituais para as situações da sua vida de oração", D:"20 armas espirituais para as situações do seu financeiro"};
 var BTN = {C:"QUERO AS 20 ARMAS PRO MEU CASAMENTO", F:"QUERO AS 20 ARMAS PRO MEU FILHO", O:"QUERO AS 20 ARMAS PRA MINHA VIDA DE ORAÇÃO", D:"QUERO AS 20 ARMAS PRO MEU FINANCEIRO"};
 /* Variante masculina (7.1): sozinha->sozinho, calada->calado, mae->pai, perdoada->perdoado (+ adjetivos que falam dele). Pronomes do conjuge via ele()/dele()/g(). */
 var MX_RULES = [[/sozinha/g,"sozinho"],[/calada/g,"calado"],[/perdoada/g,"perdoado"],[/ficando pequena/g,"ficando pequeno"],[/está cansada/g,"está cansado"],

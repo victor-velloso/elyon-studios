@@ -346,6 +346,61 @@ font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Android Emo
 #fr-quiz .fr-anim .fr-blk.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){#fr-quiz .fr-anim .fr-blk{opacity:1;transform:none;transition:none}}
 #fr-quiz .fr-pitch .fr-h2{text-align:center !important}
+/* Escala de espaço (rodada visual): 56px entre seções, 28px entre blocos, 14px título→texto, corpo 1.6 */
+#fr-quiz{--sp-sec:56px;--sp-blk:28px;--sp-title:14px}
+#fr-quiz .fr-h1,#fr-quiz .fr-h2{margin-bottom:var(--sp-title) !important}
+#fr-quiz .fr-sub,#fr-quiz .fr-card,#fr-quiz .fr-dx-p,#fr-quiz .fr-pitch p,#fr-quiz .fr-support,#fr-quiz .fr-dx-lead,#fr-quiz .fr-frase,#fr-quiz .fr-linha,#fr-quiz .fr-arma-princ,#fr-quiz .fr-stepper p,#fr-quiz .fr-antes p,#fr-quiz .fr-calls li,#fr-quiz .fr-sinais li{line-height:1.6 !important}
+#fr-quiz .fr-opts{gap:12px;margin-top:4px}
+#fr-quiz .fr-card{margin:16px 0}
+#fr-quiz .fr-pitch>.fr-blk{margin:0 0 var(--sp-sec)}
+#fr-quiz .fr-folha{padding:28px 22px 36px !important}
+#fr-quiz .fr-dx-top{margin-bottom:var(--sp-sec) !important}
+#fr-quiz .fr-dx-sec{margin:0 0 var(--sp-sec) !important}
+#fr-quiz .fr-dx-p{margin:0 0 16px !important}
+#fr-quiz .fr-dx-label{margin:0 0 var(--sp-title) !important}
+#fr-quiz .fr-reco{margin:0 0 16px !important}
+#fr-quiz .fr-frase{margin:0 0 16px !important}
+#fr-quiz .fr-folha .fr-ar{margin:var(--sp-blk) 0 8px !important}
+#fr-quiz .fr-sinais{margin:0 0 var(--sp-blk) !important}
+#fr-quiz .fr-sinais li{margin:0 0 14px !important;align-items:flex-start}
+#fr-quiz .fr-virada{margin:8px 0 var(--sp-blk) !important}
+#fr-quiz .fr-dx-alivio{margin:var(--sp-blk) 0 0 !important}
+#fr-quiz .fr-arma-nome{margin:0 0 var(--sp-title) !important}
+#fr-quiz .fr-pitch .fr-h2{margin:0 0 var(--sp-title) !important}
+#fr-quiz .fr-sum{text-align:center !important;padding:28px 20px 24px !important;display:flex;flex-direction:column;align-items:center}
+#fr-quiz .fr-summark{display:flex;justify-content:center;margin:8px auto 12px}
+#fr-quiz .fr-summark .fr-sym{margin:0 auto !important}
+#fr-quiz .fr-sumsit{font-family:'Raleway',sans-serif !important;font-weight:800 !important;font-size:26px !important;line-height:1.25 !important;color:#7E4527 !important;text-align:center !important;margin:4px 0 12px !important;max-width:22ch}
+#fr-quiz .fr-sum .fr-okarma{margin:4px 0 12px !important}
+#fr-quiz .fr-sum .fr-dx-p{text-align:center !important;margin:4px 0 0 !important;max-width:36ch}
+#fr-quiz .fr-sum-second{width:100%;margin:20px 0 0 !important;padding-top:16px;border-top:1px solid #EAE0D5;font-style:italic;color:#6E6157 !important;font-size:15px !important;line-height:1.5 !important;display:flex;align-items:center;justify-content:center;gap:8px;text-align:center}
+#fr-quiz .fr-sum-second .fr-sym{margin:0 !important;flex:0 0 auto}
+#fr-quiz .fr-ciclo{gap:16px !important;margin:16px 0 4px !important}
+#fr-quiz .fr-ciclo-ring{display:none !important}
+#fr-quiz .fr-ciclo .cn{padding:16px 12px !important;line-height:1.45 !important}
+#fr-quiz .fr-p3chips{gap:12px !important;margin:var(--sp-blk) 0 12px !important}
+#fr-quiz .fr-p3chip{gap:12px !important;padding:12px 14px !important;align-items:center}
+#fr-quiz .fr-p3chip .fr-icirc{width:40px;height:40px;flex:0 0 auto}
+#fr-quiz .fr-p3chip .arr{color:#A25A38 !important;font-weight:700;padding:0 2px}
+#fr-quiz .fr-stepper li{padding:0 0 24px}
+#fr-quiz .fr-stepper p{margin:8px 0 0 !important}
+#fr-quiz .fr-stepper li.done .fr-num svg{display:block}
+#fr-quiz .fr-desk{height:300px !important;max-width:100% !important;margin:var(--sp-blk) auto !important}
+#fr-quiz .fr-phone{width:176px;height:292px;padding:10px}
+#fr-quiz .fr-phone .scr{background:#FAF6F1 !important;display:flex;align-items:center;justify-content:center}
+#fr-quiz .fr-phone img{width:100% !important;height:100% !important;object-fit:contain !important;object-position:center !important}
+#fr-quiz .fr-sheet{height:220px;top:46px;background:#FAF6F1 !important}
+#fr-quiz .fr-sheet img{object-fit:contain !important;object-position:center !important;background:#FAF6F1 !important}
+#fr-quiz .fr-ar.fr-ar-page{aspect-ratio:auto !important;max-height:none !important;height:auto !important;overflow:visible !important;margin:var(--sp-blk) auto 4px !important;border:1px solid #EAE0D5;background:#FAF6F1 !important;padding:10px;box-shadow:0 8px 24px rgba(47,33,24,.06)}
+#fr-quiz .fr-ar.fr-ar-page img{position:static !important;inset:auto !important;width:100% !important;height:auto !important;max-height:none !important;object-fit:contain !important}
+#fr-quiz .fr-calls{margin:20px 0 var(--sp-blk) !important}
+#fr-quiz .fr-calls li{margin:0 0 12px !important;align-items:center}
+#fr-quiz .fr-antes{gap:20px !important;margin:0 0 var(--sp-blk) !important;align-items:stretch}
+#fr-quiz .fr-antes .col{height:100%;display:flex;flex-direction:column;padding:20px 14px 16px !important}
+#fr-quiz .fr-antes p:last-child{margin-bottom:0 !important}
+#fr-quiz .fr-sitchips{gap:10px !important;margin:8px 0 16px !important}
+#fr-quiz .fr-extras li{margin:0 0 12px !important;line-height:1.5}
+#fr-quiz .fr-gar{margin:0}
 #fr-quiz .fr-sym{display:flex;align-items:center;justify-content:center;color:#A25A38}
 #fr-quiz .fr-dx-top>.fr-sym{margin:8px auto}
 #fr-quiz .fr-sym svg,#fr-quiz .fr-sym img{width:100%;height:100%;display:block;object-fit:contain}
@@ -776,7 +831,7 @@ function sitFor(area){
 var AREA_NAME = {C:"Casamento", F:"Filhos", O:"Vida de Oração", D:"Financeiro"};
 var AREA_NOME = {C:"Casamento", F:"Filhos", O:"Oração", D:"Financeiro"};
 var MATERIAL = {C:"Casamento Restaurado", F:"Filhos Restaurados", O:"Vida de Oração Restaurada", D:"Financeiro Restaurado"};
-var SUB = {C:"20 armas espirituais para restaurar o seu casamento", F:"20 armas espirituais para restaurar os seus filhos", O:"20 armas espirituais para restaurar a sua vida de oração", D:"20 armas espirituais para restaurar o seu financeiro"};
+var SUB = {C:"20 armas espirituais para as situações do seu casamento", F:"20 armas espirituais para as situações dos seus filhos", O:"20 armas espirituais para as situações da sua vida de oração", D:"20 armas espirituais para as situações do seu financeiro"};
 var BTN = {C:"QUERO AS 20 ARMAS PRO MEU CASAMENTO", F:"QUERO AS 20 ARMAS PRO MEU FILHO", O:"QUERO AS 20 ARMAS PRA MINHA VIDA DE ORAÇÃO", D:"QUERO AS 20 ARMAS PRO MEU FINANCEIRO"};
 /* Variante masculina (7.1): sozinha->sozinho, calada->calado, mae->pai, perdoada->perdoado (+ adjetivos que falam dele). Pronomes do conjuge via ele()/dele()/g(). */
 var MX_RULES = [[/sozinha/g,"sozinho"],[/calada/g,"calado"],[/perdoada/g,"perdoado"],[/ficando pequena/g,"ficando pequeno"],[/está cansada/g,"está cansado"],
@@ -1668,7 +1723,7 @@ function interiorHtml(area){
     {i:"search", t:"O que está acontecendo"},
     {i:"sword", t:"A arma e o passo a passo"},
     {i:"hands", t:ora},
-    {i:"check", t:"O Pra hoje"}
+    {i:"check", t:"Pra hoje"}
   ];
   var lis = items.map(function(x){ return "<li>"+ico(x.i, 18)+"<span>"+esc(x.t)+"</span></li>"; }).join("");
   var prev = areaPreview(area);
@@ -1677,10 +1732,10 @@ function interiorHtml(area){
 }
 function cicloHtml(){
   var n2 = reageCurta(), n3 = voltaCurta();
+  void n2;
   return "<div class='fr-ciclo'>"
-    + "<svg class='fr-ciclo-ring' viewBox='0 0 200 200' aria-hidden='true'><path d='M100 28a72 72 0 0 1 62 36' fill='none' stroke='#A25A38' stroke-width='1.5'/><path d='M162 100a72 72 0 0 1-36 62' fill='none' stroke='#A25A38' stroke-width='1.5'/><path d='M100 172a72 72 0 0 1-62-36' fill='none' stroke='#A25A38' stroke-width='1.5'/><path d='M38 100a72 72 0 0 1 36-62' fill='none' stroke='#A25A38' stroke-width='1.5'/></svg>"
     + "<div class='cn c1'><span class='k'>1</span><b>A situação aperta</b></div>"
-    + "<div class='cn c2'><span class='k'>2</span><b>Você reage</b><span class='sub'>"+esc(n2)+"</span></div>"
+    + "<div class='cn c2'><span class='k'>2</span><b>Você reage</b></div>"
     + "<div class='cn c3'><span class='k'>3</span><b>"+esc(n3)+"</b></div>"
     + "<div class='cn c4'><span class='k'>4</span><b>Vem a culpa</b><span class='sub'>“será que o problema sou eu?”</span></div>"
     + "<div class='cmid'>O problema não é você.</div>"
@@ -1695,7 +1750,7 @@ function p3chips(area){
     D:[["sun","Dívida","os números na luz"],["compass","Sufoco","sabedoria pra renegociar"],["hands","Peso","coragem de pedir ajuda"]]
   };
   return (map[area]||[]).map(function(x){
-    return "<span class='fr-p3chip'>"+ico(x[0], 16)+"<span><b>"+esc(x[1])+"</b> "+esc(x[2])+"</span></span>";
+    return "<span class='fr-p3chip'>"+icoCirc(x[0])+"<span><b>"+esc(x[1])+"</b> <span class='arr'>&rarr;</span> "+esc(x[2])+"</span></span>";
   }).join("");
 }
 function renderPitch(el){
@@ -1732,15 +1787,17 @@ function renderPitch(el){
     + "<details class='fr-acc'><summary>Como pago?</summary><p>Pix ou cartão. R$ "+CFG.avista+" à vista ou "+CFG.parcelas+".</p></details>"
     + "<details class='fr-acc'><summary>E se eu não gostar?</summary><p>Você tem 7 dias pra pedir o reembolso.</p></details>";
   var btn = "<a class='fr-cta fr-buy' href='"+esc(url)+"'>"+BTN[r.main]+"</a>";
-  var also = r.second ? "<span class='fr-also'>"+symHtml(r.second, 22)+" também: "+AREA2_TXT(r.second)+"</span>" : "";
+  var also = r.second ? "<p class='fr-sum-second'>"+symHtml(r.second, 22)+" também: "+AREA2_TXT(r.second)+"</p>" : "";
   var p3fecha = LUTOU() ? "Não foi falta de fé. Foi o mesmo remédio pra tudo." : "Não é falta de fé. Faltou o remédio certo.";
   var passo3nome = r.main==="C" ? dele() : "dele";
   el.innerHTML = "<div class='fr-pitch'>"
     + "<section class='fr-blk fr-sum'>"
     + "<p class='fr-selo'>SEU RESULTADO</p>"
-    + "<div class='fr-sumrow'>"+symHtml(r.main, 40)+"<span class='fr-sitchip on'>"+esc(sitN)+"</span>"+also+"</div>"
-    + "<p class='fr-okarma'>"+ico("check", 16)+" Primeira arma na mão</p>"
+    + "<div class='fr-summark'>"+symHtml(r.main, 56)+"</div>"
+    + "<h2 class='fr-sumsit'>"+esc(sitN)+"</h2>"
+    + "<p class='fr-okarma'>"+ico("check", 18)+" Primeira arma na mão</p>"
     + "<p class='fr-dx-p'>"+(nome?nome+", ":"")+"me dá 2 minutos. Quero te mostrar por que isso volta, e o que fazer em cada situação.</p>"
+    + also
     + "</section>"
     + "<section class='fr-blk'><h2 class='fr-h2'>Por que parece que nada muda</h2>"+cicloHtml()+"</section>"
     + "<section class='fr-blk'>"
@@ -1753,7 +1810,7 @@ function renderPitch(el){
     + "</section>"
     + "<section class='fr-blk'><h2 class='fr-h2'>Como a Pra. Ezenete ensina há mais de 20 anos:</h2>"
     + "<ol class='fr-stepper'>"
-    + "<li class='done'><span class='fr-num'>1<span class='ok'>"+ico("check", 12)+"</span></span><div><b>Entender o que está acontecendo.</b><p>Não é “abençoa minha casa”. É dar nome à situação.</p><i class='done-note'>você já fez</i></div></li>"
+    + "<li class='done'><span class='fr-num'>"+ico("check", 18)+"</span><div><b>Entender o que está acontecendo.</b><p>Não é “abençoa minha casa”. É dar nome à situação.</p><i class='done-note'>você já fez</i></div></li>"
     + "<li><span class='fr-num'>2</span><div><b>Usar a arma daquela situação.</b><p>Palavra, louvor, silêncio, perdão, jejum, atitude.</p></div></li>"
     + "<li><span class='fr-num'>3</span><div><b>Falar a Palavra e fazer a sua parte.</b><p>Em voz alta, com o nome "+esc(passo3nome)+", e um passo hoje.</p></div></li>"
     + "</ol>"
