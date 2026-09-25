@@ -407,6 +407,20 @@ font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Android Emo
 #fr-quiz .fr-car,#fr-quiz .fr-car-track{max-width:100%;min-width:0}
 #fr-quiz .fr-car-track::-webkit-scrollbar{display:none}
 #fr-quiz .fr-pitch .fr-legend{font-size:16px !important;line-height:1.45 !important;text-align:center !important}
+/* Ícones inline: tamanho explícito, sem o encolhimento do tema */
+#fr-quiz svg.fr-ico{display:block;flex:none;max-width:none !important;overflow:visible;vertical-align:middle}
+#fr-quiz .fr-care{align-items:flex-start}
+#fr-quiz .fr-care .fr-ico{margin-top:2px;color:#A25A38}
+#fr-quiz .fr-front{align-items:center}
+#fr-quiz .fr-passos li:last-child{margin-bottom:0}
+#fr-quiz .fr-voz-kicker{margin:28px 0 14px !important}
+#fr-quiz .fr-pitch .fr-dx-label{text-align:center !important}
+#fr-quiz .fr-selosnum{align-items:stretch !important}
+#fr-quiz .fr-selosnum li{align-self:stretch;height:100%;display:flex;flex-direction:column}
+@media(max-width:420px){
+#fr-quiz .fr-badge{font-size:9.5px !important;letter-spacing:0 !important;padding:6px 10px !important;line-height:1.3 !important;max-width:100%}
+#fr-quiz .fr-selosnum span{font-size:13px !important;line-height:1.35 !important}
+}
 </style>
 <script>
 (function(){
@@ -774,7 +788,7 @@ Q("t32-frase","frase","Então vamos ao ponto. Qual dessas frases parece ter sido
       + "<p>Cansaço e culpa: \"será que o problema sou eu?\"</p>";
     var colB = "<p>1. <b>Entender o que tá acontecendo de verdade</b>, do jeito que dói (\"quando "+ele()+" me ignora e não conversa comigo\", \"quando o meu filho não quer mais saber da igreja\")</p>"
       + "<p>2. <b>Usar a arma daquela situação</b>: a Palavra, o louvor, o silêncio, o perdão, o arrependimento, o jejum, uma atitude</p>"
-      + "<p>3. <b>Falar a Palavra em voz alta e fazer</b> o Pra hoje</p>"
+      + "<p>3. <b>Falar a Palavra em voz alta e fazer</b> Pra hoje</p>"
       + "<p>Oração com direção, que você consegue fazer todo dia</p>";
     return "<h2 class='fr-h2'>Olha a diferença:</h2>"
       + "<div class='fr-cmp'><div class='col a'><span class='ico'>😩</span><b class='h'>"+headA+"</b>"+colA+"</div><div class='col b'><span class='ico'>🗡️</span><b class='h'>A Arma Certa</b>"+colB+"</div></div>"
@@ -845,7 +859,7 @@ var LINHA_AREA = {
   C:function(sit){
     if(sit==="C14") return "";
     if(sit==="C7") return "<b>"+g("Ele não é o seu inimigo","Ela não é a sua inimiga")+"</b>, mesmo tendo ido embora.";
-    return "<b>"+g("O seu marido não é o seu inimigo.","a sua esposa não é a sua inimiga.")+"</b> A luta é contra o que entra pela brecha.";
+    return "<b>"+g("O seu marido não é o seu inimigo.","A sua esposa não é a sua inimiga.")+"</b> A luta é contra o que entra pela brecha.";
   },
   F:function(){ return "<b>Ele responde pelas escolhas dele. Você, pela sua parte.</b>"; },
   O:function(){ return "<b>E não é Deus que desistiu de você.</b>"; },
@@ -1498,12 +1512,12 @@ var ICONS = {
   ear:"<path d='M7 10a5 5 0 0 1 10 0c0 3-2 3.5-2 6'/><path d='M10 16.5a2.5 2.5 0 0 0 2.5 2.5'/>",
   tear:"<path d='M7 4h8l3 3v11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z'/><path d='M15 4v3h3M8 14c1.5 1 2 2 4 1.2'/>",
   cycle:"<path d='M4 12a8 8 0 0 1 13-6l1.5-1.5'/><path d='M16 3h4v4'/><path d='M20 12a8 8 0 0 1-13 6l-1.5 1.5'/><path d='M8 21H4v-4'/>",
-  pix:"<path d='M8.2 8.2 12 4.4l3.8 3.8L12 12z'/><path d='M8.2 15.8 12 19.6l3.8-3.8L12 12z'/>"
+  pix:"<path fill='currentColor' stroke='none' d='M12 3.2 14.6 5.8 12 8.4 9.4 5.8z'/><path fill='currentColor' stroke='none' d='M18.2 9.4 20.8 12 18.2 14.6 15.6 12z'/><path fill='currentColor' stroke='none' d='M12 15.6 14.6 18.2 12 20.8 9.4 18.2z'/><path fill='currentColor' stroke='none' d='M5.8 9.4 8.4 12 5.8 14.6 3.2 12z'/>"
 };
 function ico(name, px){
   var p = ICONS[name] || ICONS.check;
   var s = px || 22;
-  return "<svg class='fr-ico' viewBox='0 0 24 24' width='"+s+"' height='"+s+"' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'>"+p+"</svg>";
+  return "<svg class='fr-ico' viewBox='0 0 24 24' width='"+s+"' height='"+s+"' style='width:"+s+"px !important;height:"+s+"px !important;min-width:"+s+"px;min-height:"+s+"px;max-width:none;flex:none;display:block;overflow:visible' fill='none' stroke='currentColor' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'>"+p+"</svg>";
 }
 function icoCirc(name){ return "<span class='fr-icirc'>"+ico(name, 20)+"</span>"; }
 function dropNode(n){ if(n){ if(n.parentNode) n.parentNode.removeChild(n); } }
@@ -1538,6 +1552,12 @@ function symHtml(area, px){
   var inline = SYM[SYM_OF[area]] || "";
   if(!url) return "<span class='fr-sym' style='width:"+wh+"px;height:"+wh+"px'>"+inline+"</span>";
   return "<span class='fr-sym' style='width:"+wh+"px;height:"+wh+"px'><img class='fr-symimg' data-drop='sym' data-area='"+area+"' alt='' width='"+wh+"' height='"+wh+"' src='"+esc(url)+"'></span>";
+}
+function areaMark(area, px){
+  var name = {C:"heart", F:"sprout", O:"hands", D:"sun"}[area] || "check";
+  var s = px || 28;
+  var inner = Math.round(s * 0.62);
+  return "<span class='fr-icirc' style='width:"+s+"px;height:"+s+"px;min-width:"+s+"px;flex:0 0 "+s+"px'>"+ico(name, inner)+"</span>";
 }
 function sceneHtml(sitId){
   var primary = cfgImg(imgCode(sitId));
@@ -1634,7 +1654,7 @@ function renderResult(el){
   var irm = tresIrmas(r.main, sitN).map(function(x){ return "<span class='fr-blur'>"+esc(x)+"</span>"; }).join("");
   var front = "";
   if(r.second){
-    front = "<section class='fr-blk fr-dx-sec'><p class='fr-front'>"+symHtml(r.second, 28)+"<span><b>Também pesa aí: "+AREA2_TXT(r.second)+".</b> Quando tudo aperta junto, não é coincidência.</span></p></section>";
+    front = "<section class='fr-blk fr-dx-sec'><p class='fr-front'>"+areaMark(r.second, 28)+"<span><b>Também pesa aí: "+AREA2_TXT(r.second)+".</b> Quando tudo aperta junto, não é coincidência.</span></p></section>";
   }
   el.innerHTML = "<div class='fr-folha fr-dx'>"
     + "<section class='fr-blk fr-dx-top'>"
@@ -1787,7 +1807,7 @@ function renderPitch(el){
     + "<details class='fr-acc'><summary>Como pago?</summary><p>Pix ou cartão. R$ "+CFG.avista+" à vista ou "+CFG.parcelas+".</p></details>"
     + "<details class='fr-acc'><summary>E se eu não gostar?</summary><p>Você tem 7 dias pra pedir o reembolso.</p></details>";
   var btn = "<a class='fr-cta fr-buy' href='"+esc(url)+"'>"+BTN[r.main]+"</a>";
-  var also = r.second ? "<p class='fr-sum-second'>"+symHtml(r.second, 22)+" também: "+AREA2_TXT(r.second)+"</p>" : "";
+  var also = r.second ? "<p class='fr-sum-second'>"+areaMark(r.second, 28)+" também: "+AREA2_TXT(r.second)+"</p>" : "";
   var p3fecha = LUTOU() ? "Não foi falta de fé. Foi o mesmo remédio pra tudo." : "Não é falta de fé. Faltou o remédio certo.";
   var passo3nome = r.main==="C" ? dele() : "dele";
   el.innerHTML = "<div class='fr-pitch'>"

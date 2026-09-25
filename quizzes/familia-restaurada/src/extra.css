@@ -284,3 +284,17 @@
 #fr-quiz .fr-car,#fr-quiz .fr-car-track{max-width:100%;min-width:0}
 #fr-quiz .fr-car-track::-webkit-scrollbar{display:none}
 #fr-quiz .fr-pitch .fr-legend{font-size:16px !important;line-height:1.45 !important;text-align:center !important}
+/* Ícones inline: tamanho explícito, sem o encolhimento do tema */
+#fr-quiz svg.fr-ico{display:block;flex:none;max-width:none !important;overflow:visible;vertical-align:middle}
+#fr-quiz .fr-care{align-items:flex-start}
+#fr-quiz .fr-care .fr-ico{margin-top:2px;color:#A25A38}
+#fr-quiz .fr-front{align-items:center}
+#fr-quiz .fr-passos li:last-child{margin-bottom:0}
+#fr-quiz .fr-voz-kicker{margin:28px 0 14px !important}
+#fr-quiz .fr-pitch .fr-dx-label{text-align:center !important}
+#fr-quiz .fr-selosnum{align-items:stretch !important}
+#fr-quiz .fr-selosnum li{align-self:stretch;height:100%;display:flex;flex-direction:column}
+@media(max-width:420px){
+#fr-quiz .fr-badge{font-size:9.5px !important;letter-spacing:0 !important;padding:6px 10px !important;line-height:1.3 !important;max-width:100%}
+#fr-quiz .fr-selosnum span{font-size:13px !important;line-height:1.35 !important}
+}

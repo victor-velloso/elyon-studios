@@ -48,7 +48,7 @@ var LINHA_AREA = {
   C:function(sit){
     if(sit==="C14") return "";
     if(sit==="C7") return "<b>"+g("Ele não é o seu inimigo","Ela não é a sua inimiga")+"</b>, mesmo tendo ido embora.";
-    return "<b>"+g("O seu marido não é o seu inimigo.","a sua esposa não é a sua inimiga.")+"</b> A luta é contra o que entra pela brecha.";
+    return "<b>"+g("O seu marido não é o seu inimigo.","A sua esposa não é a sua inimiga.")+"</b> A luta é contra o que entra pela brecha.";
   },
   F:function(){ return "<b>Ele responde pelas escolhas dele. Você, pela sua parte.</b>"; },
   O:function(){ return "<b>E não é Deus que desistiu de você.</b>"; },

@@ -60,7 +60,7 @@ Q("t32-frase","frase","Então vamos ao ponto. Qual dessas frases parece ter sido
       + "<p>Cansaço e culpa: \"será que o problema sou eu?\"</p>";
     var colB = "<p>1. <b>Entender o que tá acontecendo de verdade</b>, do jeito que dói (\"quando "+ele()+" me ignora e não conversa comigo\", \"quando o meu filho não quer mais saber da igreja\")</p>"
       + "<p>2. <b>Usar a arma daquela situação</b>: a Palavra, o louvor, o silêncio, o perdão, o arrependimento, o jejum, uma atitude</p>"
-      + "<p>3. <b>Falar a Palavra em voz alta e fazer</b> o Pra hoje</p>"
+      + "<p>3. <b>Falar a Palavra em voz alta e fazer</b> Pra hoje</p>"
       + "<p>Oração com direção, que você consegue fazer todo dia</p>";
     return "<h2 class='fr-h2'>Olha a diferença:</h2>"
       + "<div class='fr-cmp'><div class='col a'><span class='ico'>😩</span><b class='h'>"+headA+"</b>"+colA+"</div><div class='col b'><span class='ico'>🗡️</span><b class='h'>A Arma Certa</b>"+colB+"</div></div>"
