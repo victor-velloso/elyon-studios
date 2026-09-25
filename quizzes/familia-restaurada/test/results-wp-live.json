@@ -1,0 +1,377 @@
+[
+ {
+  "id": "wp-mobile",
+  "visited": 41,
+  "steps": [
+   "t01-abertura",
+   "t02-idade",
+   "t03-civil",
+   "t04-filhos",
+   "t05-igreja",
+   "t06-tempo-fe",
+   "t07-quem-ora",
+   "t08-oracao",
+   "t09-origem",
+   "t10-hora",
+   "t11-insercao",
+   "t12-lutas",
+   "t13-tempo",
+   "t14-cena-casamento",
+   "t15-filho",
+   "t16-como-ora",
+   "t17-dinheiro",
+   "t18-ja-fez",
+   "t19-depois",
+   "t20-semente",
+   "t21-area",
+   "t22-filhos-sentem",
+   "t23-esconde",
+   "t24-nao-esta-so",
+   "t25-consciencia",
+   "t26-objecao",
+   "t27-quebra",
+   "t28-sonho",
+   "t29-sentir",
+   "t30-sonho-insercao",
+   "t31-compromisso",
+   "t32-frase",
+   "t33-loading",
+   "t34-captura",
+   "t35-resultado",
+   "t36-interesse",
+   "t37-diferenca",
+   "t38-quem-ensina",
+   "t39-autocrenca",
+   "t40-loading-plano",
+   "t41-pitch"
+  ],
+  "errs": [],
+  "pitch": {
+   "href": "https://chk.eduzz.com/2a5cwqts?utm_source=teste&utm_medium=teste&utm_campaign=teste&utm_content=teste%3A%3Ateste%3A%3A&utm_term=teste&fbclid=teste",
+   "href2": "https://chk.eduzz.com/2a5cwqts?utm_source=teste&utm_medium=teste&utm_campaign=teste&utm_content=teste%3A%3Ateste%3A%3A&utm_term=teste&fbclid=teste",
+   "btn": "QUERO AS 20 ARMAS PRO MEU CASAMENTO",
+   "score": {
+    "score": {
+     "C": 10,
+     "F": 2,
+     "O": 0,
+     "D": 1
+    },
+    "main": "C",
+    "second": "F",
+    "sit": "C1"
+   }
+  },
+  "posted": {
+   "nome": "Teste Quiz",
+   "whatsapp": "31999990000",
+   "email": "teste.quiz+wp-mobile@example.com",
+   "resultado": "Casamento",
+   "segunda_area": "Filhos",
+   "situacao": "Quando ele me feriu com palavras",
+   "oracao": "Oro mais quando aperta: faço campanha ou propósito",
+   "objecao": "Já orei tanto e nada mudou. Tenho medo de me frustrar de novo.",
+   "tempo": "Mais de 5 anos. Já virou rotina.",
+   "aceite": false,
+   "utms": {
+    "utm_source": "teste",
+    "utm_medium": "teste",
+    "utm_campaign": "teste",
+    "utm_content": "teste",
+    "utm_term": "teste",
+    "fbclid": "teste"
+   },
+   "score": {
+    "C": 10,
+    "F": 2,
+    "O": 0,
+    "D": 1
+   },
+   "respostas": {
+    "sexo": "Mulher",
+    "idade": "45 a 54",
+    "civil": "Casada",
+    "filhos": "Sim, adolescentes",
+    "igreja": "Congrego toda semana",
+    "tempoFe": "A vida inteira. Cresci na igreja.",
+    "quemOra": "Só eu, sozinha",
+    "oracao": "Oro mais quando aperta: faço campanha ou propósito",
+    "origem": "Pelo Instagram",
+    "hora": "À noite, quando a casa silencia",
+    "lutas": [
+     "Desprezo e palavras que ferem",
+     "Casamento frio, dois estranhos em casa",
+     "Dívida que não fecha"
+    ],
+    "tempo": "Mais de 5 anos. Já virou rotina.",
+    "cenaCas": "Não aguento mais tanta humilhação e desprezo.",
+    "cenaFil": "Ele não me ouve mais. Qualquer conversa vira briga.",
+    "jeitoOrar": "Parece que não passa do teto.",
+    "dinheiro": "Tá apertado, mas a gente se vira.",
+    "tentou": [
+     "Campanha de oração",
+     "Jejum"
+    ],
+    "depois": "Melhorou uns dias e voltou tudo.",
+    "area": "O meu casamento",
+    "filhosSentem": "Sim. E isso me dói mais que tudo.",
+    "esconde": "O que acontece no meu casamento",
+    "consciencia": "Nunca ninguém me ensinou",
+    "objecao": "Já orei tanto e nada mudou. Tenho medo de me frustrar de novo.",
+    "sonho": "Ele chegando em casa e conversando comigo",
+    "sentir": "Paz",
+    "compromisso": "Sim. É disso que eu preciso.",
+    "frase": "Não aguento mais tanto desprezo. Eu só queria o meu marido de volta, de verdade, dentro de casa."
+   },
+   "ts": "2026-09-25T19:13:10.447Z",
+   "fonte": "quiz-familia-restaurada",
+   "situacao_id": "C1",
+   "checkout": "https://chk.eduzz.com/2a5cwqts"
+  },
+  "postedAtStep": "t34-captura",
+  "texts": {
+   "t01-abertura": "TESTE GRATUITO · O QUE ESTÁ ACONTECENDO NA MINHA CASA? · 5 MINUTOS\nA sua casa tá pesada e você já não sabe mais o que fazer?\n\nO casamento. Um filho. A oração. As contas. Quando uma coisa aperta, parece que tudo aperta junto.\n\nResponda e entenda por que isso tá acontecendo na sua casa e o que fazer, na oração, pra essa situação. Cada situação tem uma causa e pede uma arma espiritual diferente. No final, você vê qual é a da sua.\n\n↓ RESPONDA PARA COMEÇAR ↓\n\nPra começar, você é:\n👩\nMulher\n👨\nHomem\n\nCom base no ensino da Pra. Ezenete Rodrigues, há mais de 20 anos à frente do Ministério de Intercessão da Estância Paraíso, em Sabará (MG).",
+   "t02-idade": "Quantos anos você tem?\n🌱\nAté 34\n🌿\n35 a 44\n🌳\n45 a 54\n🍂\n55 a 64\n🕊️\n65 ou mais",
+   "t03-civil": "Hoje você é...\n💍\nCasada\n🏠\nMoro junto\n💔\nJá fui casada (separada ou divorciada)\n🕊️\nViúva\n🙋‍♀️\nSolteira",
+   "t04-filhos": "Você tem filhos?\n🧒\nSim, pequenos (até 12)\n🧑\nSim, adolescentes\n👨‍👩‍👧\nSim, já adultos\n👨‍👩‍👧‍👦\nTenho de várias idades\n🚫\nNão tenho filhos",
+   "t05-igreja": "E a sua vida de igreja hoje, na real?\n⛪\nCongrego toda semana\n🙂\nVou quando consigo\n🥶\nEsfriei, quase não vou\n❤️\nHoje não congrego, mas amo a Deus",
+   "t06-tempo-fe": "Há quanto tempo você caminha com Deus?\n🌱\nMenos de 2 anos\n🌿\nDe 2 a 10 anos\n🌳\nMais de 10 anos\n📖\nA vida inteira. Cresci na igreja.",
+   "t07-quem-ora": "Na sua casa, quem ora pela família?\n🙋‍♀️\nSó eu, sozinha\n🤝\nEu e meu marido\n👵\nEu e alguém da família\n😔\nHoje ninguém ora direito. Nem eu.",
+   "t08-oracao": "E a sua oração hoje, como está? Na real, sem julgamento.\n\nNão tem resposta certa. É só pra eu entender a sua realidade.\n\n🙏\nOro todo dia, com hora e lugar\n💬\nOro todo dia, do meu jeito, falando com Deus durante o dia\n📿\nOro mais quando aperta: faço campanha ou propósito\n🕰️\nOro de vez em quando, quando lembro\n😶\nQuase não oro mais\n🤍\nNunca tive o costume de orar",
+   "t09-origem": "Por onde você conhece a Pra. Ezenete?\n📱\nPelo Instagram\n▶️\nPelo YouTube\n🎶\nPelo Diante do Trono ou pela Lagoinha\n🗣️\nAlguém me indicou\n👋\nEstou conhecendo agora",
+   "t10-hora": "Qual hora do dia é mais sua, sem ninguém te pedindo nada?\n🌅\nCedinho, antes da casa acordar\n☀️\nNa hora do almoço\n🌙\nÀ noite, quando a casa silencia\n🌀\nNão tenho essa hora. Minha casa não para.",
+   "t11-insercao": "\"Sou eu sozinha pra tudo.\"\n\nA gente escuta essa frase de muita mulher de Deus. Se é a sua, respira: você não é a única, e estar cansada não quer dizer que a sua fé acabou.\n\nAs próximas perguntas são sobre o que está acontecendo aí dentro. Responde com o coração.\nCONTINUAR",
+   "t12-lutas": "O que está pesando dentro da sua casa hoje? Marque tudo que é verdade.\n💔\nDesprezo e palavras que ferem\n🧊\nCasamento frio, dois estranhos em casa\n🚪\nTraição, ou ele saiu de casa\n🙏\nFilho longe de Deus\n🌫️\nFilho no vício ou em más companhias\n😠\nFilho rebelde, que não me ouve\n😶\nPerdi a vontade de orar\n🏜️\nDeus parece longe\n💸\nDívida que não fecha\n🧾\nSou eu que seguro a casa sozinha\n🌀\nTudo junto. Uma coisa puxa a outra.\nCONTINUAR",
+   "t13-tempo": "E há quanto tempo a sua casa está assim?\n🗓️\nAlguns meses\n📅\nMais ou menos 1 ano\n⏳\nDe 2 a 5 anos\n🪨\nMais de 5 anos. Já virou rotina.",
+   "t14-cena-casamento": "Quando você pensa no seu casamento hoje, qual frase sai primeiro?\n😞\n\"Não aguento mais tanta humilhação e desprezo.\"\n🤐\n\"Ele chega em casa e não fala comigo.\"\n🛏️\n\"Deito sozinha, mesmo sendo casada.\"\n🚪\n\"Ele foi embora e eu não aceito.\"\n🤍\n\"Tá difícil, mas ainda tem amor aqui.\"",
+   "t15-filho": "E quando você pensa no seu filho (ou filha), o que dói mais?\n😢\n\"Criei na igreja e mesmo assim se desviou. Eu me culpo.\"\n😨\n\"Tenho medo do que pode acontecer com ele lá fora.\"\n🔇\n\"Ele não me ouve mais. Qualquer conversa vira briga.\"\n🛡️\n\"Graças a Deus tá bem, mas quero cobrir antes que o mundo pegue.\"",
+   "t16-como-ora": "E quando você ora, como é?\n🧱\n\"Parece que não passa do teto.\"\n🧭\n\"Oro, mas sinto que oro sem direção. Não sei como orar direito.\"\n😭\n\"Só choro. Não sei nem o que pedir.\"\n😶\n\"Perdi a vontade. Parece que não tenho o que falar com Deus.\"\n🕰️\n\"Quero orar mais, mas não consigo parar pra isso.\"",
+   "t17-dinheiro": "E o dinheiro dentro de casa?\n🙂\n\"Tá apertado, mas a gente se vira.\"\n💸\n\"Paga uma conta, aparece outra.\"\n😳\n\"Tenho vergonha. Ninguém sabe o tamanho do buraco.\"\n🧾\n\"Sou eu que seguro tudo, e tô cansada.\"\n🕊️\n\"Graças a Deus, essa parte tá em paz.\"",
+   "t18-ja-fez": "O que você já fez pela sua casa até hoje? Marque tudo.\n\nNão tem resposta errada. Tudo isso tem valor, e não saber por onde começar também é uma resposta sincera.\n\n📿\nCampanha de oração\n🍞\nJejum\n🌙\nMadrugada de joelho\n📲\nPedi oração pra todo mundo (vídeo, igreja, grupo)\n🗣️\nConversei, cobrei, dei bronca\n🤫\nChorei escondido e fiquei quieta\n🔁\nTudo isso, mais de uma vez\n🤷‍♀️\nAinda não fiz nada. Não sei nem por onde começar.\nCONTINUAR",
+   "t19-depois": "E depois disso, o que aconteceu?\n🔁\n\"Melhorou uns dias e voltou tudo.\"\n🧱\n\"Nada mudou. Parece que Deus não me ouve.\"\n🪫\n\"Eu é que fui cansando. Hoje nem tenho vontade.\"\n📉\n\"Piorou.\"",
+   "t20-semente": "🗡️🛡️🤐🙌\nPresta atenção, porque é aqui que muita mulher de Deus se engana.\n\nVocê me contou que já fez campanha e jejum. Então o problema não foi falta de oração.\n\nÉ que, do jeito que quase todo mundo aprende, a gente ora do mesmo jeito pra toda situação. Campanha pela traição. Campanha pelo filho. Campanha pela dívida.\n\nA Pra. Ezenete ensina: nem toda situação pede a mesma arma. Um soldado não usa a espada pra tudo.\n\nTem situação que se resolve com a Palavra na boca. Tem situação que se resolve fechando a boca. E tem situação que só anda depois de um perdão.\n\nQuando a gente não entende a causa, ora sem saber o que pedir. E aí cansa rápido.\n\nNOSSA, FAZ SENTIDO",
+   "t21-area": "Se Deus mexesse em UMA coisa na sua casa esta semana, qual seria?\n💍\nO meu casamento\n👧\nO meu filho\n🔥\nA minha vida de oração\n🧾\nAs contas da casa",
+   "t22-filhos-sentem": "Os seus filhos já sentem o peso do que acontece em casa?\n💔\nSim. E isso me dói mais que tudo.\n🙈\nTento esconder, mas eles percebem.\n🤲\nAinda não, e quero que nunca sintam.",
+   "t23-esconde": "Seja sincera comigo: o que você não conta pra ninguém, nem na igreja?\n🤐\nO que acontece no meu casamento\n🤐\nO que o meu filho está vivendo\n🤐\nQue a minha oração não tá como eu queria\n🤐\nO tamanho das dívidas\n🪫\nQue eu tô cansada de tudo",
+   "t24-nao-esta-so": "Mais de 5 anos carregando isso é muito tempo.\n\nE olha: você não está sozinha. Uma frase que a equipe da Pra. Ezenete escuta todo dia é esta:\n\n\"Já jejuei, já fiz campanha, já subi o monte. E a situação da minha casa continua exatamente igual.\"\n\nSe você se viu aí, guarda isso: o problema nunca foi a sua vontade de lutar.\n\nCONTINUAR",
+   "t25-consciencia": "Alguém já te ensinou o que fazer, na oração, pra cada tipo de situação?\n🤷‍♀️\nNunca ninguém me ensinou\n👂\nJá ouvi falar, mas não sei fazer na prática\n😵\nSei um pouco, mas na hora do aperto esqueço tudo",
+   "t26-objecao": "Última pergunta antes de montar o seu resultado. Sendo bem sincera: o que mais te seguraria de começar a orar diferente pela sua casa?\n😔\n\"Já orei tanto e nada mudou. Tenho medo de me frustrar de novo.\"\n⏰\n\"Não tenho tempo. Minha casa não para.\"\n🧱\n\"Não adianta só eu. Meu marido ou meu filho não quer mudar.\"",
+   "t27-quebra": "SOBRE O QUE TE SEGURA\n\nSobre o medo de se frustrar de novo: ele é justo. E tem explicação.\nVocê não orou errado por falta de fé. Você orou do mesmo jeito pra toda situação, porque foi o que te ensinaram.\n\nA Pra. Ezenete fala isso com franqueza de mãe: oração não é negócio, não é troca. Você não ora pra comprar um resultado. E ela mesma conta que, quando começou, cinco minutos de oração era muito pra ela.\n\nO que muda não é a quantidade. É entender a causa e usar a arma certa pra aquela situação.\n\n«Cura e libertação de coisas que não entendia, já estava cansada de buscar, jejuar e continuar do mesmo jeito. Glória a Deus»\n\n@andrezarosolen\n\nRelato real publicado nas redes da Pra. Ezenete. É o testemunho pessoal dela e não representa promessa de resultado.\n\nENTENDI, QUERO VER O MEU RESULTADO",
+   "t28-sonho": "Agora quero te ouvir sobre outra coisa. Se Deus mexesse nisso, qual seria a primeira cena que você ia ver?\n🗨️\nEle chegando em casa e conversando comigo\n⛪\nA gente sentado junto na igreja\n🕊️\nPaz. Sem grito, sem porta batendo",
+   "t29-sentir": "E você? O que mais quer sentir de novo?\n🕊️\nPaz\n😊\nAlegria de verdade\n💪\nForça pra continuar\n✨\nA presença de Deus perto de mim",
+   "t30-sonho-insercao": "Guarda essa cena: \"Ele chegando em casa e conversando comigo\".\nNão é pedir demais. É o coração de Deus pela sua casa. \"Se não for o Senhor o construtor da casa, será inútil trabalhar na construção\" (Salmos 127:1).\n\nA sua parte não é carregar tudo sozinha. É entender o que tá acontecendo e fazer a sua parte com Deus. E pra isso existe um jeito.\nCONTINUAR",
+   "t31-compromisso": "Se você entendesse hoje o que tá acontecendo na sua casa e o que fazer, você faria, nem que fosse 10 minutos por dia?\n✅\nSim. É disso que eu preciso.\n🤲\nSim, mas tenho medo de não conseguir sozinha.\n🤔\nAcho que sim. Quero entender melhor primeiro.",
+   "t32-frase": "Então vamos ao ponto. Qual dessas frases parece ter sido escrita sobre a SUA vida?\n💍\n\"Não aguento mais tanto desprezo. Eu só queria o meu marido de volta, de verdade, dentro de casa.\"\n👧\n\"Eu sempre me culpo pelo meu filho. Às vezes não tenho força nem pra orar, só choro.\"\n🔥\n\"Eu quero orar, mas não consigo começar. Parece que não tenho o que falar com Deus.\"\n🧾\n\"Paga uma conta, aparece outra. Tenho vergonha e não durmo pensando nisso.\"",
+   "t33-loading": "3%\n\nJuntando as suas respostas...",
+   "t34-captura": "🏠\n\nPronto. Já dá pra ver o que está acontecendo na sua casa, e o que fazer.\n\nO resultado abre aqui na tela, agora. Só me diz quem é você.\n\nAceito receber mensagens da equipe da Pra. Ezenete no WhatsApp e no e-mail.\nVER O QUE ESTÁ ACONTECENDO NA MINHA CASA\n\n🔒 Seus dados ficam com a equipe da Pra. Ezenete Rodrigues. Sem spam. Pra sair, é só responder SAIR no WhatsApp.",
+   "t35-resultado": "O QUE ESTÁ ACONTECENDO NA MINHA CASA\n\nTeste, isso é o que está acontecendo na sua casa.\n\nEu juntei tudo o que você respondeu. Não foi uma pergunta só: foi o conjunto.\n\nVocê me contou que:\n\nNa sua casa pesa: desprezo e palavras que ferem, casamento frio, dois estranhos em casa, dívida que não fecha\nFaz mais de 5 anos que está assim\nSobre a oração: \"Oro mais quando aperta: faço campanha ou propósito\"\nVocê já fez campanha de oração, jejum, e melhorou uns dias e voltou tudo\nSe Deus mexesse em uma coisa esta semana, seria o meu casamento\nE a frase que mais parece com a sua vida: \"Não aguento mais tanto desprezo. Eu só queria o meu marido de volta, de verdade, dentro de casa.\"\n\nA causa: a situação que você está vivendo tem nome no ensino da Pra. Ezenete:\n\n\"Quando ele me feriu com palavras\"\n\nE ela volta por um motivo: cada situação dessas é uma brecha, uma porta por onde o inimigo entra na sua casa. Enquanto ela fica aberta, a situação volta.\nO que você vive no casamento tem uma causa. E guarda isto: o seu marido não é o seu inimigo. Ele pode estar muito errado. Mas a luta é contra o que está entrando pelas brechas.\n\nÉ quando a palavra que ele disse fica martelando na sua cabeça enquanto você lava a louça. Ela entra, e vira raiz.\n\nNo seu caso: você me disse \"Não aguento mais tanta humilhação e desprezo.\"\nE apareceu uma segunda frente: Filhos. Por isso às vezes parece que é tudo ao mesmo tempo. É porque é. Uma brecha aberta puxa a outra. Guarda isso.\nAgora escuta, Teste: não é falta de fé. Quem luta há mais de 5 anos do jeito que você luta não tem fé pequena. Você estava orando do mesmo jeito pra toda situação, porque foi o que te ensinaram.\n🧱\nHOJE\nA mesma oração pra toda situação, e a situação voltando\n🗡️\nO QUE FAZER\nEntender a causa, usar a arma daquela situação e fazer a sua parte, um passo por dia.\n🗡️ A ARMA PRA ESSA SITUAÇÃO\nA arma pra essa situação: entregar a ferida e guardar a própria boca. Não é revidar, e também não é engolir calada. É levar a ferida pra Deus antes que ela vire raiz.\n\nPra hoje: escreva num papel a frase que te feriu. Hoje à noite, ore sobre ela, entregue a Deus e rasgue o papel. No lugar, escreva Salmos 147:3 (\"Só ele cura os de coração quebrantado e cuida das suas feridas\") e cole no espelho.\n💛 Se além das palavras existe agressão, ameaça ou medo dentro de casa, a sua segurança vem primeiro. Ligue 180 (Central de Atendimento à Mulher, gratuito, 24 horas) ou 190 em emergência. Orar e se proteger andam juntos.\n\nAgora você já sabe o que está acontecendo. Falta saber o que fazer em cada situação que aparece aí dentro.\n\nQUERO SABER O QUE FAZER",
+   "t36-interesse": "Existe um jeito de orar pra cada situação, e ele começa exatamente pela que apareceu no seu resultado. É o que a Pra. Ezenete ensina há mais de 20 anos. Quer ver como funciona?\n👉\nQuero ver\n🤔\nQuero entender melhor primeiro",
+   "t37-diferenca": "Olha a diferença:\n😩\nO JEITO QUE TE ENSINARAM\n\nA mesma oração pra toda situação: campanha, campanha, campanha\n\nPedido vago: \"Senhor, abençoa a minha casa\"\n\nAlívio de uns dias, e volta tudo\n\nCansaço e culpa: \"será que o problema sou eu?\"\n\n🗡️\nA ARMA CERTA\n\n1. Entender o que tá acontecendo de verdade, do jeito que dói (\"quando ele me ignora e não conversa comigo\", \"quando o meu filho não quer mais saber da igreja\")\n\n2. Usar a arma daquela situação: a Palavra, o louvor, o silêncio, o perdão, o arrependimento, o jejum, uma atitude\n\n3. Falar a Palavra em voz alta e fazer o Pra hoje\n\nOração com direção, que você consegue fazer todo dia\n\nPor que nessa ordem? Porque quem não entende a causa ora sem saber o que pedir. E oração sem atitude cansa.\n\nFAZ SENTIDO, CONTINUAR",
+   "t38-quem-ensina": "★★★★★\nAntes de te mostrar o que fazer, conhece quem ensina.\nA Pra. Ezenete Rodrigues está há mais de 20 anos à frente do Ministério de Intercessão da Estância Paraíso, em Sabará (MG). A caminhada dela está ligada à intercessão do Diante do Trono, na Igreja Batista da Lagoinha. Já formou mais de 200 mil pessoas na intercessão. É autora do livro Uma Vida de Milagres.\n\nDOIS RELATOS REAIS\n\n«Eu fui grandemente abençoada, foi o sobrenatural de Deus. Pude entender a importância de ser filha. Glorioso»\n\n@maria.rgoncalves\n\n«Com certeza, avançamos 1000 côvados nessas águas do Trono de Deus.....dias indeléveis!!..... gratidão ao Senhor por todos vocês»\n\n@pra.tania_almeida\n\nRelatos reais publicados nas redes da Pra. Ezenete. São testemunhos pessoais e não representam promessa de resultado.\n\nQUERO SABER O QUE FAZER",
+   "t39-autocrenca": "Depois de tudo o que você me contou: você acredita que a história da sua casa pode ser diferente daqui pra frente?\n🙌\nCreio\n🙏\nQuero crer. Preciso de direção.",
+   "t40-loading-plano": "4%\n\nSeparando o que fazer em \"Quando ele me feriu com palavras\"...",
+   "t41-pitch": "O QUE FAZER\n\nTeste, agora você sabe o que está acontecendo na sua casa: \"Quando ele me feriu com palavras\". E já tem a primeira arma pra essa situação.\n\nMe dá dois minutos. Quero te mostrar por que essa situação volta, e o que fazer em cada situação que aparece aí dentro.\n\nA situação aperta. Você reage: faz a campanha, jejua. Às vezes alivia. Você respira e pensa: agora vai. Aí volta.\n\nE vem junto uma culpa que ninguém merece: \"será que o problema sou eu?\".\n\nVocê me contou: já fez campanha de oração, jejum, e melhorou uns dias e voltou tudo.\n\nO problema não é você.\n\nPensa num remédio. Ninguém trata dor de dente com xarope de tosse. Pode tomar o vidro inteiro que o dente continua doendo. E ninguém chama a doente de fraca por isso.\n\nCada situação tem uma causa. E cada causa pede um remédio. A Palavra diz que as armas da nossa luta são poderosas em Deus pra destruir fortalezas (2 Coríntios 10:4). Armas, no plural. E a Pra. Ezenete ensina: nem toda situação pede a mesma arma.\n\nTem briga que se resolve com a boca fechada. Tem ferida que só fecha com perdão. Tem frieza que precisa de gesto de carinho dentro de casa, e não de cobrança.\n\nNão foi falta de fé. Foi o mesmo remédio pra toda situação.\n\nÉ assim que a Pra. Ezenete ensina há mais de 20 anos. Três passos, nessa ordem:\n\n🔎\n1. Entender o que tá acontecendo de verdade.\n\nNão é \"Senhor, abençoa a minha casa\". É \"Senhor, é quando ele chega e não fala comigo\". Quem não entende a causa ora sem saber o que pedir.\n\n🗡️\n2. Usar a arma daquela situação.\n\nA Palavra, a declaração, orar por ele, o louvor, o silêncio, o perdão, o arrependimento, o jejum, uma atitude prática.\n\n🗣️\n3. Falar a Palavra e fazer a sua parte.\n\nDeclarar em voz alta, orar com o nome dele e dar um passo pequeno ainda hoje. Oração sem atitude cansa.\n\nVocê já viu isso no seu resultado, com a primeira arma e o Pra hoje. Agora imagina isso pra cada situação da sua casa.\n\nIsso, pronto pra você usar em casa, existe. Chama Casamento Restaurado: 20 armas espirituais para restaurar o seu casamento.\n\nÉ um manual de oração montado a partir de mais de 20 anos de ensino da Pra. Ezenete. São 20 situações reais, dessas que a gente vive e não conta pra ninguém. Pra cada situação, uma arma. Em cada uma você encontra:\n\nO que está acontecendo, do jeito que dói\n\nA causa, e a arma certa pra ela\n\nO que fazer, passo a passo\n\nOs versículos pra declarar\n\nUma oração pronta, com espaço pro nome dele\n\nUma declaração curta pra repetir durante o dia\n\nO Pra hoje: uma ação simples pra fazer hoje mesmo\n\nEspaço pra anotar o que Deus falar\n\nAs situações que mais parecem com a sua:\n\n\"Quando ele me feriu com palavras\"\n\"Quando ele me ignora e não conversa comigo\"\n\"Quando o nosso casamento esfriou\"\n\"Quando eu desconfio de uma traição\"\n\nE ainda: a parte que ensina como orar pela sua casa, qual é a sua autoridade e quem é o seu inimigo de verdade; uma rotina simples de 5 a 15 minutos; como montar um quarto de guerra; e declarações diárias pra sua área.\n\nPra ler no celular ou imprimir.\n\nA Pra. Ezenete Rodrigues está há mais de 20 anos à frente do Ministério de Intercessão da Estância Paraíso, em Sabará (MG). Já formou mais de 200 mil pessoas na intercessão. É autora de Uma Vida de Milagres.\n\nEla não ensina de livro. Ela mesma conta que, quando começou a orar com um grupo de intercessoras, cinco minutos de oração era muito pra ela. Ninguém começa grande. A gente começa fiel.\n\n★★★★★\n\n«Deus quebrou toda maldição herditaria na minha vida e de minha família,toda honra e gloria a ele»\n\n@katianascimento9902\n\n«Cura e libertação de coisas que não entendia, já estava cansada de buscar, jejuar e continuar do mesmo jeito. Glória a Deus»\n\n@andrezarosolen\n\n«Eu fui grandemente abençoada, foi o sobrenatural de Deus. Pude entender a importância de ser filha. Glorioso»\n\n@maria.rgoncalves\n\nRelatos reais publicados nas redes da Pra. Ezenete. São testemunhos pessoais e não representam promessa de resultado.\n\nO CASAMENTO RESTAURADO SAI POR:\n\nR$ 47 à vista\nou em até 11x de R$ 5,22 no cartão\n\nNo Pix ou no cartão.\n\nPagamento único. Você acessa pela plataforma Eduzz, logo depois da confirmação do pagamento.\n\n🛡️ Garantia de 7 dias\nVocê tem 7 dias pra ler, orar e usar. Se dentro de 7 dias você entender que não é pra você, é só pedir o reembolso e devolvemos cada centavo.\nO risco fica com a gente.\nIsso garante que ele volta?\n\nNão. Nenhuma página garante que alguém vai mudar. Milagre é decisão de Deus, não produto de livro. O que o material te dá é entender a causa e saber o que fazer, na oração, em cada situação.\n\nE se ele não quer mudar?\n\nVocê responde pela sua oração e pela sua obediência, não pelas escolhas dele. Interceder é justamente orar por quem não está orando por si.\n\nEu quase não oro. Serve pra mim?\n\nServe. O material começa do começo: uma rotina de 5 a 15 minutos e uma oração pronta em cada situação. Você não precisa saber orar bonito.\n\nNão tenho tempo.\n\nA rotina do material é de 5 a 15 minutos. Cada situação cabe numa manhã.\n\nFaço tratamento ou terapia.\n\nContinue. O material é formação espiritual e caminha junto com o cuidado profissional.\n\nEstou sofrendo agressão.\n\nA sua segurança vem primeiro: 180 ou 190. Você pode continuar orando de um lugar seguro.\n\nComo recebo?\n\nPela plataforma Eduzz. Logo depois da confirmação do pagamento, você recebe no e-mail da compra o acesso ao material, pra ler no celular ou imprimir.\n\nComo pago?\n\nNo Pix ou no cartão. À vista, R$ 47. No cartão, dá pra parcelar em até 11x.\n\nE se eu não gostar?\n\nVocê tem 7 dias de garantia. É só pedir o reembolso.\n\nTeste, agora você sabe o que está acontecendo na sua casa. Cada semana sem saber o que fazer é mais uma semana cansando.\n\nDeus é quem restaura. A sua parte é orar do jeito certo e obedecer.\n\nQUERO AS 20 ARMAS PRO MEU CASAMENTO\n\nNão é pra agora? Tudo bem. Guarda o seu resultado e faz o Pra hoje. Ele já é seu.\n\nQUERO AS 20 ARMAS PRO MEU CASAMENTO"
+  },
+  "opts": {
+   "t01-abertura": [],
+   "t02-idade": [
+    "a34",
+    "a44",
+    "a54",
+    "a64",
+    "a65"
+   ],
+   "t03-civil": [
+    "casada",
+    "junto",
+    "ex",
+    "viuva",
+    "solteira"
+   ],
+   "t04-filhos": [
+    "peq",
+    "adol",
+    "adul",
+    "varias",
+    "nao"
+   ],
+   "t05-igreja": [
+    "semana",
+    "consigo",
+    "esfriei",
+    "naocong"
+   ],
+   "t06-tempo-fe": [
+    "m2",
+    "d2",
+    "m10",
+    "vida"
+   ],
+   "t07-quem-ora": [
+    "so",
+    "casal",
+    "fam",
+    "ninguem"
+   ],
+   "t08-oracao": [
+    "hora",
+    "jeito",
+    "campanha",
+    "vezes",
+    "quase",
+    "nunca"
+   ],
+   "t09-origem": [
+    "ig",
+    "yt",
+    "dt",
+    "ind",
+    "agora"
+   ],
+   "t10-hora": [
+    "cedo",
+    "almoco",
+    "noite",
+    "sem"
+   ],
+   "t11-insercao": [],
+   "t12-lutas": [
+    "c_desprezo",
+    "c_frio",
+    "c_traicao",
+    "f_longe",
+    "f_vicio",
+    "f_rebelde",
+    "o_vontade",
+    "o_longe",
+    "d_divida",
+    "d_seguro",
+    "tudo"
+   ],
+   "t13-tempo": [
+    "meses",
+    "ano",
+    "d25",
+    "m5"
+   ],
+   "t14-cena-casamento": [
+    "hum",
+    "naofala",
+    "deito",
+    "embora",
+    "amor"
+   ],
+   "t15-filho": [
+    "criei",
+    "medo",
+    "ouve",
+    "bem"
+   ],
+   "t16-como-ora": [
+    "teto",
+    "direcao",
+    "choro",
+    "vontade",
+    "parar"
+   ],
+   "t17-dinheiro": [
+    "apertado",
+    "paga",
+    "vergonha",
+    "seguro",
+    "paz"
+   ],
+   "t18-ja-fez": [
+    "campanha",
+    "jejum",
+    "madrugada",
+    "pedi",
+    "conversei",
+    "chorei",
+    "tudo",
+    "nada"
+   ],
+   "t19-depois": [
+    "melhorou",
+    "nada",
+    "cansando",
+    "piorou"
+   ],
+   "t20-semente": [],
+   "t21-area": [
+    "C",
+    "F",
+    "O",
+    "D"
+   ],
+   "t22-filhos-sentem": [
+    "sim",
+    "esconde",
+    "nao"
+   ],
+   "t23-esconde": [
+    "cas",
+    "fil",
+    "ora",
+    "div",
+    "cans"
+   ],
+   "t24-nao-esta-so": [],
+   "t25-consciencia": [
+    "nunca",
+    "ouvi",
+    "pouco"
+   ],
+   "t26-objecao": [
+    "A",
+    "B",
+    "C"
+   ],
+   "t27-quebra": [],
+   "t28-sonho": [
+    "conversa",
+    "igreja",
+    "paz"
+   ],
+   "t29-sentir": [
+    "paz",
+    "alegria",
+    "forca",
+    "presenca"
+   ],
+   "t30-sonho-insercao": [],
+   "t31-compromisso": [
+    "sim",
+    "medo",
+    "acho"
+   ],
+   "t32-frase": [
+    "C",
+    "F",
+    "O",
+    "D"
+   ],
+   "t33-loading": [],
+   "t34-captura": [],
+   "t35-resultado": [],
+   "t36-interesse": [
+    "ver",
+    "entender"
+   ],
+   "t37-diferenca": [],
+   "t38-quem-ensina": [],
+   "t39-autocrenca": [
+    "creio",
+    "quero"
+   ],
+   "t40-loading-plano": [],
+   "t41-pitch": []
+  },
+  "fail": [
+   "payload utm utm_source=teste",
+   "payload utm utm_campaign=teste",
+   "payload utm utm_content=teste"
+  ],
+  "pass": false
+ }
+]

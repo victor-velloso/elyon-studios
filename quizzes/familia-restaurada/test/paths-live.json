@@ -1,0 +1,86 @@
+[
+ {
+  "id": "LIVE-newsheet",
+  "sexo": "Mulher",
+  "a": {
+   "t36-interesse": "ver",
+   "t39-autocrenca": "creio",
+   "t02-idade": "a54",
+   "t03-civil": "casada",
+   "t04-filhos": "adol",
+   "t05-igreja": "semana",
+   "t06-tempo-fe": "vida",
+   "t07-quem-ora": "so",
+   "t08-oracao": "campanha",
+   "t09-origem": "ig",
+   "t10-hora": "noite",
+   "t12-lutas": [
+    "c_desprezo",
+    "c_frio",
+    "d_divida"
+   ],
+   "t13-tempo": "m5",
+   "t14-cena-casamento": "hum",
+   "t15-filho": "ouve",
+   "t16-como-ora": "teto",
+   "t17-dinheiro": "apertado",
+   "t18-ja-fez": [
+    "campanha",
+    "jejum"
+   ],
+   "t19-depois": "melhorou",
+   "t21-area": "C",
+   "t22-filhos-sentem": "sim",
+   "t23-esconde": "cas",
+   "t25-consciencia": "nunca",
+   "t26-objecao": "A",
+   "t28-sonho": "conversa",
+   "t29-sentir": "paz",
+   "t31-compromisso": "sim",
+   "t32-frase": "C"
+  },
+  "expect": {
+   "screens": 41,
+   "area": "C",
+   "sit": "C1",
+   "second": "F",
+   "score": {
+    "C": 10,
+    "F": 2,
+    "O": 0,
+    "D": 1
+   },
+   "present": [
+    "t14-cena-casamento",
+    "t15-filho",
+    "t19-depois",
+    "t22-filhos-sentem"
+   ],
+   "contains": [
+    "Sou eu sozinha pra tudo",
+    "Você me contou que já fez campanha e jejum",
+    "Campanha pela traição",
+    "Sobre o medo de se frustrar de novo",
+    "Ligue 180",
+    "Quando ele me feriu com palavras",
+    "não é falta de fé.",
+    "Alívio de uns dias, e volta tudo",
+    "QUERO AS 20 ARMAS PRO MEU CASAMENTO"
+   ],
+   "optsExact": {
+    "t28-sonho": [
+     "conversa",
+     "igreja",
+     "paz"
+    ]
+   },
+   "utmPayload": {
+    "utm_source": "facebook",
+    "utm_campaign": "teste-fr",
+    "utm_content": "ad1"
+   }
+  },
+  "utm": "utm_source=teste&utm_medium=teste&utm_campaign=teste&utm_content=teste&utm_term=teste&fbclid=teste",
+  "nome": "Teste Quiz"
+ }
+]

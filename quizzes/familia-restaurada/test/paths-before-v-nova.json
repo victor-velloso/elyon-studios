@@ -1,0 +1,531 @@
+[
+ {
+  "id": "P1-casamento",
+  "sexo": "Mulher",
+  "a": {
+   "t36-interesse": "ver",
+   "t39-autocrenca": "creio",
+   "t02-idade": "a54",
+   "t03-civil": "casada",
+   "t04-filhos": "adol",
+   "t05-igreja": "semana",
+   "t06-tempo-fe": "vida",
+   "t07-quem-ora": "so",
+   "t08-oracao": "campanha",
+   "t09-origem": "ig",
+   "t10-hora": "noite",
+   "t12-lutas": [
+    "c_desprezo",
+    "c_frio",
+    "d_divida"
+   ],
+   "t13-tempo": "m5",
+   "t14-cena-casamento": "hum",
+   "t15-filho": "ouve",
+   "t16-como-ora": "teto",
+   "t17-dinheiro": "apertado",
+   "t18-ja-fez": [
+    "campanha",
+    "jejum"
+   ],
+   "t19-depois": "melhorou",
+   "t21-area": "C",
+   "t22-filhos-sentem": "sim",
+   "t23-esconde": "cas",
+   "t25-consciencia": "nunca",
+   "t26-objecao": "A",
+   "t28-sonho": "conversa",
+   "t29-sentir": "paz",
+   "t31-compromisso": "sim",
+   "t32-frase": "C"
+  },
+  "expect": {
+   "screens": 41,
+   "area": "C",
+   "sit": "C1",
+   "second": "F",
+   "score": {
+    "C": 10,
+    "F": 2,
+    "O": 0,
+    "D": 1
+   },
+   "checkout": "https://chk.eduzz.com/2a5cwqts",
+   "utm": "utm_source=facebook",
+   "present": [
+    "t14-cena-casamento",
+    "t15-filho",
+    "t19-depois",
+    "t22-filhos-sentem"
+   ],
+   "contains": [
+    "Sou eu sozinha pra tudo",
+    "Você me contou que já fez campanha e jejum",
+    "Campanha pela traição",
+    "Sobre o medo de se frustrar de novo",
+    "Ligue 180",
+    "Quando ele me feriu com palavras",
+    "não é falta de fé.",
+    "Alívio de uns dias, e volta tudo",
+    "QUERO AS 20 ARMAS PRO MEU CASAMENTO"
+   ],
+   "optsExact": {
+    "t28-sonho": [
+     "conversa",
+     "igreja",
+     "paz"
+    ]
+   },
+   "utmPayload": {
+    "utm_source": "facebook",
+    "utm_campaign": "teste-fr",
+    "utm_content": "ad1"
+   }
+  },
+  "utm": "utm_source=facebook&utm_campaign=teste-fr&utm_content=ad1",
+  "shots": [
+   "t01-abertura",
+   "t03-civil",
+   "t12-lutas",
+   "t14-cena-casamento",
+   "t20-semente",
+   "t27-quebra",
+   "t32-frase",
+   "t33-loading",
+   "t34-captura",
+   "t35-resultado",
+   "t37-diferenca",
+   "t38-quem-ensina",
+   "t41-pitch-price",
+   "t41-pitch"
+  ]
+ },
+ {
+  "id": "P2-filhos-doc-exemplo",
+  "sexo": "Mulher",
+  "a": {
+   "t36-interesse": "ver",
+   "t39-autocrenca": "creio",
+   "t02-idade": "a44",
+   "t03-civil": "casada",
+   "t04-filhos": "adol",
+   "t05-igreja": "consigo",
+   "t06-tempo-fe": "m10",
+   "t07-quem-ora": "fam",
+   "t08-oracao": "vezes",
+   "t09-origem": "yt",
+   "t10-hora": "cedo",
+   "t12-lutas": [
+    "c_frio",
+    "f_longe",
+    "o_vontade"
+   ],
+   "t13-tempo": "d25",
+   "t14-cena-casamento": "deito",
+   "t15-filho": "criei",
+   "t16-como-ora": "vontade",
+   "t17-dinheiro": "apertado",
+   "t18-ja-fez": [
+    "pedi"
+   ],
+   "t19-depois": "melhorou",
+   "t21-area": "F",
+   "t22-filhos-sentem": "esconde",
+   "t23-esconde": "ora",
+   "t25-consciencia": "ouvi",
+   "t26-objecao": "A",
+   "t28-sonho": "louvando",
+   "t29-sentir": "presenca",
+   "t31-compromisso": "medo",
+   "t32-frase": "F"
+  },
+  "expect": {
+   "screens": 41,
+   "area": "F",
+   "sit": "F2",
+   "second": "O",
+   "score": {
+    "C": 2,
+    "F": 9,
+    "O": 5,
+    "D": 0
+   },
+   "checkout": "https://chk.eduzz.com/4n3tu4uo",
+   "contains": [
+    "o problema é que eu não oro",
+    "Quando eu criei no caminho, e mesmo assim ele se desviou",
+    "Por que volta:",
+    "E apareceu uma segunda frente: Vida de Oração.",
+    "se a oração tá difícil hoje",
+    "Você orou do jeito que aprendeu",
+    "QUERO AS 20 ARMAS PRO MEU FILHO"
+   ],
+   "notContains": [
+    "Campanha pela traição",
+    "Você me contou que já fez",
+    "Alívio de uns dias"
+   ]
+  },
+  "shots": [
+   "t15-filho",
+   "t35-resultado",
+   "t41-pitch"
+  ]
+ },
+ {
+  "id": "P3-oracao-nao-ora",
+  "sexo": "Mulher",
+  "a": {
+   "t36-interesse": "ver",
+   "t39-autocrenca": "creio",
+   "t02-idade": "a64",
+   "t03-civil": "solteira",
+   "t04-filhos": "nao",
+   "t05-igreja": "esfriei",
+   "t06-tempo-fe": "m2",
+   "t07-quem-ora": "ninguem",
+   "t08-oracao": "nunca",
+   "t09-origem": "agora",
+   "t10-hora": "sem",
+   "t12-lutas": [
+    "o_vontade",
+    "o_longe"
+   ],
+   "t13-tempo": "ano",
+   "t16-como-ora": "comecar",
+   "t17-dinheiro": "paz",
+   "t18-ja-fez": [
+    "nada"
+   ],
+   "t21-area": "O",
+   "t23-esconde": "ora",
+   "t25-consciencia": "nunca",
+   "t26-objecao": "A2",
+   "t28-sonho": "acordar",
+   "t29-sentir": "presenca",
+   "t31-compromisso": "medo",
+   "t32-frase": "O"
+  },
+  "expect": {
+   "screens": 37,
+   "area": "O",
+   "sit": "O1",
+   "second": null,
+   "score": {
+    "C": 0,
+    "F": 0,
+    "O": 11,
+    "D": 0
+   },
+   "checkout": "https://chk.eduzz.com/sskhzojc",
+   "absent": [
+    "t14-cena-casamento",
+    "t15-filho",
+    "t19-depois",
+    "t22-filhos-sentem"
+   ],
+   "contains": [
+    "Obrigada pela sinceridade.",
+    "o problema é que eu não oro",
+    "Tenho medo de começar e não dar em nada",
+    "Aos 15 anos",
+    "CVV 188",
+    "Você ainda não sabe por onde começar",
+    "QUANDO NINGUÉM TE ENSINA",
+    "QUERO AS 20 ARMAS PRA MINHA VIDA DE ORAÇÃO"
+   ],
+   "notContains": [
+    "campanha",
+    "Campanha",
+    "Já orei tanto"
+   ]
+  },
+  "absentOpt": {
+   "t26-objecao": "A",
+   "t21-area": "C",
+   "t23-esconde": "cas",
+   "t12-lutas": "f_longe"
+  },
+  "shots": [
+   "t16-como-ora",
+   "t26-objecao",
+   "t35-resultado",
+   "t41-pitch"
+  ]
+ },
+ {
+  "id": "P4-financeiro",
+  "sexo": "Mulher",
+  "a": {
+   "t36-interesse": "ver",
+   "t39-autocrenca": "creio",
+   "t02-idade": "a64",
+   "t03-civil": "viuva",
+   "t04-filhos": "adul",
+   "t05-igreja": "consigo",
+   "t06-tempo-fe": "d2",
+   "t07-quem-ora": "fam",
+   "t08-oracao": "hora",
+   "t09-origem": "yt",
+   "t10-hora": "cedo",
+   "t12-lutas": [
+    "d_seguro",
+    "f_rebelde"
+   ],
+   "t13-tempo": "d25",
+   "t15-filho": "bem",
+   "t16-como-ora": "direcao",
+   "t17-dinheiro": "vergonha",
+   "t18-ja-fez": [
+    "conversei"
+   ],
+   "t19-depois": "nada",
+   "t21-area": "D",
+   "t22-filhos-sentem": "nao",
+   "t23-esconde": "div",
+   "t25-consciencia": "ouvi",
+   "t26-objecao": "B",
+   "t28-sonho": "nome",
+   "t29-sentir": "forca",
+   "t31-compromisso": "acho",
+   "t32-frase": "D"
+  },
+  "expect": {
+   "screens": 40,
+   "area": "D",
+   "sit": "D16",
+   "second": "F",
+   "score": {
+    "C": 0,
+    "F": 2,
+    "O": 1,
+    "D": 9
+   },
+   "checkout": "https://chk.eduzz.com/KW8ZZKDR01",
+   "absent": [
+    "t14-cena-casamento"
+   ],
+   "present": [
+    "t15-filho",
+    "t22-filhos-sentem"
+   ],
+   "contains": [
+    "Você me contou que ora todo dia, com hora e lugar",
+    "Você me disse que a sua hora é cedinho",
+    "Quando eu tenho vergonha de dever e de pedir ajuda",
+    "CVV 188",
+    "não é falta de oração.",
+    "O mesmo jeito de orar pra tudo",
+    "QUERO AS 20 ARMAS PRO MEU FINANCEIRO"
+   ],
+   "notContains": [
+    "Campanha pela traição",
+    "Você me contou que já fez"
+   ]
+  },
+  "absentOpt": {
+   "t07-quem-ora": "casal",
+   "t12-lutas": "c_desprezo"
+  },
+  "shots": [
+   "t20-semente",
+   "t35-resultado",
+   "t41-pitch"
+  ]
+ },
+ {
+  "id": "P5-ex-casada-nao-ora",
+  "sexo": "Mulher",
+  "a": {
+   "t36-interesse": "ver",
+   "t39-autocrenca": "creio",
+   "t02-idade": "a54",
+   "t03-civil": "ex",
+   "t04-filhos": "nao",
+   "t05-igreja": "naocong",
+   "t06-tempo-fe": "m10",
+   "t07-quem-ora": "so",
+   "t08-oracao": "quase",
+   "t09-origem": "ind",
+   "t10-hora": "almoco",
+   "t12-lutas": [
+    "c_separacao",
+    "c_magoa"
+   ],
+   "t13-tempo": "m5",
+   "t14-cena-casamento": "perdoar",
+   "t16-como-ora": "cansada",
+   "t17-dinheiro": "apertado",
+   "t18-ja-fez": [
+    "chorei"
+   ],
+   "t19-depois": "piorou",
+   "t21-area": "C",
+   "t23-esconde": "cas",
+   "t25-consciencia": "pouco",
+   "t26-objecao": "C",
+   "t28-sonho": "dormir",
+   "t29-sentir": "paz",
+   "t31-compromisso": "sim",
+   "t32-frase": "CX"
+  },
+  "expect": {
+   "screens": 39,
+   "area": "C",
+   "sit": "C14",
+   "second": "O",
+   "score": {
+    "C": 9,
+    "F": 0,
+    "O": 2,
+    "D": 0
+   },
+   "checkout": "https://chk.eduzz.com/2a5cwqts",
+   "contains": [
+    "E hoje, quando você pensa no casamento que acabou",
+    "A dor do meu casamento que acabou",
+    "Meu marido não quer mudar",
+    "Sobre ele não querer mudar",
+    "Quando eu não consigo perdoar",
+    "Não consigo perdoar o que ele fez.",
+    "Quando ele saiu de casa"
+   ],
+   "notContains": [
+    "Campanha pela traição",
+    "Ligue 180"
+   ],
+   "optsExact": {
+    "t28-sonho": [
+     "dormir"
+    ]
+   }
+  },
+  "absentOpt": {
+   "t14-cena-casamento": "oro",
+   "t12-lutas": "c_desprezo",
+   "t07-quem-ora": "casal"
+  },
+  "shots": [
+   "t28-sonho"
+  ]
+ },
+ {
+  "id": "P6-homem-casado",
+  "sexo": "Homem",
+  "a": {
+   "t36-interesse": "ver",
+   "t39-autocrenca": "creio",
+   "t02-idade": "a44",
+   "t03-civil": "casada",
+   "t04-filhos": "peq",
+   "t05-igreja": "semana",
+   "t06-tempo-fe": "m10",
+   "t07-quem-ora": "casal",
+   "t08-oracao": "jeito",
+   "t09-origem": "ig",
+   "t10-hora": "cedo",
+   "t12-lutas": [
+    "c_traicao",
+    "f_longe"
+   ],
+   "t13-tempo": "ano",
+   "t14-cena-casamento": "naofala",
+   "t15-filho": "criei",
+   "t16-como-ora": "parar",
+   "t17-dinheiro": "apertado",
+   "t18-ja-fez": [
+    "pedi"
+   ],
+   "t19-depois": "nada",
+   "t21-area": "C",
+   "t22-filhos-sentem": "esconde",
+   "t23-esconde": "cas",
+   "t25-consciencia": "nunca",
+   "t26-objecao": "C",
+   "t28-sonho": "conversa",
+   "t29-sentir": "alegria",
+   "t31-compromisso": "sim",
+   "t32-frase": "C"
+  },
+  "expect": {
+   "screens": 41,
+   "area": "C",
+   "sit": "C2",
+   "second": "F",
+   "score": {
+    "C": 8,
+    "F": 4,
+    "O": 2,
+    "D": 0
+   },
+   "checkout": "https://chk.eduzz.com/2a5cwqts",
+   "contains": [
+    "Casado",
+    "Eu e minha esposa",
+    "Ela chega em casa e não fala comigo.",
+    "Minha esposa ou meu filho não quer mudar",
+    "a sua esposa não é a sua inimiga.",
+    "Quando ela me ignora e não conversa comigo"
+   ],
+   "notContains": [
+    "sozinha",
+    "mulher de Deus",
+    "Ligue 180",
+    "Casada"
+   ]
+  },
+  "shots": [
+   "t35-resultado"
+  ]
+ },
+ {
+  "id": "P7-empate-pergunta-chave",
+  "sexo": "Mulher",
+  "a": {
+   "t36-interesse": "ver",
+   "t39-autocrenca": "creio",
+   "t02-idade": "a34",
+   "t03-civil": "solteira",
+   "t04-filhos": "nao",
+   "t05-igreja": "semana",
+   "t06-tempo-fe": "d2",
+   "t07-quem-ora": "fam",
+   "t08-oracao": "hora",
+   "t09-origem": "ig",
+   "t10-hora": "noite",
+   "t12-lutas": [
+    "o_vontade",
+    "o_longe",
+    "d_divida"
+   ],
+   "t13-tempo": "meses",
+   "t16-como-ora": "teto",
+   "t17-dinheiro": "seguro",
+   "t18-ja-fez": [
+    "pedi"
+   ],
+   "t19-depois": "melhorou",
+   "t21-area": "O",
+   "t23-esconde": "ora",
+   "t25-consciencia": "nunca",
+   "t26-objecao": "B",
+   "t28-sonho": "saber",
+   "t29-sentir": "paz",
+   "t31-compromisso": "sim",
+   "t32-frase": "D"
+  },
+  "expect": {
+   "screens": 38,
+   "area": "D",
+   "sit": "D11",
+   "second": "O",
+   "score": {
+    "C": 0,
+    "F": 0,
+    "O": 5,
+    "D": 5
+   },
+   "checkout": "https://chk.eduzz.com/KW8ZZKDR01"
+  }
+ }
+]
