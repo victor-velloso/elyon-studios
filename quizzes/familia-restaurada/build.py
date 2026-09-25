@@ -2,14 +2,14 @@
 """Monta dist/ do quiz Família Restaurada.
 
 Uso:
-  python3 build.py
-  python3 build.py --asset-base https://escoladeintercessao.com.br/wp-content/uploads/familia-restaurada/
+  python3 build.py --asset-base https://www.ezeneterodrigues.com.br/wp-content/uploads/2026/09/
+  python3 build.py --asset-base URL --asset-map mapa.json
 """
-import argparse, json, pathlib, re
+import argparse, json, pathlib, re, shutil
 from PIL import Image
 
 B = pathlib.Path(__file__).parent
-DEFAULT_BASE = "https://escoladeintercessao.com.br/wp-content/uploads/familia-restaurada/"
+DEFAULT_BASE = "https://www.ezeneterodrigues.com.br/wp-content/uploads/2026/09/"
 MAX_BYTES = 200 * 1024
 
 RASTER = [
@@ -36,8 +36,33 @@ SVGS = [
     ("dias30.svg", "fr-simbolo-dias30.svg"),
     ("versiculos.svg", "fr-simbolo-versiculos.svg"),
 ]
-CENAS = ["C1","C2","C15","C7","C10","C14","F2","F7","F8","F20","O7","O2","O5","O12","O1","O15","$1","$16","$11"]
-AREAS = ["C","F","O","$"]
+RELATOS = [
+    ("assets/relatos/relato-1.jpg", "fr-relato-1.webp"),
+    ("assets/relatos/relato-2.jpg", "fr-relato-2.webp"),
+    ("assets/relatos/relato-3.jpeg", "fr-relato-3.webp"),
+]
+AREA_PREV = [
+    ("assets/previews-areas/filhos-situacao.png", "fr-preview-filhos.webp"),
+    ("assets/previews-areas/oracao-situacao-p1.png", "fr-preview-oracao.webp"),
+    ("assets/previews-areas/financeiro-situacao-p1.png", "fr-preview-financeiro.webp"),
+]
+KEY_NOTES = [
+    ("fr-cena-c1.webp", "C1"), ("fr-cena-c2.webp", "C2"), ("fr-cena-c15.webp", "C15"),
+    ("fr-cena-c7.webp", "C7"), ("fr-cena-c10.webp", "C10"), ("fr-cena-c14.webp", "C14"),
+    ("fr-cena-f2.webp", "F2"), ("fr-cena-f7.webp", "F7"), ("fr-cena-f8.webp", "F8"), ("fr-cena-f20.webp", "F20"),
+    ("fr-cena-o7.webp", "O7"), ("fr-cena-o2.webp", "O2"), ("fr-cena-o5.webp", "O5"),
+    ("fr-cena-o12.webp", "O12"), ("fr-cena-o1.webp", "O1"), ("fr-cena-o15.webp", "O15"),
+    ("fr-cena-s1.webp", '"$1" (D1)'), ("fr-cena-s16.webp", '"$16" (D16)'), ("fr-cena-s11.webp", '"$11" (D11)'),
+    ("fr-area-c.webp", "area_C"), ("fr-area-f.webp", "area_F"), ("fr-area-o.webp", "area_O"),
+    ("fr-area-s.webp", '"area_$"'),
+    ("fr-p3-quadrada.webp", "p3 (caixa 1:1)"),
+    ("fr-p3.webp", "4:3 do P3, no pacote; a tela usa a quadrada"),
+    ("fr-preview-casamento.webp", "preview_C"), ("fr-preview-filhos.webp", "preview_F"),
+    ("fr-preview-oracao.webp", "preview_O"), ("fr-preview-financeiro.webp", "preview_D"),
+    ("fr-relato-1.webp", "relato1 · @katianascimento9902"),
+    ("fr-relato-2.webp", "relato2 · @andrezarosolen"),
+    ("fr-relato-3.webp", "relato3 · @maria.rgoncalves"),
+]
 
 def noblank(s):
     return "\n".join(line for line in s.splitlines() if line.strip()) + "\n"
@@ -67,53 +92,71 @@ def to_webp(src, dest):
         raise SystemExit("asset acima de 200 KB: %s (%s bytes)" % (dest.name, dest.stat().st_size))
 
 def manifest(written):
+    by = {name: nbytes for name, nbytes in written}
     lines = [
         "# Assets do quiz Família Restaurada",
         "",
-        "Suba esta pasta na mídia do WordPress e rode o build com a URL pública da pasta:",
+        "Suba os arquivos de imagem e SVG (não o MANIFEST) na mídia de www.ezeneterodrigues.com.br.",
+        "Os nomes já estão em minúsculas. O WordPress não muda o nome ao minúsculo.",
+        "O `$` do financeiro virou `s` no arquivo (`fr-cena-s1.webp`, `fr-cena-s16.webp`, `fr-cena-s11.webp`, `fr-area-s.webp`). A chave interna continua `$1`, `$16`, `$11` e `area_$`.",
+        "",
+        "Depois do upload, se os nomes saírem iguais:",
         "",
         "```",
-        "python3 build.py --asset-base https://escoladeintercessao.com.br/wp-content/uploads/familia-restaurada/",
+        "python3 build.py --asset-base https://www.ezeneterodrigues.com.br/wp-content/uploads/2026/09/",
         "```",
         "",
-        "O argumento preenche `CFG.assetBase`. Cada chave de `CFG.images` vira essa URL + o nome do arquivo. Base vazia (`python3 build.py --asset-base \"\"`) deixa as URLs vazias e o quiz não desenha imagem (sem ícone quebrado).",
+        "Se o WordPress acrescentar sufixo (`fr-cena-c1-1.webp`), grave um JSON e passe `--asset-map`. A chave é o nome do arquivo neste pacote; o valor é a URL absoluta.",
         "",
-        "Regra na tela: imagem da situação, senão a da área, senão nada. `loading=\"lazy\"` e caixa 4:3.",
+        "```",
+        "python3 build.py --asset-base https://www.ezeneterodrigues.com.br/wp-content/uploads/2026/09/ --asset-map mapa.json",
+        "```",
         "",
-        "## Já otimizados (neste pacote)",
+        "```json",
+        '{ "fr-cena-c1.webp": "https://www.ezeneterodrigues.com.br/wp-content/uploads/2026/09/fr-cena-c1-1.webp" }',
+        "```",
+        "",
+        "O mapa cobre só os arquivos renomeados. O resto usa a base + o nome em minúsculas. Base vazia e sem mapa não desenha imagem.",
+        "",
+        "Na tela: ilustração da situação, senão a da área, senão nada. `loading=\"lazy\"` e caixa 4:3. O P3 usa `fr-p3-quadrada.webp` (1:1). `fr-p3.webp` é o 4:3, incluído no pacote.",
+        "",
+        "## Arquivos para upload",
         "",
     ]
     for name, nbytes in written:
-        lines.append("- `%s` — %d KB" % (name, max(1, round(nbytes / 1024))))
-    lines += ["", "## A gerar (ainda não estão neste pacote)", ""]
-    for code in CENAS:
-        key = '"%s"' % code if code.startswith("$") else code
-        lines.append("- `fr-cena-%s.webp` — ilustração da situação. Chave `CFG.images.%s`." % (code, key))
-    for a in AREAS:
-        key = '"area_$"' if a == "$" else "area_" + a
-        lines.append("- `fr-area-%s.webp` — fallback da área. Chave `CFG.images.%s`." % (a, key))
-    lines += [
-        "- `fr-p3.webp` — ilustração do bloco P3. Chave `CFG.images.p3`.",
-        "- `fr-relato-1.webp` — print @katianascimento9902. Chave `CFG.images.relato1`.",
-        "- `fr-relato-2.webp` — print @andrezarosolen. Chave `CFG.images.relato2`.",
-        "- `fr-relato-3.webp` — print @maria.rgoncalves. Chave `CFG.images.relato3`.",
-        "",
-        "Enquanto esses arquivos não existirem na pasta pública, o quiz esconde a caixa (a capa, a foto da autora, o preview do casamento e os símbolos já estão ligados).",
-        "",
-        "Códigos financeiros no mapa usam `$` (`$1`, `$16`, `$11`), o mesmo id interno do quiz é D1, D16 e D11.",
-        "",
-    ]
+        note = ""
+        for fn, key in KEY_NOTES:
+            if fn == name:
+                note = " — CFG.images." + key
+                break
+        lines.append("- `%s` — %d KB%s" % (name, max(1, round(nbytes / 1024)), note))
+    missing = [fn for fn, _ in KEY_NOTES if fn not in by]
+    if missing:
+        lines += ["", "Faltando no pacote: " + ", ".join(missing)]
+    lines.append("")
     return "\n".join(lines)
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--asset-base", default=DEFAULT_BASE, help="URL absoluta da pasta de mídia, com ou sem barra final")
+    ap.add_argument("--asset-map", default="", help="JSON com nome do arquivo -> URL absoluta")
     args = ap.parse_args()
     base = (args.asset_base or "").strip()
     if base and not base.endswith("/"):
         base += "/"
     if re.search(r'["\\\n\r]', base):
         raise SystemExit("asset-base não pode ter aspas, barra invertida ou quebra de linha")
+    amap = {}
+    if args.asset_map:
+        raw = json.loads(pathlib.Path(args.asset_map).read_text())
+        if not isinstance(raw, dict):
+            raise SystemExit("asset-map precisa ser um objeto JSON")
+        for k, v in raw.items():
+            if not isinstance(k, str) or not isinstance(v, str):
+                raise SystemExit("asset-map só aceita texto")
+            if re.search(r'[\n\r]', v):
+                raise SystemExit("URL do mapa não pode ter quebra de linha")
+            amap[k.strip().lower()] = v.strip()
 
     svgdir = B / "assets" / "simbolos"
     sym = {k: (svgdir / f"{k}.svg").read_text().strip() for k in ["casamento", "filhos", "constancia", "financeiro"]}
@@ -121,6 +164,7 @@ def main():
     js = "".join((B / f"src/app{i}.js").read_text() for i in range(1, 7))
     js = js.replace("__SYMBOLS__", json.dumps(sym, ensure_ascii=False))
     js = js.replace("__ASSET_BASE__", base)
+    js = js.replace("__ASSET_MAP__", json.dumps(amap, ensure_ascii=False))
     js = noblank(js)
     snippet = (
         '<meta charset="utf-8">\n'
@@ -150,10 +194,17 @@ def main():
     ad = d / "assets"
     ad.mkdir(exist_ok=True)
     written = []
-    for rel, name in RASTER:
-        dest = ad / name
+    for rel, name in RASTER + RELATOS + AREA_PREV:
+        dest = ad / name.lower()
         to_webp(B / rel, dest)
-        written.append((name, dest.stat().st_size))
+        written.append((dest.name, dest.stat().st_size))
+    ill = B / "assets" / "ilustracoes"
+    for src in sorted(ill.glob("*.webp")):
+        dest = ad / src.name.lower()
+        shutil.copy2(src, dest)
+        if dest.stat().st_size > MAX_BYTES:
+            raise SystemExit("ilustração acima de 200 KB: %s" % dest.name)
+        written.append((dest.name, dest.stat().st_size))
     for src_name, dest_name in SVGS:
         raw = (svgdir / src_name).read_text()
         colored = raw.replace("currentColor", "#A25A38")

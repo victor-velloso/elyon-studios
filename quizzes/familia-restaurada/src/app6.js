@@ -299,10 +299,14 @@ function nomePronome(area){
   if(area==="F") return "do seu filho";
   return "";
 }
+function areaPreview(area){
+  var key = {C:"preview_C", F:"preview_F", O:"preview_O", D:"preview_D"}[area];
+  return key ? cfgImg(key) : "";
+}
 function phoneHtml(area){
   var capa = cfgImg("capa_"+area);
   if(!capa) return "";
-  var prev = area==="C" ? cfgImg("preview_C") : "";
+  var prev = areaPreview(area);
   var sheets;
   if(prev) sheets = "<div class='fr-sheet a'><img class='fr-fall' data-drop='img' alt='' src='"+esc(prev)+"'></div><div class='fr-sheet b'><img class='fr-fall' data-drop='img' alt='' src='"+esc(prev)+"'></div>";
   else sheets = "<div class='fr-sheet a paper'></div><div class='fr-sheet b paper'></div>";
@@ -318,7 +322,7 @@ function interiorHtml(area){
     {i:"check", t:"O Pra hoje"}
   ];
   var lis = items.map(function(x){ return "<li>"+ico(x.i, 18)+"<span>"+esc(x.t)+"</span></li>"; }).join("");
-  var prev = area==="C" ? cfgImg("preview_C") : "";
+  var prev = areaPreview(area);
   var fig = prev ? "<div class='fr-ar fr-ar-page'><img class='fr-fall' loading='lazy' alt='Página de uma situação no material' src='"+esc(prev)+"'></div>" : "";
   return fig+"<ul class='fr-calls'>"+lis+"</ul>";
 }
