@@ -1810,7 +1810,10 @@ function renderPitch(el){
   var faq = "";
   if(r.main==="O") faq += "<details class='fr-acc'><summary>Isso garante que Deus vai responder do jeito que eu quero?</summary><p>Não. O material te ajuda a orar com direção e constância. A resposta é de Deus, no tempo dele.</p></details>";
   else if(faq1) faq += "<details class='fr-acc'><summary>Isso garante que "+esc(faq1)+"?</summary><p>Não. Milagre é decisão de Deus. O material te mostra a causa e o que fazer em cada situação.</p></details>";
-  faq += "<details class='fr-acc'><summary>E se "+ele()+" não quer mudar?</summary><p>Você responde pela sua oração, não pelas escolhas "+dele()+". Interceder é orar por quem não ora.</p></details>"
+  var faqQuem;
+  if(r.main==="O" || r.main==="D") faqQuem = "<details class='fr-acc'><summary>E se ninguém em casa mudar?</summary><p>A sua oração não depende de ninguém mudar primeiro. Você faz a sua parte com direção. O resto é com Deus.</p></details>";
+  else faqQuem = "<details class='fr-acc'><summary>E se "+ele()+" não quer mudar?</summary><p>Você responde pela sua oração, não pelas escolhas "+dele()+". Interceder é orar por quem não ora.</p></details>";
+  faq += faqQuem
     + "<details class='fr-acc'><summary>Quase não oro. Serve pra mim?</summary><p>Serve. Começa do começo, com oração pronta. Não precisa orar bonito.</p></details>"
     + "<details class='fr-acc'><summary>Não tenho tempo.</summary><p>De 5 a 15 minutos. Cada situação cabe numa manhã.</p></details>"
     + "<details class='fr-acc'><summary>Faço tratamento ou terapia.</summary><p>Continue. Um caminha junto com o outro.</p></details>"
@@ -1821,7 +1824,9 @@ function renderPitch(el){
   var btn = "<a class='fr-cta fr-buy' href='"+esc(url)+"'>"+BTN[r.main]+"</a>";
   var also = r.second ? "<p class='fr-sum-second'>"+areaMark(r.second, 28)+" também: "+AREA2_TXT(r.second)+"</p>" : "";
   var p3fecha = LUTOU() ? "Não foi falta de fé. Foi o mesmo remédio pra tudo." : "Não é falta de fé. Faltou o remédio certo.";
-  var passo3nome = r.main==="C" ? dele() : "dele";
+  var passo3txt;
+  if(r.main==="O" || r.main==="D") passo3txt = "Em voz alta, com o seu nome e o de quem você está cobrindo, e um passo hoje.";
+  else passo3txt = "Em voz alta, com o nome "+(r.main==="C" ? dele() : "dele")+", e um passo hoje.";
   el.innerHTML = "<div class='fr-pitch'>"
     + "<section class='fr-blk fr-sum'>"
     + "<p class='fr-selo'>SEU RESULTADO</p>"
@@ -1844,7 +1849,7 @@ function renderPitch(el){
     + "<ol class='fr-stepper'>"
     + "<li class='done'><span class='fr-num'>"+ico("check", 18)+"</span><div><b>Entender o que está acontecendo.</b><p>Não é “abençoa minha casa”. É dar nome à situação.</p><i class='done-note'>você já fez</i></div></li>"
     + "<li><span class='fr-num'>2</span><div><b>Usar a arma daquela situação.</b><p>Palavra, louvor, silêncio, perdão, jejum, atitude.</p></div></li>"
-    + "<li><span class='fr-num'>3</span><div><b>Falar a Palavra e fazer a sua parte.</b><p>Em voz alta, com o nome "+esc(passo3nome)+", e um passo hoje.</p></div></li>"
+    + "<li><span class='fr-num'>3</span><div><b>Falar a Palavra e fazer a sua parte.</b><p>"+esc(passo3txt)+"</p></div></li>"
     + "</ol>"
     + "<p class='fr-dx-p'>O passo 1 você já viu no resultado. Agora imagina isso pra cada situação da sua casa.</p>"
     + "</section>"

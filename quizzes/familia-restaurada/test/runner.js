@@ -92,10 +92,21 @@ const only = process.argv[2];
     });
     if (pron.f !== 'O vazio que ele deixou') fail.push('C7 mulher: ' + pron.f);
     if (pron.m !== 'O vazio que ela deixou') fail.push('C7 homem: ' + pron.m);
-    if (path.id === 'P3-oracao-nao-ora') {
+    if (path.id === 'P3-oracao-nao-ora' || path.id === 'P4-financeiro') {
       const full = await page.evaluate(() => (document.querySelector('#fr-stage') || {}).textContent || '');
-      const ans = 'Não. O material te ajuda a orar com direção e constância. A resposta é de Deus, no tempo dele.';
-      if (!full.includes(ans)) fail.push('text missing: ' + ans);
+      if (path.id === 'P3-oracao-nao-ora') {
+        const ans = 'Não. O material te ajuda a orar com direção e constância. A resposta é de Deus, no tempo dele.';
+        if (!full.includes(ans)) fail.push('text missing: ' + ans);
+      }
+      const passo = 'Em voz alta, com o seu nome e o de quem você está cobrindo, e um passo hoje.';
+      const faqQ = 'E se ninguém em casa mudar?';
+      const faqA = 'A sua oração não depende de ninguém mudar primeiro. Você faz a sua parte com direção. O resto é com Deus.';
+      if (!full.includes(passo)) fail.push('text missing: ' + passo);
+      if (!full.includes(faqQ)) fail.push('text missing: ' + faqQ);
+      if (!full.includes(faqA)) fail.push('text missing: ' + faqA);
+      const joined = Object.values(texts).join('\n') + '\n' + full;
+      if (joined.includes('nome dele')) fail.push('oração/financeiro ainda tem nome dele');
+      if (joined.includes('se ele não quer')) fail.push('oração/financeiro ainda tem se ele não quer');
     }
     for (const t of (e.notContains || [])) { const hit = Object.entries(texts).find(([k, v]) => !k.startsWith('t18') && !k.startsWith('t08') && v.includes(t)); if (hit) fail.push(`forbidden text "${t}" on ${hit[0]}`); }
     for (const t of ['Você me contou','Você me disse','Eu acredito.']) { const hit = Object.entries(texts).find(([k, v]) => v.includes(t)); if (hit) fail.push(`old echo "${t}" on ${hit[0]}`); }
