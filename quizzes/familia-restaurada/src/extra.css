@@ -298,3 +298,15 @@
 #fr-quiz .fr-badge{font-size:9.5px !important;letter-spacing:0 !important;padding:6px 10px !important;line-height:1.3 !important;max-width:100%}
 #fr-quiz .fr-selosnum span{font-size:13px !important;line-height:1.35 !important}
 }
+/* Relatos: só a área do comentário, card claro, sem o preto sobrando */
+#fr-quiz .fr-car-track{align-items:flex-start;transition:height .2s ease}
+#fr-quiz .fr-slide{background:#FAF6F1 !important;border:1px solid #E4D9CC !important;border-radius:14px !important;box-shadow:0 6px 16px rgba(47,33,24,.06);padding:12px !important;overflow:hidden;height:auto !important}
+#fr-quiz .fr-slide figcaption{padding:10px 0 0 !important}
+#fr-quiz .fr-rcrop{display:block;position:relative;overflow:hidden;width:100%;border-radius:10px}
+#fr-quiz .fr-rcrop.r1{aspect-ratio:749 / 214}
+#fr-quiz .fr-rcrop.r2{aspect-ratio:749 / 247}
+#fr-quiz .fr-rcrop.r1 img,#fr-quiz .fr-rcrop.r2 img{position:absolute !important;display:block !important;width:calc(100% * 800 / 749) !important;height:auto !important;max-width:none !important;max-height:none !important;aspect-ratio:1 / 1 !important;object-fit:fill !important;left:calc(100% * -12 / 749) !important;margin:0 !important;background:transparent !important}
+#fr-quiz .fr-rcrop.r1 img{top:calc(100% * -299 / 214) !important}
+#fr-quiz .fr-rcrop.r2 img{top:calc(100% * -264 / 247) !important}
+#fr-quiz .fr-rcrop.r3{width:100%;max-width:454px;height:auto;margin:0 auto;aspect-ratio:auto}
+#fr-quiz .fr-rcrop.r3 img{position:static !important;display:block !important;width:100% !important;max-width:454px !important;height:auto !important;max-height:none !important;object-fit:contain !important;left:auto !important;top:auto !important;margin:0 auto !important}
