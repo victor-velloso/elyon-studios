@@ -1,0 +1,201 @@
+[
+ {
+  "id": "ez-live",
+  "pixInfo": {
+   "fbq": "function",
+   "ver": "2.9.408",
+   "pys": "[\"1525257898274703\"]"
+  },
+  "visited": 41,
+  "steps": [
+   "t01-abertura",
+   "t02-idade",
+   "t03-civil",
+   "t04-filhos",
+   "t05-igreja",
+   "t06-tempo-fe",
+   "t07-quem-ora",
+   "t08-oracao",
+   "t09-origem",
+   "t10-hora",
+   "t11-insercao",
+   "t12-lutas",
+   "t13-tempo",
+   "t14-cena-casamento",
+   "t15-filho",
+   "t16-como-ora",
+   "t17-dinheiro",
+   "t18-ja-fez",
+   "t19-depois",
+   "t20-semente",
+   "t21-area",
+   "t22-filhos-sentem",
+   "t23-esconde",
+   "t24-nao-esta-so",
+   "t25-consciencia",
+   "t26-objecao",
+   "t27-quebra",
+   "t28-sonho",
+   "t29-sentir",
+   "t30-sonho-insercao",
+   "t31-compromisso",
+   "t32-frase",
+   "t33-loading",
+   "t34-captura",
+   "t35-resultado",
+   "t36-interesse",
+   "t37-diferenca",
+   "t38-quem-ensina",
+   "t39-autocrenca",
+   "t40-loading-plano",
+   "t41-pitch"
+  ],
+  "errs": [],
+  "posted": {
+   "nome": "Teste Quiz",
+   "whatsapp": "31999990000",
+   "email": "teste.quiz@example.com",
+   "resultado": "Casamento",
+   "segunda_area": "Filhos",
+   "situacao": "Quando ele me feriu com palavras",
+   "oracao": "Oro mais quando aperta: faço campanha ou propósito",
+   "objecao": "Já orei tanto e nada mudou. Tenho medo de me frustrar de novo.",
+   "tempo": "Mais de 5 anos. Já virou rotina.",
+   "aceite": false,
+   "utms": {
+    "utm_source": "teste",
+    "utm_medium": "teste",
+    "utm_campaign": "teste",
+    "utm_content": "teste",
+    "utm_term": "teste",
+    "fbclid": "teste"
+   },
+   "score": {
+    "C": 10,
+    "F": 2,
+    "O": 0,
+    "D": 1
+   },
+   "respostas": {
+    "sexo": "Mulher",
+    "idade": "41 a 50",
+    "civil": "Casada",
+    "filhos": "Sim, adolescentes",
+    "igreja": "Congrego toda semana",
+    "tempoFe": "A vida inteira. Cresci na igreja.",
+    "quemOra": "Só eu, sozinha",
+    "oracao": "Oro mais quando aperta: faço campanha ou propósito",
+    "origem": "Pelo Instagram",
+    "hora": "À noite, quando a casa silencia",
+    "lutas": [
+     "Desprezo e palavras que ferem",
+     "Casamento frio, dois estranhos em casa",
+     "Dívida que não fecha"
+    ],
+    "tempo": "Mais de 5 anos. Já virou rotina.",
+    "cenaCas": "Não aguento mais tanta humilhação e desprezo.",
+    "cenaFil": "Ele não me ouve mais. Qualquer conversa vira briga.",
+    "jeitoOrar": "Parece que não passa do teto.",
+    "dinheiro": "Tá apertado, mas a gente se vira.",
+    "tentou": [
+     "Campanha de oração",
+     "Jejum"
+    ],
+    "depois": "Melhorou uns dias e voltou tudo.",
+    "area": "O meu casamento",
+    "filhosSentem": "Sim. E isso me dói mais que tudo.",
+    "esconde": "O que acontece no meu casamento",
+    "consciencia": "Nunca ninguém me ensinou",
+    "objecao": "Já orei tanto e nada mudou. Tenho medo de me frustrar de novo.",
+    "sonho": "Ele chegando em casa e conversando comigo",
+    "sentir": "Paz",
+    "compromisso": "Sim. É disso que eu preciso.",
+    "frase": "Não aguento mais tanto desprezo. Eu só queria o meu marido de volta, de verdade, dentro de casa."
+   },
+   "ts": "2026-09-25T20:26:06.890Z",
+   "fonte": "quiz-familia-restaurada",
+   "situacao_id": "C1",
+   "checkout": "https://chk.eduzz.com/2a5cwqts"
+  },
+  "postedAt": "t34-captura",
+  "postResp": null,
+  "tr": [
+   {
+    "step": null,
+    "id": "1525257898274703",
+    "ev": "PageView",
+    "method": "GET"
+   },
+   {
+    "step": "t01-abertura",
+    "id": "1525257898274703",
+    "ev": "Quiz_start",
+    "method": "GET"
+   },
+   {
+    "step": "t34-captura",
+    "id": "1525257898274703",
+    "ev": "Quiz_lead",
+    "method": "GET"
+   },
+   {
+    "step": "t40-loading-plano",
+    "id": "1525257898274703",
+    "ev": "Quiz_pitch_visto",
+    "method": "GET"
+   }
+  ],
+  "trc": [
+   {
+    "step": null,
+    "id": "1525257898274703",
+    "ev": "PageView",
+    "cd": "",
+    "t": "17:25:49"
+   },
+   {
+    "step": "t01-abertura",
+    "id": "1525257898274703",
+    "ev": "Quiz_start",
+    "cd": "",
+    "t": "17:25:50"
+   },
+   {
+    "step": "t34-captura",
+    "id": "1525257898274703",
+    "ev": "Quiz_lead",
+    "cd": "",
+    "t": "17:26:06"
+   },
+   {
+    "step": "t40-loading-plano",
+    "id": "1525257898274703",
+    "ev": "Quiz_pitch_visto",
+    "cd": "",
+    "t": "17:26:20"
+   }
+  ],
+  "info": {
+   "href": "https://chk.eduzz.com/2a5cwqts?utm_source=teste&utm_medium=teste&utm_campaign=teste&utm_content=teste%3A%3Ateste%3A%3A&utm_term=teste&fbclid=teste",
+   "href2": "https://chk.eduzz.com/2a5cwqts?utm_source=teste&utm_medium=teste&utm_campaign=teste&utm_content=teste%3A%3Ateste%3A%3A&utm_term=teste&fbclid=teste",
+   "score": {
+    "score": {
+     "C": 10,
+     "F": 2,
+     "O": 0,
+     "D": 1
+    },
+    "main": "C",
+    "second": "F",
+    "sit": "C1"
+   }
+  },
+  "checkout": {
+   "status": 200,
+   "finalUrl": "https://chk.eduzz.com/2a5cwqts?utm_source=teste&utm_medium=teste&utm_campaign=teste&utm_content=teste%3A%3Ateste%3A%3A&utm_term=teste&fbclid=teste",
+   "title": "Casamento Restaurado"
+  },
+  "t35": "O QUE ESTÁ ACONTECENDO NA SUA CASA\n\nTeste, o que você está vivendo tem nome:\n\n“Quando ele me feriu com palavras”\n\nÉ assim que a Pra. Ezenete chama essa situação. E ela tem uma causa que quase ninguém enxerga de primeira.\n\nNão é só o que ele fala. É o jeito. Aquele tom de desprezo que dói mais que a própria palavra. E a frase fica martelando depois, na hora da louça, na hora de deitar.\n\nE tem uma coisa que quase ninguém percebe: a ferida não fica no dia em que a palavra foi dita.\n\nDe tanto voltar na sua cabeça, ela começa a parecer verdade sobre você.\n\nE você vai ficando pequena dentro da própria casa. É por essa ferida aberta que o inimigo entra. Não pela boca dele. Pelo que ficou em você.\n\nE guarda isto: o seu marido não é o seu inimigo. Ele pode estar muito errado. Mas a luta é contra o que está entrando pela brecha.\n\nPOR QUE AINDA NÃO MUDOU\n\nQuando dói assim, parece que só existem dois caminhos: devolver na mesma moeda ou engolir calada. Os dois deixam a ferida aberta.\n\nTeste, escuta: não foi falta de fé. Quem já fez campanha e jejuou por essa casa não tem fé pequena. Você lutou com a arma que te ensinaram. Só que essa situação pede outra. Por isso melhora uns dias e volta tudo.\n\nA ARMA PRA ESSA SITUAÇÃO\n\nEntregar a ferida e guardar a própria boca\n\nNão é revidar. Também não é fingir que não doeu. É levar a ferida pra Deus antes que ela vire raiz. A palavra dele feriu. A sua pode curar, ou pode abrir mais uma brecha.\n\nO PRIMEIRO PASSO · PRA HOJE\nHoje à noite\n\nHoje à noite, escreva num papel a frase que mais te feriu, do jeito que ele falou. Leia pra Deus em voz alta e diga: \"Senhor, isso doeu. Eu não vou deixar essa frase morar em mim\". Depois rasgue o papel.\n\nPRA FALAR EM VOZ ALTA\n\n“O que foi dito contra mim não define quem eu sou.”\n\n📌 Tire um print pra não esquecer\n\nSe além das palavras existe agressão, ameaça ou medo dentro de casa, a sua segurança vem primeiro. Ligue 180 (Central de Atendimento à Mulher, gratuito, 24 horas) ou 190 em emergência. Orar e se proteger andam juntos.\n\nE tem mais uma coisa pesando aí: o seu filho. Não é coincidência quando tudo aperta junto. Uma porta aberta numa área da casa facilita a entrada nas outras.\n\nIsso é só o primeiro passo.\n\nO que você acabou de ler é o começo de uma arma só. Pra essa situação ainda tem a oração pronta, os versículos pra declarar em voz alta e o passo a passo do que fazer depois.\n\nE casamento quase nunca tem uma situação só. Tem a palavra que feriu, o silêncio, a frieza, a desconfiança, a mágoa que não sai.\n\nA Pra. Ezenete organizou esse caminho inteiro, situação por situação, pra você saber o que fazer em cada uma.\n\nA oração pronta pra \"Quando ele me feriu com palavras\"\nOs versículos pra declarar\nO passo a passo completo\nAs situações que costumam vir junto\nQUERO VER O CAMINHO COMPLETO\n\nGuarda o seu primeiro passo. Ele já é seu.",
+  "t02": "Quantos anos você tem?\n🌷\nATÉ 25\n🌸\n26 A 33\n🌼\n34 A 40\n🌻\n41 A 50\n🌺\n51 A 60\n💐\nMAIS DE 60"
+ }
+]
